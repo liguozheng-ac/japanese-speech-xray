@@ -1,11 +1,13 @@
 [build-system]
-requires = ["setuptools>=68"]
+requires = ["setuptools>=77"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "japanese-speech-xray-backend"
 version = "1.0.0.dev0"
-description = "Evidence-aware Japanese speech backend engineering candidate; private frontend excluded"
+description = "Evidence-aware Japanese speech backend; private frontend excluded"
+license = "MIT"
+license-files = ["LICENSE", "LICENSE-SCOPE.md", "THIRD_PARTY.md"]
 requires-python = ">=3.13,<3.14"
 dependencies = [
   "fastapi==0.142.2", "uvicorn==0.54.0", "httpx==0.28.1",

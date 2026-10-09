@@ -1,8 +1,10 @@
-# Japanese Speech X-Ray
+# Japanese Speech X-Ray — Partially Open-Source Backend
 
 把日语练习中的声音变成可观察的证据：原音、波形、音高、有声片段，以及独立标注为实验功能的自动对齐。
 
-这是 **Python 后端工程与技术文档的公开候选**。完整网页前端、浏览器录音与波形交互实现、原创视觉素材均不包含在本仓库。当前处于 TASK-021 Phase A 本地审查阶段，尚未发布。
+本仓库公开 Japanese Speech X-Ray 的自有 Python 后端、语音分析实现与相关工程资料。完整 React 前端、交互界面源码及原创视觉素材不在公开范围内。
+
+**部分开源：** 经审核的 198 份自有 Python 后端、测试、工具与示例代码采用 [MIT](LICENSE)，以 [LICENSE-SCOPE.md](LICENSE-SCOPE.md) 的逐文件清单为准。截图、项目文档、品牌与第三方资源不因此取得 MIT 授权。
 
 ## 产品预览
 
@@ -54,9 +56,11 @@ python -m uvicorn speech_xray.api.app:app --host 127.0.0.1 --port 8000
 
 ## 验证与限制
 
-本次独立候选实际测试：**548 项，543 通过，0 失败，0 错误，5 跳过**。5 项涉及未提供的 JVS／Haruka 音频。测试采用工程信号、作者结构夹具及必要的模拟适配器，不代表真人声学准确率认证。
+Phase A 独立候选历史测试：**548 项，543 通过，0 失败，0 错误，5 跳过**。5 项涉及未提供的 JVS／Haruka 音频。测试采用工程信号、作者结构夹具及必要的模拟适配器，不代表真人声学准确率认证。
 
-原完整 V1.0 历史收据：前端 95/95、后端 565/565，类型检查与构建通过；与本次公开候选测试分开统计。真实 TCP 服务、pYIN、静音弃权与非法音频拒绝已验证，详情见 [验证收据](docs/VERIFICATION.md)。
+Phase B 发布前于 2026-10-10 实际重跑：**548 项，543 通过，5 跳过，0 失败，0 错误**；后端安装、依赖检查、wheel 构建和 9 项真实 TCP 检查通过。未修改语音算法，也未将历史测试冒充本轮结果。
+
+原完整 V1.0 历史收据：前端 95/95、后端 565/565，类型检查与构建通过；与公开后端测试分开统计。真实 TCP 服务、pYIN、静音弃权与非法音频拒绝已验证，详情见 [验证收据](docs/VERIFICATION.md)。
 
 真人 F0 仍可能稀疏；音高重音正确性未校准；MFA 可能需要分钟级时间；长元音自动诊断和参考分布未独立验证。产品仅支持三条受控练习句，详见 [已知限制](docs/KNOWN-LIMITATIONS.md)。
 
@@ -66,8 +70,8 @@ python -m uvicorn speech_xray.api.app:app --host 127.0.0.1 --port 8000
 
 ## 来源、许可与范围
 
-后端快照基线：本地已验收标签 `v1.0.0-local`，Commit `9809309ea68855c814eb22bd21784889d0ff1df6`。本候选创建全新历史，没有继承完整产品的 Git 对象。
+后端快照基线：本地已验收标签 `v1.0.0-local`，Commit `9809309ea68855c814eb22bd21784889d0ff1df6`。公开仓库创建独立历史，没有继承完整产品的 Git 对象；Phase A 审查提交为 `dd064bc799e074e54bc0a899f5db814fbed0ab80`。
 
-自有源码许可证尚待所有者决定：**SOURCE_LICENSE_DECISION_PENDING**。当前没有添加项目级 LICENSE，也未授予覆盖全部产品的 MIT 使用权；不能据此宣称整个产品已正式开源。
+自有代码的正式许可为 **MIT_LIMITED_SCOPE**：[MIT 全文](LICENSE) 与 [逐文件授权范围](LICENSE-SCOPE.md)。本仓库没有公开完整产品源码；第三方依赖继续适用其自身许可证。
 
 [第三方来源与许可](THIRD_PARTY.md) · [公开范围](docs/PUBLIC-RELEASE-SCOPE.md) · [完整文件清单](TASK-021-PUBLIC-FILE-MANIFEST.md)

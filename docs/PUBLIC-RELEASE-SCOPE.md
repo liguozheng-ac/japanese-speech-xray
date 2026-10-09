@@ -1,12 +1,12 @@
-# 公开发布范围候选
+# 公开发布范围
 
-状态：PUBLIC_CANDIDATE_READY_FOR_REVIEW。仅为本地候选，不等于发布授权。
+TASK-021 Phase A 已通过审核；所有者于 2026-10-09 授权 Phase B 将独立候选公开至 `liguozheng-ac/japanese-speech-xray`，并将下列自有代码按限定范围 MIT 授权。完整产品仍为部分开源，网页不在本轮部署。
 
 | 文件组 | 来源／自有属性 | 许可与数据审查 | 前端实现 | 纳入候选 |
 | --- | --- | --- | --- | --- |
-| services/speech-api/src 的 Python | 已验收后端、自有适配与方法 | 自有源码许可待定；第三方仅通过依赖导入 | 无 | 是 |
-| scripts 中白名单工具 | 自有后端与离线处理脚本 | 真实语料／外部工具自行合法取得，不附资源 | 无 | 是 |
-| tests 与作者 TextGrid | 自有数学输入、契约及结构夹具 | 不含真人音频；私人集成测试排除／skip | 无 | 是 |
+| services/speech-api/src 的 Python | 已验收后端、自有适配与方法 | 仅清单内自有 Python 采用 MIT；第三方仅通过依赖导入 | 无 | 是 |
+| scripts 中白名单工具 | 自有后端与离线处理脚本，逐文件 MIT | 真实语料／外部工具自行合法取得，不附资源 | 无 | 是 |
+| tests 与作者 TextGrid | 自有数学输入、契约及结构夹具 | Python 测试 MIT；TextGrid 未另行授权；无真人音频；私人集成测试排除／skip | 无 | 是 |
 | data 中限定的 prompts、schema、example、measurement identity | 作者句子、结构示例、哈希身份 | 示例不是录音结果；无研究分布或私人标签 | 无 | 是 |
 | 环境锁、pyproject、requirements | 精确官方包 URL 和版本说明 | 不附第三方环境二进制；许可另列 | 无 | 是 |
 | 新技术文档、文件清单 | 本次自有文档 | 不含私人路径和扫描明细 | 无 | 是 |
@@ -20,6 +20,6 @@
 
 逐文件来源、SHA-256 和审查分类见 [完整清单](../TASK-021-PUBLIC-FILE-MANIFEST.md)。原始路径、私人名单、风险位置和原始扫描／测试日志均不在候选内。
 
-自有源码：SOURCE_LICENSE_DECISION_PENDING。MIT 是建议，仅覆盖权利明确且获批准的自有后端、工具与测试；不覆盖私有前端、截图或第三方资源，尚未添加 LICENSE。
+正式许可：MIT_LIMITED_SCOPE。仅 [LICENSE-SCOPE.md](../LICENSE-SCOPE.md) 列出的 198 个自有 Python 文件采用 [MIT](../LICENSE)。其余文档、JSON、结构夹具、配置及展示截图未在本轮获得 MIT 授权；第三方遵循各自许可。
 
-Phase B 需要用户审阅实际候选 Commit 与报告，并明确批准公开范围和许可证后另行执行。未设置远程、未添加 GitHub Actions、未推送或部署。
+Phase B 授权仅覆盖已审查的独立历史和许可／公开文档更新。没有前端构建物、原视频、音频、模型、私人数据、Git LFS、Submodule 或 GitHub Actions 自动部署配置。本轮仅发布后端 GitHub 仓库，不部署网页、不推送原始 V1.0 标签。

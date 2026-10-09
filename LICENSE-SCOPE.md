@@ -1,0 +1,220 @@
+# License scope — partially open-source backend
+
+Copyright holder: **liguozheng-ac**. Effective authorization: 2026-10-09.
+
+The standard [MIT License](LICENSE) applies only to the 198 author-owned Python files listed below: backend implementation, audio/scientific methods, API adapters, tests, tools and the engineering example. Each file was reviewed in TASK-021 Phase A; this release does not vendor third-party source code. Imports and integrations do not change the licenses of their dependencies.
+
+The list is an explicit file allowlist, not a blanket directory grant. Future files, non-Python fixtures, JSON schemas, prompts, configuration/lock files, prose documentation, this scope notice, product names, screenshots and other media are **not granted MIT by this release**. Their inclusion in the repository permits GitHub display and review; no additional reuse license is granted here. The standard MIT wording in LICENSE is unchanged; “Software” in this repository means the enumerated code, including its inline comments/docstrings, not the entire product or every associated document.
+
+The distributed Python package contains only the author-owned backend Python code. Its `License-Expression: MIT` describes that code. License/scope/third-party notices accompany the package as notices and do not relicense excluded material.
+
+## Explicitly excluded
+
+- Complete private React frontend, Page 0/Page 1 implementation, browser recording/UI code and build assets; none is included in this repository.
+- Original `58.mp4`, visual/brand assets and product screenshot `docs/images/workspace-empty.jpg`. The screenshot is approved for product display here, with rights retained; its appearance does not license the frontend.
+- Private recordings, manual annotations, research distributions and private audit records; none is included.
+- JVS recordings, Haruka synthetic WAVs, Narabas weights and MFA pretrained acoustic/dictionary/G2P resources; none is included.
+- Third-party packages, models and resources remain governed by their own licenses. See [THIRD_PARTY.md](THIRD_PARTY.md).
+
+No MIT grant is made for third-party material, original product history or absent resources. The root LICENSE must always be read together with this scope notice. See the [file manifest](TASK-021-PUBLIC-FILE-MANIFEST.md) for publication provenance and content hashes.
+
+## MIT-covered files (198)
+
+- `examples/prosody_smoke.py`
+- `scripts/analyze_mora.py`
+- `scripts/audit_jvs_parallel100.py`
+- `scripts/build_jvs_references.py`
+- `scripts/build_reference_profile.py`
+- `scripts/build_reference_readiness.py`
+- `scripts/check_japanese_dependencies.py`
+- `scripts/extract_acoustic_evidence.py`
+- `scripts/extract_jvs_archive.py`
+- `scripts/inspect_alignment.py`
+- `scripts/learner_evaluation.py`
+- `scripts/parse_alignment.py`
+- `scripts/plan_reference_batch.py`
+- `scripts/prepare_jvs_corpus.py`
+- `scripts/reconcile_jvs_references.py`
+- `scripts/run_duration_loo.py`
+- `scripts/run_duration_stress.py`
+- `scripts/run_jvs_smoke.py`
+- `scripts/run_reference_pipeline.py`
+- `scripts/run_tests.py`
+- `scripts/validate_prompt_pack.py`
+- `scripts/validate_reference_corpus.py`
+- `services/speech-api/src/speech_xray/__init__.py`
+- `services/speech-api/src/speech_xray/acoustics/__init__.py`
+- `services/speech-api/src/speech_xray/acoustics/audio.py`
+- `services/speech-api/src/speech_xray/acoustics/config.py`
+- `services/speech-api/src/speech_xray/acoustics/energy.py`
+- `services/speech-api/src/speech_xray/acoustics/f0.py`
+- `services/speech-api/src/speech_xray/acoustics/models.py`
+- `services/speech-api/src/speech_xray/acoustics/mora_input.py`
+- `services/speech-api/src/speech_xray/acoustics/pipeline.py`
+- `services/speech-api/src/speech_xray/acoustics/span_evidence.py`
+- `services/speech-api/src/speech_xray/acoustics/timing.py`
+- `services/speech-api/src/speech_xray/acoustics/tracks.py`
+- `services/speech-api/src/speech_xray/alignment/__init__.py`
+- `services/speech-api/src/speech_xray/alignment/models.py`
+- `services/speech-api/src/speech_xray/alignment/textgrid_parser.py`
+- `services/speech-api/src/speech_xray/api/__init__.py`
+- `services/speech-api/src/speech_xray/api/__main__.py`
+- `services/speech-api/src/speech_xray/api/app.py`
+- `services/speech-api/src/speech_xray/corpus/__init__.py`
+- `services/speech-api/src/speech_xray/corpus/audio_validation.py`
+- `services/speech-api/src/speech_xray/corpus/batch_plan.py`
+- `services/speech-api/src/speech_xray/corpus/cli.py`
+- `services/speech-api/src/speech_xray/corpus/external.py`
+- `services/speech-api/src/speech_xray/corpus/intake.py`
+- `services/speech-api/src/speech_xray/corpus/integrity.py`
+- `services/speech-api/src/speech_xray/corpus/models.py`
+- `services/speech-api/src/speech_xray/corpus/pipeline.py`
+- `services/speech-api/src/speech_xray/corpus/prompt_manifest.py`
+- `services/speech-api/src/speech_xray/corpus/readiness.py`
+- `services/speech-api/src/speech_xray/corpus/speaker_manifest.py`
+- `services/speech-api/src/speech_xray/corpus/validation.py`
+- `services/speech-api/src/speech_xray/deviation/__init__.py`
+- `services/speech-api/src/speech_xray/deviation/duration.py`
+- `services/speech-api/src/speech_xray/deviation/engine.py`
+- `services/speech-api/src/speech_xray/deviation/inputs.py`
+- `services/speech-api/src/speech_xray/deviation/loo.py`
+- `services/speech-api/src/speech_xray/deviation/models.py`
+- `services/speech-api/src/speech_xray/deviation/provenance.py`
+- `services/speech-api/src/speech_xray/deviation/serialization.py`
+- `services/speech-api/src/speech_xray/deviation/snapshot.py`
+- `services/speech-api/src/speech_xray/deviation/validation.py`
+- `services/speech-api/src/speech_xray/evaluation/__init__.py`
+- `services/speech-api/src/speech_xray/evaluation/agreement.py`
+- `services/speech-api/src/speech_xray/evaluation/annotation.py`
+- `services/speech-api/src/speech_xray/evaluation/dataset.py`
+- `services/speech-api/src/speech_xray/evaluation/discovery.py`
+- `services/speech-api/src/speech_xray/evaluation/evidence.py`
+- `services/speech-api/src/speech_xray/evaluation/learner_manifest.py`
+- `services/speech-api/src/speech_xray/evaluation/matching.py`
+- `services/speech-api/src/speech_xray/evaluation/models.py`
+- `services/speech-api/src/speech_xray/evaluation/pipeline.py`
+- `services/speech-api/src/speech_xray/evaluation/readiness.py`
+- `services/speech-api/src/speech_xray/evaluation/rights.py`
+- `services/speech-api/src/speech_xray/evaluation/serialization.py`
+- `services/speech-api/src/speech_xray/evaluation/validation.py`
+- `services/speech-api/src/speech_xray/external_jvs/__init__.py`
+- `services/speech-api/src/speech_xray/external_jvs/cli.py`
+- `services/speech-api/src/speech_xray/external_jvs/discovery.py`
+- `services/speech-api/src/speech_xray/external_jvs/inventory.py`
+- `services/speech-api/src/speech_xray/external_jvs/smoke.py`
+- `services/speech-api/src/speech_xray/japanese/__init__.py`
+- `services/speech-api/src/speech_xray/japanese/alignment_input.py`
+- `services/speech-api/src/speech_xray/japanese/long_vowel_mapper.py`
+- `services/speech-api/src/speech_xray/japanese/models.py`
+- `services/speech-api/src/speech_xray/japanese/mora_tokenizer.py`
+- `services/speech-api/src/speech_xray/japanese/reading.py`
+- `services/speech-api/src/speech_xray/japanese/vowel.py`
+- `services/speech-api/src/speech_xray/jvs_reference/__init__.py`
+- `services/speech-api/src/speech_xray/jvs_reference/build.py`
+- `services/speech-api/src/speech_xray/jvs_reference/cache.py`
+- `services/speech-api/src/speech_xray/jvs_reference/cli.py`
+- `services/speech-api/src/speech_xray/jvs_reference/domain_audit.py`
+- `services/speech-api/src/speech_xray/jvs_reference/lineage.py`
+- `services/speech-api/src/speech_xray/jvs_reference/mfa_batch.py`
+- `services/speech-api/src/speech_xray/jvs_reference/observations.py`
+- `services/speech-api/src/speech_xray/jvs_reference/reconciliation.py`
+- `services/speech-api/src/speech_xray/jvs_reference/stage_evidence.py`
+- `services/speech-api/src/speech_xray/product/__init__.py`
+- `services/speech-api/src/speech_xray/product/audio.py`
+- `services/speech-api/src/speech_xray/product/config.py`
+- `services/speech-api/src/speech_xray/product/diagnostics.py`
+- `services/speech-api/src/speech_xray/product/errors.py`
+- `services/speech-api/src/speech_xray/product/measurement_registry.py`
+- `services/speech-api/src/speech_xray/product/models.py`
+- `services/speech-api/src/speech_xray/product/narabas_audio.py`
+- `services/speech-api/src/speech_xray/product/narabas_mapping.py`
+- `services/speech-api/src/speech_xray/product/narabas_pipeline.py`
+- `services/speech-api/src/speech_xray/product/narabas_runtime.py`
+- `services/speech-api/src/speech_xray/product/narabas_worker.py`
+- `services/speech-api/src/speech_xray/product/native_boundary.py`
+- `services/speech-api/src/speech_xray/product/orchestrator.py`
+- `services/speech-api/src/speech_xray/product/pipeline.py`
+- `services/speech-api/src/speech_xray/product/prompts.py`
+- `services/speech-api/src/speech_xray/product/resources.py`
+- `services/speech-api/src/speech_xray/product/runtime.py`
+- `services/speech-api/src/speech_xray/product/serialization.py`
+- `services/speech-api/src/speech_xray/prosody/__init__.py`
+- `services/speech-api/src/speech_xray/prosody/extract.py`
+- `services/speech-api/src/speech_xray/prosody/routes.py`
+- `services/speech-api/src/speech_xray/realization/__init__.py`
+- `services/speech-api/src/speech_xray/realization/geometry.py`
+- `services/speech-api/src/speech_xray/realization/lexicon.py`
+- `services/speech-api/src/speech_xray/realization/models.py`
+- `services/speech-api/src/speech_xray/realization/scores.py`
+- `services/speech-api/src/speech_xray/realization/variants.py`
+- `services/speech-api/src/speech_xray/realization_audit.py`
+- `services/speech-api/src/speech_xray/realization_benchmark/__init__.py`
+- `services/speech-api/src/speech_xray/realization_benchmark/artifacts.py`
+- `services/speech-api/src/speech_xray/realization_benchmark/plan.py`
+- `services/speech-api/src/speech_xray/realization_benchmark/runner.py`
+- `services/speech-api/src/speech_xray/reference/__init__.py`
+- `services/speech-api/src/speech_xray/reference/domains.py`
+- `services/speech-api/src/speech_xray/reference/integrity.py`
+- `services/speech-api/src/speech_xray/reference/json_input.py`
+- `services/speech-api/src/speech_xray/reference/manifest.py`
+- `services/speech-api/src/speech_xray/reference/models.py`
+- `services/speech-api/src/speech_xray/reference/normalization.py`
+- `services/speech-api/src/speech_xray/reference/numeric.py`
+- `services/speech-api/src/speech_xray/reference/profile_builder.py`
+- `services/speech-api/src/speech_xray/reference/robust_stats.py`
+- `services/speech-api/src/speech_xray/reference/speech_rate.py`
+- `services/speech-api/src/speech_xray/stress/__init__.py`
+- `services/speech-api/src/speech_xray/stress/artifacts.py`
+- `services/speech-api/src/speech_xray/stress/audit.py`
+- `services/speech-api/src/speech_xray/stress/metrics.py`
+- `services/speech-api/src/speech_xray/stress/perturbation.py`
+- `services/speech-api/src/speech_xray/stress/pipeline.py`
+- `services/speech-api/src/speech_xray/stress/runner.py`
+- `services/speech-api/src/speech_xray/stress/selection.py`
+- `tests/acoustic_test_support.py`
+- `tests/corpus_test_support.py`
+- `tests/deviation_test_support.py`
+- `tests/evaluation_test_support.py`
+- `tests/jvs_test_support.py`
+- `tests/product_test_support.py`
+- `tests/reference_test_support.py`
+- `tests/test_acoustic_audio.py`
+- `tests/test_acoustic_cli.py`
+- `tests/test_acoustic_span_evidence.py`
+- `tests/test_acoustic_tracks.py`
+- `tests/test_alignment_failure_diagnostics.py`
+- `tests/test_analysis_cancel.py`
+- `tests/test_analysis_progress.py`
+- `tests/test_corpus_batch_readiness.py`
+- `tests/test_corpus_intake.py`
+- `tests/test_corpus_prompt.py`
+- `tests/test_deviation_engine.py`
+- `tests/test_deviation_loo.py`
+- `tests/test_evaluation_annotation.py`
+- `tests/test_evaluation_contracts.py`
+- `tests/test_evaluation_manifest.py`
+- `tests/test_evaluation_matching_pipeline.py`
+- `tests/test_japanese_reading.py`
+- `tests/test_jvs_discovery_smoke.py`
+- `tests/test_jvs_inventory.py`
+- `tests/test_jvs_reference_build.py`
+- `tests/test_long_vowel_mapper.py`
+- `tests/test_mora_cli.py`
+- `tests/test_mora_tokenizer.py`
+- `tests/test_narabas_boundary.py`
+- `tests/test_narabas_cancel.py`
+- `tests/test_narabas_runtime.py`
+- `tests/test_product_api.py`
+- `tests/test_product_pipeline.py`
+- `tests/test_prosody.py`
+- `tests/test_public_checkout.py`
+- `tests/test_realization.py`
+- `tests/test_reference_domains.py`
+- `tests/test_reference_integrity.py`
+- `tests/test_reference_manifest_cli.py`
+- `tests/test_reference_statistics.py`
+- `tests/test_stress_contracts.py`
+- `tests/test_stress_metrics.py`
+- `tests/test_stress_perturbation.py`
+- `tests/test_stress_pipeline.py`
+- `tests/test_textgrid_parser.py`
