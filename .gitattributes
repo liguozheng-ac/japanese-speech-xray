@@ -1,0 +1,4 @@
+* text=auto eol=lf
+# These frozen registries are byte-pinned by the backend. Preserve their bytes.
+data/prompts/*.json -text
+docs/images/*.jpg -text

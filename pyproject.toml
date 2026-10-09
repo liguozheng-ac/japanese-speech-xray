@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "japanese-speech-xray-backend"
+version = "1.0.0.dev0"
+description = "Evidence-aware Japanese speech backend engineering candidate; private frontend excluded"
+requires-python = ">=3.13,<3.14"
+dependencies = [
+  "fastapi==0.142.2", "uvicorn==0.54.0", "httpx==0.28.1",
+  "pydantic==2.13.5", "python-multipart==0.0.32",
+  "librosa==1.0.0", "numpy==2.5.3", "SoundFile==0.14.0",
+  "scipy==1.18.1", "numba==0.68.0", "llvmlite==0.50.0",
+  "SudachiPy==0.6.11", "SudachiDict-core==20260116",
+]
+
+[tool.setuptools.packages.find]
+where = ["services/speech-api/src"]

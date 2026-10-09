@@ -1,0 +1,215 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Controlled duration ground truth",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "sample_rate_hz",
+    "channels",
+    "original_frame_count",
+    "output_frame_count",
+    "original_target_sample_start",
+    "original_target_sample_end",
+    "original_duration_samples",
+    "expected_perturbed_duration_samples",
+    "actual_perturbed_duration_samples",
+    "perturbed_target_sample_start",
+    "perturbed_target_sample_end",
+    "input_audio_sha256",
+    "output_audio_sha256",
+    "pcm_subtype",
+    "requested_factor_decimal",
+    "requested_duration_factor",
+    "exact_original_duration_seconds",
+    "exact_perturbed_duration_seconds",
+    "algorithm",
+    "transition",
+    "normalization",
+    "sample_hashes",
+    "artifacts",
+    "schema_version",
+    "material_kind",
+    "representation",
+    "integrity"
+  ],
+  "properties": {
+    "sample_rate_hz": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "channels": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "original_frame_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "output_frame_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "original_target_sample_start": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "original_target_sample_end": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "original_duration_samples": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "expected_perturbed_duration_samples": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "actual_perturbed_duration_samples": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "perturbed_target_sample_start": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "perturbed_target_sample_end": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "input_audio_sha256": {
+      "type": "string"
+    },
+    "output_audio_sha256": {
+      "type": "string"
+    },
+    "pcm_subtype": {
+      "type": "string"
+    },
+    "requested_factor_decimal": {
+      "type": "string"
+    },
+    "requested_duration_factor": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "numerator",
+        "denominator"
+      ],
+      "properties": {
+        "numerator": {
+          "type": "integer"
+        },
+        "denominator": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "exact_original_duration_seconds": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "numerator",
+        "denominator"
+      ],
+      "properties": {
+        "numerator": {
+          "type": "integer"
+        },
+        "denominator": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "exact_perturbed_duration_seconds": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "numerator",
+        "denominator"
+      ],
+      "properties": {
+        "numerator": {
+          "type": "integer"
+        },
+        "denominator": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "algorithm": {
+      "type": "object"
+    },
+    "transition": {
+      "type": "object"
+    },
+    "normalization": {
+      "type": "object"
+    },
+    "sample_hashes": {
+      "type": "object"
+    },
+    "artifacts": {
+      "type": "object"
+    },
+    "schema_version": {
+      "const": "0.1"
+    },
+    "material_kind": {
+      "const": "CONTROLLED_DURATION_PERTURBATION"
+    },
+    "representation": {
+      "const": "MANIPULATION_GROUND_TRUTH"
+    },
+    "integrity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sample_rate_unchanged",
+        "channels_unchanged",
+        "pcm_format_unchanged",
+        "finite_samples",
+        "expected_total_sample_count",
+        "unchanged_prefix",
+        "unchanged_shifted_suffix",
+        "decoded_output_matches_written_pcm",
+        "factor_one_byte_identity"
+      ],
+      "properties": {
+        "sample_rate_unchanged": {
+          "type": "boolean"
+        },
+        "channels_unchanged": {
+          "type": "boolean"
+        },
+        "pcm_format_unchanged": {
+          "type": "boolean"
+        },
+        "finite_samples": {
+          "type": "boolean"
+        },
+        "expected_total_sample_count": {
+          "type": "boolean"
+        },
+        "unchanged_prefix": {
+          "type": "boolean"
+        },
+        "unchanged_shifted_suffix": {
+          "type": "boolean"
+        },
+        "decoded_output_matches_written_pcm": {
+          "type": "boolean"
+        },
+        "factor_one_byte_identity": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        }
+      }
+    }
+  }
+}

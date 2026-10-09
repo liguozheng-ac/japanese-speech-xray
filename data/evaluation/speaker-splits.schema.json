@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "speaker-splits v0.1",
+  "description": "Structural contract; runtime additionally verifies private paths, pinned source contents, identifiers, identity relationships and workflow invariants.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "evaluation_run_id",
+    "dataset_hashes",
+    "assignments"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "0.1"
+    },
+    "evaluation_run_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "dataset_hashes": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{64}$"
+      }
+    },
+    "assignments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "speaker_id",
+          "split"
+        ],
+        "properties": {
+          "speaker_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "split": {
+            "enum": [
+              "development",
+              "calibration",
+              "held_out_test"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

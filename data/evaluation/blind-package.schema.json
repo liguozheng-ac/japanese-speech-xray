@@ -1,0 +1,163 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "blind-package v0.1",
+  "description": "Structural contract; runtime additionally verifies private paths, pinned source contents, identifiers, identity relationships and workflow invariants.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "package_type",
+    "evaluation_run_id",
+    "dataset_identity",
+    "observation_id",
+    "audio_identity",
+    "transcript",
+    "target",
+    "allowed_human_categories"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "0.1"
+    },
+    "package_type": {
+      "const": "BLIND_HUMAN_ANNOTATION"
+    },
+    "evaluation_run_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "dataset_identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "dataset_id",
+        "dataset_version",
+        "source_type",
+        "source_manifest_sha256"
+      ],
+      "properties": {
+        "dataset_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "dataset_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_type": {
+          "enum": [
+            "CONTROLLED_LEARNER_RECORDING",
+            "EXTERNAL_LEARNER_CORPUS"
+          ]
+        },
+        "source_manifest_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    },
+    "observation_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "audio_identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "sha256"
+      ],
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    },
+    "transcript": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "target": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "target_id",
+            "target_surface",
+            "target_reading",
+            "target_mora_span",
+            "target_vowel_class",
+            "word_mora_indices",
+            "mapping_basis",
+            "lexical_identity"
+          ],
+          "properties": {
+            "target_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "target_surface": {
+              "type": "string",
+              "minLength": 1
+            },
+            "target_reading": {
+              "type": "string",
+              "minLength": 1
+            },
+            "target_mora_span": {
+              "const": 2
+            },
+            "target_vowel_class": {
+              "enum": [
+                "A",
+                "I",
+                "U",
+                "E",
+                "O"
+              ]
+            },
+            "word_mora_indices": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "integer",
+                "minimum": 0
+              }
+            },
+            "mapping_basis": {
+              "enum": [
+                "PROLONGED_MARK",
+                "KANA_SEQUENCE"
+              ]
+            },
+            "lexical_identity": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "allowed_human_categories": {
+      "const": [
+        "LONG_VOWEL_REALIZED",
+        "LONG_VOWEL_REDUCED_OR_ABSENT",
+        "UNCERTAIN",
+        "UNUSABLE_AUDIO",
+        "TARGET_NOT_REALIZED"
+      ]
+    }
+  }
+}

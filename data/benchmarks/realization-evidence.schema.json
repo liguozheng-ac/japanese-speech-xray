@@ -1,0 +1,220 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Descriptive realization evidence",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "target_identity",
+    "canonical_pronunciation",
+    "reduced_pronunciation",
+    "hypothesis_phone_index",
+    "canonical_alignment",
+    "reduced_alignment",
+    "competition_alignment",
+    "competition_selected_variant",
+    "variant_identity_status",
+    "boundary_displacements",
+    "alignment_scores",
+    "score_comparability",
+    "evidence_status",
+    "abstention_reasons",
+    "provenance",
+    "manipulation_context",
+    "duration_evidence"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "0.1"
+    },
+    "target_identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "target_id",
+        "surface",
+        "reading",
+        "word_index",
+        "word_mora_indices",
+        "vowel_class",
+        "mapping_basis",
+        "mora_span"
+      ],
+      "properties": {
+        "target_id": {
+          "type": "string"
+        },
+        "surface": {
+          "type": "string"
+        },
+        "reading": {
+          "type": "string"
+        },
+        "word_index": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "word_mora_indices": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "vowel_class": {
+          "enum": [
+            "A",
+            "I",
+            "U",
+            "E",
+            "O"
+          ]
+        },
+        "mapping_basis": {
+          "type": "string"
+        },
+        "mora_span": {
+          "const": 2
+        }
+      }
+    },
+    "canonical_pronunciation": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "reduced_pronunciation": {
+      "anyOf": [
+        {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "hypothesis_phone_index": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "canonical_alignment": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "reduced_alignment": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "competition_alignment": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "competition_selected_variant": {
+      "enum": [
+        "CANONICAL_SELECTED",
+        "REDUCED_SELECTED",
+        "AMBIGUOUS_OR_UNRESOLVED",
+        "ALIGNMENT_FAILED"
+      ]
+    },
+    "variant_identity_status": {
+      "type": "string"
+    },
+    "boundary_displacements": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "alignment_scores": {
+      "type": "object"
+    },
+    "score_comparability": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "comparable",
+        "reasons",
+        "usage"
+      ],
+      "properties": {
+        "comparable": {
+          "enum": [
+            true,
+            false,
+            "inconclusive"
+          ]
+        },
+        "reasons": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "usage": {
+          "enum": [
+            "DESCRIPTIVE_ONLY",
+            "AUXILIARY_ENGINEERING_DESCRIPTION_NO_VARIANT_DECISION"
+          ]
+        }
+      }
+    },
+    "evidence_status": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "AMBIGUOUS_VARIANT_IDENTITY",
+          "CANONICAL_ALIGNMENT_FAILED",
+          "COMPETITION_ALIGNMENT_FAILED",
+          "EVIDENCE_AVAILABLE",
+          "INVALID_EXPERIMENT_INPUT",
+          "REDUCED_ALIGNMENT_FAILED",
+          "SCORE_NOT_COMPARABLE",
+          "UNSUPPORTED_REDUCED_HYPOTHESIS"
+        ]
+      }
+    },
+    "abstention_reasons": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "provenance": {
+      "type": "object"
+    },
+    "manipulation_context": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "duration_evidence": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "recovery_description": {
+      "type": "object"
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "registry_version": "1.0.0",
+  "measurements": {
+    "task009-v2": {
+      "alignment_engine": "MFA_CPU_CLI",
+      "pipeline_version": "product-m1-1.0.0",
+      "schema_version": "1.0.0",
+      "profile_sha256_by_target": {
+        "jvs-parallel100-voiceactress100_010-w000-m001": "7f26670b03a334545db22e4681bb4a176593c3773d5e86d10047a2807750afa1",
+        "jvs-parallel100-voiceactress100_051-w000-m001": "b73235211c562d5a18f3f7ad2947dbc25df3599c81e9d47faec6cdbf77330d45",
+        "jvs-parallel100-voiceactress100_074-w001-m001": "b48cb9b384467d551190923d57f5cf01ba368a37dff97152fd620ca35df5c067"
+      },
+      "alignment_provenance": null,
+      "population_review": "ACCEPTED"
+    },
+    "task017b-narabas-v1": {
+      "alignment_engine": "NARABAS_CPU_WORKER",
+      "pipeline_version": "product-m1-1.1.0",
+      "schema_version": "1.1.0",
+      "alignment_provenance": {
+        "aligner_commit": "b5e6511ce24dd2f14fc633ed5a23214225ca3eb7",
+        "model_sha256": "ac9983740343b260e20f3ac72ee37c5f85a86436ff256c5701707f5909c4a126",
+        "phone_sequence_version": "narabas-ja-1.0.0",
+        "phone_sequence_sha256": "5100b6f9b515fa1c72109100c64cf82d1bea3acf86090283ab5eaa22ab09444d",
+        "alignment_sample_rate_hz": 16000,
+        "resample_method": "SCIPY_RESAMPLE_POLY_PCM16_1.0.0",
+        "runtime_lock_sha256": "6d5c16c84abd741c00ba1974ac01302130318cc79705b0f36877452cbf43101e"
+      },
+      "profile_sha256_by_target": {
+        "jvs-parallel100-voiceactress100_010-w000-m001": "b9927a8150a43ae362d924c1d7f09984dd2c03ca4108948ee296c4576151ce7e",
+        "jvs-parallel100-voiceactress100_051-w000-m001": "5c0d303eea8c4a974d990b896d3eb7957c32f169751ae39f08fba3fb6ae17785",
+        "jvs-parallel100-voiceactress100_074-w001-m001": "d61718d401f5ebdf57849911d56f2ef6c7156dc0672936a2b39f5f3ee31db4a1"
+      },
+      "population_review": "PENDING"
+    }
+  }
+}

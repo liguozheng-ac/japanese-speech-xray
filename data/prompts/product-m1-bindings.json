@@ -1,0 +1,64 @@
+{
+  "binding_version": "m1-bindings-1.0.0",
+  "prompt_pack_sha256": "065691745eb80e5ab28c357d5a8475fb63312326ecc9cc99064157770b49dcb6",
+  "bindings": [
+    {
+      "prompt_id": "learner-v1-001",
+      "target_id": "learner-v1-001-target-01",
+      "reference_target_id": "jvs-parallel100-voiceactress100_010-w000-m001",
+      "canonical_pronunciation": [
+        "s",
+        "ɨ",
+        "m",
+        "aː",
+        "t",
+        "o",
+        "ɸ",
+        "o",
+        "ɴ"
+      ],
+      "phone_index": 3,
+      "silence_fields": [
+        "0.01",
+        "30.75",
+        "0.06"
+      ]
+    },
+    {
+      "prompt_id": "learner-v1-002",
+      "target_id": "learner-v1-002-target-01",
+      "reference_target_id": "jvs-parallel100-voiceactress100_051-w000-m001",
+      "canonical_pronunciation": [
+        "d",
+        "e",
+        "bʲ",
+        "ɨː"
+      ],
+      "phone_index": 3,
+      "silence_fields": [
+        "0.01",
+        "32.11",
+        "0.06"
+      ]
+    },
+    {
+      "prompt_id": "learner-v1-003",
+      "target_id": "learner-v1-003-target-01",
+      "reference_target_id": "jvs-parallel100-voiceactress100_074-w001-m001",
+      "canonical_pronunciation": [
+        "ɕ",
+        "i",
+        "ɾʲ",
+        "iː",
+        "z",
+        "ɨ"
+      ],
+      "phone_index": 3,
+      "silence_fields": [
+        "0.05",
+        "1.75",
+        "0.96"
+      ]
+    }
+  ]
+}

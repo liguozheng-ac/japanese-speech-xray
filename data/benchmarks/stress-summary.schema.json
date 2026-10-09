@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Failure-preserving stress summary",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "overall",
+    "by_target",
+    "by_factor",
+    "monotonicity",
+    "failure_representatives",
+    "all_failure_case_ids",
+    "success_only_bias",
+    "schema_version",
+    "representation",
+    "interpretation",
+    "gates"
+  ],
+  "properties": {
+    "overall": {
+      "type": "object"
+    },
+    "by_target": {
+      "type": "object"
+    },
+    "by_factor": {
+      "type": "object"
+    },
+    "monotonicity": {
+      "type": "object"
+    },
+    "failure_representatives": {
+      "type": "object"
+    },
+    "all_failure_case_ids": {
+      "type": "object"
+    },
+    "success_only_bias": {
+      "type": "object"
+    },
+    "schema_version": {
+      "const": "0.1"
+    },
+    "representation": {
+      "const": "CONTROLLED_PIPELINE_STRESS_SUMMARY"
+    },
+    "interpretation": {
+      "const": "ENGINEERING_RESPONSE_TO_CONTROLLED_DURATION_MANIPULATION_NOT_LEARNER_PRONUNCIATION_DIAGNOSIS"
+    },
+    "gates": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "title": "Separate benchmark gates",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "CONTROLLED_PERTURBATION_ENGINE_READY",
+        "PIPELINE_STRESS_BENCHMARK_COMPLETE",
+        "SEVERE_SHORTENING_ANALYZABLE",
+        "POTENTIAL_SUCCESS_ONLY_BIAS",
+        "REAL_LABELLED_LEARNER_DATA_READY"
+      ],
+      "properties": {
+        "CONTROLLED_PERTURBATION_ENGINE_READY": {
+          "type": "boolean"
+        },
+        "PIPELINE_STRESS_BENCHMARK_COMPLETE": {
+          "type": "boolean"
+        },
+        "SEVERE_SHORTENING_ANALYZABLE": {
+          "enum": [
+            true,
+            false,
+            "partial"
+          ]
+        },
+        "POTENTIAL_SUCCESS_ONLY_BIAS": {
+          "enum": [
+            true,
+            false,
+            "inconclusive"
+          ]
+        },
+        "REAL_LABELLED_LEARNER_DATA_READY": {
+          "const": false
+        }
+      }
+    }
+  }
+}

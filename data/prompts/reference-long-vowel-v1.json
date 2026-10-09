@@ -1,0 +1,579 @@
+{
+  "schema_version": "0.1",
+  "prompt_pack_id": "japanese-long-vowel-reference",
+  "prompt_pack_version": 1,
+  "authorship": "SELF_AUTHORED_FOR_THIS_PROJECT",
+  "reading_policy": "SUDACHI_CORE_SPLIT_B_WORD_LOCAL_EXCLUDING_SENTENCE_PUNCTUATION",
+  "prompts": [
+    {
+      "prompt_id": "lv-v1-001",
+      "text": "コーヒーとケーキを机に置きます。",
+      "expected_reading": "コーヒートケーキヲツクエニオキマス",
+      "expected_mora_count": 17,
+      "targets": [
+        {
+          "target_id": "lv-v1-001-target-01",
+          "surface_hint": "コーヒー",
+          "expected_word_reading": "コーヒー",
+          "word_mora_indices": [
+            0,
+            1
+          ],
+          "expected_reading_region": "コー",
+          "expected_candidate_type": "PROLONGED_MARK",
+          "orthographic_pattern": "PROLONGED_MARK",
+          "expected_vowel_class": "O",
+          "expected_mora_span": 2
+        },
+        {
+          "target_id": "lv-v1-001-target-02",
+          "surface_hint": "コーヒー",
+          "expected_word_reading": "コーヒー",
+          "word_mora_indices": [
+            2,
+            3
+          ],
+          "expected_reading_region": "ヒー",
+          "expected_candidate_type": "PROLONGED_MARK",
+          "orthographic_pattern": "PROLONGED_MARK",
+          "expected_vowel_class": "I",
+          "expected_mora_span": 2
+        },
+        {
+          "target_id": "lv-v1-001-target-03",
+          "surface_hint": "ケーキ",
+          "expected_word_reading": "ケーキ",
+          "word_mora_indices": [
+            0,
+            1
+          ],
+          "expected_reading_region": "ケー",
+          "expected_candidate_type": "PROLONGED_MARK",
+          "orthographic_pattern": "PROLONGED_MARK",
+          "expected_vowel_class": "E",
+          "expected_mora_span": 2
+        }
+      ]
+    },
+    {
+      "prompt_id": "lv-v1-002",
+      "text": "スープを器に入れます。",
+      "expected_reading": "スープヲウツワニイレマス",
+      "expected_mora_count": 12,
+      "targets": [
+        {
+          "target_id": "lv-v1-002-target-01",
+          "surface_hint": "スープ",
+          "expected_word_reading": "スープ",
+          "word_mora_indices": [
+            0,
+            1
+          ],
+          "expected_reading_region": "スー",
+          "expected_candidate_type": "PROLONGED_MARK",
+          "orthographic_pattern": "PROLONGED_MARK",
+          "expected_vowel_class": "U",
+          "expected_mora_span": 2
+        }
+      ]
+    },
+    {
+      "prompt_id": "lv-v1-003",
+      "text": "窓にかけたのは赤いカーテンです。",
+      "expected_reading": "マドニカケタノハアカイカーテンデス",
+      "expected_mora_count": 17,
+      "targets": [
+        {
+          "target_id": "lv-v1-003-target-01",
+          "surface_hint": "カーテン",
+          "expected_word_reading": "カーテン",
+          "word_mora_indices": [
+            0,
+            1
+          ],
+          "expected_reading_region": "カー",
+          "expected_candidate_type": "PROLONGED_MARK",
+          "orthographic_pattern": "PROLONGED_MARK",
+          "expected_vowel_class": "A",
+          "expected_mora_span": 2
+        }
+      ]
+    },
+    {
+      "prompt_id": "lv-v1-004",
+      "text": "灯台の前で写真を撮ります。",
+      "expected_reading": "トウダイノマエデシャシンヲトリマス",
+      "expected_mora_count": 16,
+      "targets": [
+        {
+          "target_id": "lv-v1-004-target-01",
+          "surface_hint": "灯台",
+          "expected_word_reading": "トウダイ",
+          "word_mora_indices": [
+            0,
+            1
+          ],
+          "expected_reading_region": "トウ",
+          "expected_candidate_type": "KANA_SEQUENCE",
+          "orthographic_pattern": "O_U",
+          "expected_vowel_class": "O",
+          "expected_mora_span": 2
+        }
+      ]
+    },
+    {
+      "prompt_id": "lv-v1-005",
+      "text": "弁当をかばんに入れます。",
+      "expected_reading": "ベントウヲカバンニイレマス",
+      "expected_mora_count": 13,
+      "targets": [
+        {
+          "target_id": "lv-v1-005-target-01",
+          "surface_hint": "弁当",
+          "expected_word_reading": "ベントウ",
+          "word_mora_indices": [
+            2,
+            3
+          ],
+          "expected_reading_region": "トウ",
+          "expected_candidate_type": "KANA_SEQUENCE",
+          "orthographic_pattern": "O_U",
+          "expected_vowel_class": "O",
+          "expected_mora_span": 2
+        }
+      ]
+    },
+    {
+      "prompt_id": "lv-v1-006",
+      "text": "休む場所は広い公園です。",
+      "expected_reading": "ヤスムバショハヒロイコウエンデス",
+      "expected_mora_count": 15,
+      "targets": [
+        {
+          "target_id": "lv-v1-006-target-01",
+          "surface_hint": "公園",
+          "expected_word_reading": "コウエン",
+          "word_mora_indices": [
+            0,
+            1
+          ],
+          "expected_reading_region": "コウ",
+          "expected_candidate_type": "KANA_SEQUENCE",
+          "orthographic_pattern": "O_U",
+          "expected_vowel_class": "O",
+          "expected_mora_span": 2
+        }
+      ]
+    },
+    {
+      "prompt_id": "lv-v1-007",
+      "text": "大きな雲がゆっくり動きます。",
+      "expected_reading": "オオキナクモガユックリウゴキマス",
+      "expected_mora_count": 16,
+      "targets": [
+        {
+          "target_id": "lv-v1-007-target-01",
+          "surface_hint": "大きな",
+          "expected_word_reading": "オオキナ",
+          "word_mora_indices": [
+            0,
+            1
+          ],
+          "expected_reading_region": "オオ",
+          "expected_candidate_type": "KANA_SEQUENCE",
+          "orthographic_pattern": "O_O",
+          "expected_vowel_class": "O",
+          "expected_mora_span": 2
+        }
+      ]
+    },
+    {
+      "prompt_id": "lv-v1-008",
+      "text": "皿の中に入れたのは氷です。",
+      "expected_reading": "サラノナカニイレタノハコオリデス",
+      "expected_mora_count": 16,
+      "targets": [
+        {
+          "target_id": "lv-v1-008-target-01",
+          "surface_hint": "氷",
+          "expected_word_reading": "コオリ",
+          "word_mora_indices": [
+            0,
+            1
+          ],
+          "expected_reading_region": "コオ",
+          "expected_candidate_type": "KANA_SEQUENCE",
+          "orthographic_pattern": "O_O",
+          "expected_vowel_class": "O",
+          "expected_mora_span": 2
+        }
+      ]
+    },
+    {
+      "prompt_id": "lv-v1-009",
+      "text": "遠い町から手紙が来ました。",
+      "expected_reading": "トオイマチカラテガミガキマシタ",
+      "expected_mora_count": 15,
+      "targets": [
+        {
+          "target_id": "lv-v1-009-target-01",
+          "surface_hint": "遠い",
+          "expected_word_reading": "トオイ",
+          "word_mora_indices": [
+            0,
+            1
+          ],
+          "expected_reading_region": "トオ",
+          "expected_candidate_type": "KANA_SEQUENCE",
+          "orthographic_pattern": "O_O",
+          "expected_vowel_class": "O",
+          "expected_mora_span": 2
+        }
+      ]
+    },
+    {
+      "prompt_id": "lv-v1-010",
+      "text": "棚の上に置いたのは時計です。",
+      "expected_reading": "タナノウエニオイタノハトケイデス",
+      "expected_mora_count": 16,
+      "targets": [
+        {
+          "target_id": "lv-v1-010-target-01",
+          "surface_hint": "時計",
+          "expected_word_reading": "トケイ",
+          "word_mora_indices": [
+            1,
+            2
+          ],
+          "expected_reading_region": "ケイ",
+          "expected_candidate_type": "KANA_SEQUENCE",
+          "orthographic_pattern": "E_I",
+          "expected_vowel_class": "E",
+          "expected_mora_span": 2
+        }
+      ]
+    },
+    {
+      "prompt_id": "lv-v1-011",
+      "text": "丁寧に紙を折ります。",
+      "expected_reading": "テイネイニカミヲオリマス",
+      "expected_mora_count": 12,
+      "targets": [
+        {
+          "target_id": "lv-v1-011-target-01",
+          "surface_hint": "丁寧",
+          "expected_word_reading": "テイネイ",
+          "word_mora_indices": [
+            0,
+            1
+          ],
+          "expected_reading_region": "テイ",
+          "expected_candidate_type": "KANA_SEQUENCE",
+          "orthographic_pattern": "E_I",
+          "expected_vowel_class": "E",
+          "expected_mora_span": 2
+        },
+        {
+          "target_id": "lv-v1-011-target-02",
+          "surface_hint": "丁寧",
+          "expected_word_reading": "テイネイ",
+          "word_mora_indices": [
+            2,
+            3
+          ],
+          "expected_reading_region": "ネイ",
+          "expected_candidate_type": "KANA_SEQUENCE",
+          "orthographic_pattern": "E_I",
+          "expected_vowel_class": "E",
+          "expected_mora_span": 2
+        }
+      ]
+    },
+    {
+      "prompt_id": "lv-v1-012",
+      "text": "部屋の照明を消します。",
+      "expected_reading": "ヘヤノショウメイヲケシマス",
+      "expected_mora_count": 12,
+      "targets": [
+        {
+          "target_id": "lv-v1-012-target-01",
+          "surface_hint": "照明",
+          "expected_word_reading": "ショウメイ",
+          "word_mora_indices": [
+            2,
+            3
+          ],
+          "expected_reading_region": "メイ",
+          "expected_candidate_type": "KANA_SEQUENCE",
+          "orthographic_pattern": "E_I",
+          "expected_vowel_class": "E",
+          "expected_mora_span": 2
+        }
+      ]
+    },
+    {
+      "prompt_id": "lv-v1-013",
+      "text": "お姉さんは紙をそろえます。",
+      "expected_reading": "オネエサンハカミヲソロエマス",
+      "expected_mora_count": 14,
+      "targets": [
+        {
+          "target_id": "lv-v1-013-target-01",
+          "surface_hint": "お姉さん",
+          "expected_word_reading": "オネエサン",
+          "word_mora_indices": [
+            1,
+            2
+          ],
+          "expected_reading_region": "ネエ",
+          "expected_candidate_type": "KANA_SEQUENCE",
+          "orthographic_pattern": "E_E",
+          "expected_vowel_class": "E",
+          "expected_mora_span": 2
+        }
+      ]
+    },
+    {
+      "prompt_id": "lv-v1-014",
+      "text": "姉さんと坂を歩きます。",
+      "expected_reading": "ネエサントサカヲアルキマス",
+      "expected_mora_count": 13,
+      "targets": [
+        {
+          "target_id": "lv-v1-014-target-01",
+          "surface_hint": "姉さん",
+          "expected_word_reading": "ネエサン",
+          "word_mora_indices": [
+            0,
+            1
+          ],
+          "expected_reading_region": "ネエ",
+          "expected_candidate_type": "KANA_SEQUENCE",
+          "orthographic_pattern": "E_E",
+          "expected_vowel_class": "E",
+          "expected_mora_span": 2
+        }
+      ]
+    },
+    {
+      "prompt_id": "lv-v1-015",
+      "text": "ねえ、そのかばんを取って。",
+      "expected_reading": "ネエソノカバンヲトッテ",
+      "expected_mora_count": 11,
+      "targets": [
+        {
+          "target_id": "lv-v1-015-target-01",
+          "surface_hint": "ねえ",
+          "expected_word_reading": "ネエ",
+          "word_mora_indices": [
+            0,
+            1
+          ],
+          "expected_reading_region": "ネエ",
+          "expected_candidate_type": "KANA_SEQUENCE",
+          "orthographic_pattern": "E_E",
+          "expected_vowel_class": "E",
+          "expected_mora_span": 2
+        }
+      ]
+    },
+    {
+      "prompt_id": "lv-v1-016",
+      "text": "母さんは台所にいます。",
+      "expected_reading": "カアサンハダイドコロニイマス",
+      "expected_mora_count": 14,
+      "targets": [
+        {
+          "target_id": "lv-v1-016-target-01",
+          "surface_hint": "母さん",
+          "expected_word_reading": "カアサン",
+          "word_mora_indices": [
+            0,
+            1
+          ],
+          "expected_reading_region": "カア",
+          "expected_candidate_type": "KANA_SEQUENCE",
+          "orthographic_pattern": "A_A",
+          "expected_vowel_class": "A",
+          "expected_mora_span": 2
+        }
+      ]
+    },
+    {
+      "prompt_id": "lv-v1-017",
+      "text": "手紙を渡したのはお母さんです。",
+      "expected_reading": "テガミヲワタシタノハオカアサンデス",
+      "expected_mora_count": 17,
+      "targets": [
+        {
+          "target_id": "lv-v1-017-target-01",
+          "surface_hint": "お母さん",
+          "expected_word_reading": "オカアサン",
+          "word_mora_indices": [
+            1,
+            2
+          ],
+          "expected_reading_region": "カア",
+          "expected_candidate_type": "KANA_SEQUENCE",
+          "orthographic_pattern": "A_A",
+          "expected_vowel_class": "A",
+          "expected_mora_span": 2
+        }
+      ]
+    },
+    {
+      "prompt_id": "lv-v1-018",
+      "text": "ああ、ペンは机にありました。",
+      "expected_reading": "アアペンハツクエニアリマシタ",
+      "expected_mora_count": 14,
+      "targets": [
+        {
+          "target_id": "lv-v1-018-target-01",
+          "surface_hint": "ああ",
+          "expected_word_reading": "アア",
+          "word_mora_indices": [
+            0,
+            1
+          ],
+          "expected_reading_region": "アア",
+          "expected_candidate_type": "KANA_SEQUENCE",
+          "orthographic_pattern": "A_A",
+          "expected_vowel_class": "A",
+          "expected_mora_span": 2
+        }
+      ]
+    },
+    {
+      "prompt_id": "lv-v1-019",
+      "text": "棚に並べた紙は小さいです。",
+      "expected_reading": "タナニナラベタカミハチイサイデス",
+      "expected_mora_count": 16,
+      "targets": [
+        {
+          "target_id": "lv-v1-019-target-01",
+          "surface_hint": "小さい",
+          "expected_word_reading": "チイサイ",
+          "word_mora_indices": [
+            0,
+            1
+          ],
+          "expected_reading_region": "チイ",
+          "expected_candidate_type": "KANA_SEQUENCE",
+          "orthographic_pattern": "I_I",
+          "expected_vowel_class": "I",
+          "expected_mora_span": 2
+        }
+      ]
+    },
+    {
+      "prompt_id": "lv-v1-020",
+      "text": "窓に黄色い花を飾ります。",
+      "expected_reading": "マドニキイロイハナヲカザリマス",
+      "expected_mora_count": 15,
+      "targets": [
+        {
+          "target_id": "lv-v1-020-target-01",
+          "surface_hint": "黄色い",
+          "expected_word_reading": "キイロイ",
+          "word_mora_indices": [
+            0,
+            1
+          ],
+          "expected_reading_region": "キイ",
+          "expected_candidate_type": "KANA_SEQUENCE",
+          "orthographic_pattern": "I_I",
+          "expected_vowel_class": "I",
+          "expected_mora_span": 2
+        }
+      ]
+    },
+    {
+      "prompt_id": "lv-v1-021",
+      "text": "お兄さんは庭の木を見ます。",
+      "expected_reading": "オニイサンハニワノキヲミマス",
+      "expected_mora_count": 14,
+      "targets": [
+        {
+          "target_id": "lv-v1-021-target-01",
+          "surface_hint": "お兄さん",
+          "expected_word_reading": "オニイサン",
+          "word_mora_indices": [
+            1,
+            2
+          ],
+          "expected_reading_region": "ニイ",
+          "expected_candidate_type": "KANA_SEQUENCE",
+          "orthographic_pattern": "I_I",
+          "expected_vowel_class": "I",
+          "expected_mora_span": 2
+        }
+      ]
+    },
+    {
+      "prompt_id": "lv-v1-022",
+      "text": "数字を紙に書きます。",
+      "expected_reading": "スウジヲカミニカキマス",
+      "expected_mora_count": 11,
+      "targets": [
+        {
+          "target_id": "lv-v1-022-target-01",
+          "surface_hint": "数字",
+          "expected_word_reading": "スウジ",
+          "word_mora_indices": [
+            0,
+            1
+          ],
+          "expected_reading_region": "スウ",
+          "expected_candidate_type": "KANA_SEQUENCE",
+          "orthographic_pattern": "U_U",
+          "expected_vowel_class": "U",
+          "expected_mora_span": 2
+        }
+      ]
+    },
+    {
+      "prompt_id": "lv-v1-023",
+      "text": "空気が静かに流れます。",
+      "expected_reading": "クウキガシズカニナガレマス",
+      "expected_mora_count": 13,
+      "targets": [
+        {
+          "target_id": "lv-v1-023-target-01",
+          "surface_hint": "空気",
+          "expected_word_reading": "クウキ",
+          "word_mora_indices": [
+            0,
+            1
+          ],
+          "expected_reading_region": "クウ",
+          "expected_candidate_type": "KANA_SEQUENCE",
+          "orthographic_pattern": "U_U",
+          "expected_vowel_class": "U",
+          "expected_mora_span": 2
+        }
+      ]
+    },
+    {
+      "prompt_id": "lv-v1-024",
+      "text": "夕方に窓を閉めます。",
+      "expected_reading": "ユウガタニマドヲシメマス",
+      "expected_mora_count": 12,
+      "targets": [
+        {
+          "target_id": "lv-v1-024-target-01",
+          "surface_hint": "夕方",
+          "expected_word_reading": "ユウガタ",
+          "word_mora_indices": [
+            0,
+            1
+          ],
+          "expected_reading_region": "ユウ",
+          "expected_candidate_type": "KANA_SEQUENCE",
+          "orthographic_pattern": "U_U",
+          "expected_vowel_class": "U",
+          "expected_mora_span": 2
+        }
+      ]
+    }
+  ]
+}

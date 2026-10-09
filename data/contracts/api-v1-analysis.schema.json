@@ -1,0 +1,1110 @@
+{
+  "$defs": {
+    "Acoustics": {
+      "additionalProperties": false,
+      "properties": {
+        "selected_frame_count": {
+          "minimum": 0,
+          "title": "Selected Frame Count",
+          "type": "integer"
+        },
+        "voiced_frame_count": {
+          "minimum": 0,
+          "title": "Voiced Frame Count",
+          "type": "integer"
+        },
+        "raw_f0_median_hz": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Raw F0 Median Hz"
+        },
+        "rms_median": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Rms Median"
+        },
+        "extraction_status": {
+          "title": "Extraction Status",
+          "type": "string"
+        },
+        "f0_interpretation": {
+          "const": "RAW_ACOUSTIC_MEASUREMENT",
+          "default": "RAW_ACOUSTIC_MEASUREMENT",
+          "title": "F0 Interpretation",
+          "type": "string"
+        }
+      },
+      "required": [
+        "selected_frame_count",
+        "voiced_frame_count",
+        "raw_f0_median_hz",
+        "rms_median",
+        "extraction_status"
+      ],
+      "title": "Acoustics",
+      "type": "object"
+    },
+    "AlignmentProvenance": {
+      "additionalProperties": false,
+      "properties": {
+        "aligner_commit": {
+          "pattern": "^[0-9a-f]{40}$",
+          "title": "Aligner Commit",
+          "type": "string"
+        },
+        "model_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Model Sha256",
+          "type": "string"
+        },
+        "phone_sequence_version": {
+          "const": "narabas-ja-1.0.0",
+          "title": "Phone Sequence Version",
+          "type": "string"
+        },
+        "phone_sequence_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Phone Sequence Sha256",
+          "type": "string"
+        },
+        "alignment_sample_rate_hz": {
+          "const": 16000,
+          "title": "Alignment Sample Rate Hz",
+          "type": "integer"
+        },
+        "resample_method": {
+          "const": "SCIPY_RESAMPLE_POLY_PCM16_1.0.0",
+          "title": "Resample Method",
+          "type": "string"
+        },
+        "runtime_lock_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Runtime Lock Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "aligner_commit",
+        "model_sha256",
+        "phone_sequence_version",
+        "phone_sequence_sha256",
+        "alignment_sample_rate_hz",
+        "resample_method",
+        "runtime_lock_sha256"
+      ],
+      "title": "AlignmentProvenance",
+      "type": "object"
+    },
+    "Audio": {
+      "additionalProperties": false,
+      "properties": {
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Sha256",
+          "type": "string"
+        },
+        "duration_ms": {
+          "minimum": 0,
+          "title": "Duration Ms",
+          "type": "number"
+        },
+        "sample_rate_hz": {
+          "exclusiveMinimum": 0,
+          "title": "Sample Rate Hz",
+          "type": "integer"
+        },
+        "channels": {
+          "exclusiveMinimum": 0,
+          "title": "Channels",
+          "type": "integer"
+        },
+        "sample_count": {
+          "exclusiveMinimum": 0,
+          "title": "Sample Count",
+          "type": "integer"
+        },
+        "decoded_format": {
+          "const": "WAV",
+          "title": "Decoded Format",
+          "type": "string"
+        }
+      },
+      "required": [
+        "sha256",
+        "duration_ms",
+        "sample_rate_hz",
+        "channels",
+        "sample_count",
+        "decoded_format"
+      ],
+      "title": "Audio",
+      "type": "object"
+    },
+    "Availability": {
+      "additionalProperties": false,
+      "properties": {
+        "duration": {
+          "title": "Duration",
+          "type": "boolean"
+        },
+        "reference": {
+          "title": "Reference",
+          "type": "boolean"
+        },
+        "deviation": {
+          "title": "Deviation",
+          "type": "boolean"
+        },
+        "realization": {
+          "title": "Realization",
+          "type": "boolean"
+        },
+        "raw_f0": {
+          "title": "Raw F0",
+          "type": "boolean"
+        },
+        "rms": {
+          "title": "Rms",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "duration",
+        "reference",
+        "deviation",
+        "realization",
+        "raw_f0",
+        "rms"
+      ],
+      "title": "Availability",
+      "type": "object"
+    },
+    "Deviation": {
+      "additionalProperties": false,
+      "properties": {
+        "signed_delta": {
+          "title": "Signed Delta",
+          "type": "number"
+        },
+        "ratio_to_median": {
+          "title": "Ratio To Median",
+          "type": "number"
+        },
+        "mad_distance": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Mad Distance"
+        },
+        "direction": {
+          "enum": [
+            "BELOW_REFERENCE_MEDIAN",
+            "AT_REFERENCE_MEDIAN",
+            "ABOVE_REFERENCE_MEDIAN"
+          ],
+          "title": "Direction",
+          "type": "string"
+        },
+        "inside_iqr": {
+          "title": "Inside Iqr",
+          "type": "boolean"
+        },
+        "inside_observed_min_max": {
+          "title": "Inside Observed Min Max",
+          "type": "boolean"
+        },
+        "warnings": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Warnings",
+          "type": "array"
+        },
+        "formula_version": {
+          "const": "0.1",
+          "default": "0.1",
+          "title": "Formula Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "signed_delta",
+        "ratio_to_median",
+        "mad_distance",
+        "direction",
+        "inside_iqr",
+        "inside_observed_min_max",
+        "warnings"
+      ],
+      "title": "Deviation",
+      "type": "object"
+    },
+    "Duration": {
+      "additionalProperties": false,
+      "properties": {
+        "raw_duration_ms": {
+          "title": "Raw Duration Ms",
+          "type": "number"
+        },
+        "rate_normalized_duration": {
+          "title": "Rate Normalized Duration",
+          "type": "number"
+        },
+        "rate_normalized_duration_per_mora": {
+          "title": "Rate Normalized Duration Per Mora",
+          "type": "number"
+        },
+        "normalization_version": {
+          "const": "0.1",
+          "default": "0.1",
+          "title": "Normalization Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "raw_duration_ms",
+        "rate_normalized_duration",
+        "rate_normalized_duration_per_mora"
+      ],
+      "title": "Duration",
+      "type": "object"
+    },
+    "Mora": {
+      "additionalProperties": false,
+      "properties": {
+        "index": {
+          "minimum": 0,
+          "title": "Index",
+          "type": "integer"
+        },
+        "word_index": {
+          "minimum": 0,
+          "title": "Word Index",
+          "type": "integer"
+        },
+        "word_mora_index": {
+          "minimum": 0,
+          "title": "Word Mora Index",
+          "type": "integer"
+        },
+        "representation": {
+          "title": "Representation",
+          "type": "string"
+        },
+        "kind": {
+          "title": "Kind",
+          "type": "string"
+        },
+        "shared_span": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TimeSpan"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "timing_basis": {
+          "enum": [
+            "SHARED_ORIGINAL_LONG_PHONE",
+            "NO_INDIVIDUAL_ACOUSTIC_BOUNDARY",
+            "SHARED_NATIVE_PHONE_ENVELOPE"
+          ],
+          "title": "Timing Basis",
+          "type": "string"
+        }
+      },
+      "required": [
+        "index",
+        "word_index",
+        "word_mora_index",
+        "representation",
+        "kind",
+        "shared_span",
+        "timing_basis"
+      ],
+      "title": "Mora",
+      "type": "object"
+    },
+    "Phone": {
+      "additionalProperties": false,
+      "properties": {
+        "start_ms": {
+          "minimum": 0,
+          "title": "Start Ms",
+          "type": "number"
+        },
+        "end_ms": {
+          "minimum": 0,
+          "title": "End Ms",
+          "type": "number"
+        },
+        "index": {
+          "minimum": 0,
+          "title": "Index",
+          "type": "integer"
+        },
+        "symbol": {
+          "title": "Symbol",
+          "type": "string"
+        },
+        "word_index": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Word Index"
+        }
+      },
+      "required": [
+        "start_ms",
+        "end_ms",
+        "index",
+        "symbol",
+        "word_index"
+      ],
+      "title": "Phone",
+      "type": "object"
+    },
+    "Prompt": {
+      "additionalProperties": false,
+      "properties": {
+        "prompt_id": {
+          "title": "Prompt Id",
+          "type": "string"
+        },
+        "display_text": {
+          "title": "Display Text",
+          "type": "string"
+        },
+        "language": {
+          "const": "ja",
+          "default": "ja",
+          "title": "Language",
+          "type": "string"
+        },
+        "prompt_version": {
+          "title": "Prompt Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "prompt_id",
+        "display_text",
+        "prompt_version"
+      ],
+      "title": "Prompt",
+      "type": "object"
+    },
+    "Provenance": {
+      "additionalProperties": false,
+      "properties": {
+        "pipeline_version": {
+          "default": "product-m1-1.0.0",
+          "enum": [
+            "product-m1-1.0.0",
+            "product-m1-1.1.0"
+          ],
+          "title": "Pipeline Version",
+          "type": "string"
+        },
+        "analysis_policy_version": {
+          "title": "Analysis Policy Version",
+          "type": "string"
+        },
+        "prompt_binding_version": {
+          "title": "Prompt Binding Version",
+          "type": "string"
+        },
+        "prompt_binding_sha256": {
+          "title": "Prompt Binding Sha256",
+          "type": "string"
+        },
+        "prompt_pack_sha256": {
+          "title": "Prompt Pack Sha256",
+          "type": "string"
+        },
+        "reference_version": {
+          "default": "task009-v2",
+          "title": "Reference Version",
+          "type": "string"
+        },
+        "deviation_version": {
+          "const": "0.1",
+          "default": "0.1",
+          "title": "Deviation Version",
+          "type": "string"
+        },
+        "realization_version": {
+          "const": "0.1",
+          "default": "0.1",
+          "title": "Realization Version",
+          "type": "string"
+        },
+        "alignment_engine": {
+          "default": "MFA_CPU_CLI",
+          "enum": [
+            "MFA_CPU_CLI",
+            "NARABAS_CPU_WORKER"
+          ],
+          "title": "Alignment Engine",
+          "type": "string"
+        },
+        "alignment_engine_version": {
+          "title": "Alignment Engine Version",
+          "type": "string"
+        },
+        "acoustic_model_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Acoustic Model Sha256",
+          "type": "string"
+        },
+        "dictionary_sha256": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Dictionary Sha256"
+        },
+        "g2p_model_sha256": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "G2P Model Sha256"
+        },
+        "runtime_identity_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Runtime Identity Sha256",
+          "type": "string"
+        },
+        "alignment_provenance": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/AlignmentProvenance"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "compatibility_policy": {
+          "const": "EXACT_SURFACE_READING_LOCAL_MORA_VOWEL_BASIS_FEATURE_V1",
+          "default": "EXACT_SURFACE_READING_LOCAL_MORA_VOWEL_BASIS_FEATURE_V1",
+          "title": "Compatibility Policy",
+          "type": "string"
+        },
+        "sentence_context_equivalence_validated": {
+          "const": false,
+          "default": false,
+          "title": "Sentence Context Equivalence Validated",
+          "type": "boolean"
+        },
+        "candidate_audio_in_reference": {
+          "title": "Candidate Audio In Reference",
+          "type": "boolean"
+        },
+        "comparison_role": {
+          "enum": [
+            "DESCRIPTIVE_ONLY",
+            "IN_POPULATION_NATIVE_INTEGRATION_SMOKE"
+          ],
+          "title": "Comparison Role",
+          "type": "string"
+        },
+        "real_labelled_learner_data_ready": {
+          "const": false,
+          "default": false,
+          "title": "Real Labelled Learner Data Ready",
+          "type": "boolean"
+        },
+        "calibrated_diagnosis_ready": {
+          "const": false,
+          "default": false,
+          "title": "Calibrated Diagnosis Ready",
+          "type": "boolean"
+        },
+        "cross_condition_likelihood_comparable": {
+          "const": false,
+          "default": false,
+          "title": "Cross Condition Likelihood Comparable",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "analysis_policy_version",
+        "prompt_binding_version",
+        "prompt_binding_sha256",
+        "prompt_pack_sha256",
+        "alignment_engine_version",
+        "acoustic_model_sha256",
+        "dictionary_sha256",
+        "g2p_model_sha256",
+        "runtime_identity_sha256",
+        "candidate_audio_in_reference",
+        "comparison_role"
+      ],
+      "title": "Provenance",
+      "type": "object"
+    },
+    "Realization": {
+      "additionalProperties": false,
+      "properties": {
+        "canonical_pronunciation": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Canonical Pronunciation",
+          "type": "array"
+        },
+        "experimental_reduced_pronunciation": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Experimental Reduced Pronunciation"
+        },
+        "selected_variant": {
+          "enum": [
+            "CANONICAL_SELECTED",
+            "REDUCED_SELECTED",
+            "AMBIGUOUS_OR_UNRESOLVED",
+            "ALIGNMENT_FAILED"
+          ],
+          "title": "Selected Variant",
+          "type": "string"
+        },
+        "variant_identity_status": {
+          "title": "Variant Identity Status",
+          "type": "string"
+        },
+        "evidence_status": {
+          "enum": [
+            "AVAILABLE",
+            "PARTIAL",
+            "UNAVAILABLE",
+            "ABSTAINED"
+          ],
+          "title": "Evidence Status",
+          "type": "string"
+        },
+        "interpretation": {
+          "const": "EXPERIMENTAL_ENGINEERING_PROBE",
+          "default": "EXPERIMENTAL_ENGINEERING_PROBE",
+          "title": "Interpretation",
+          "type": "string"
+        },
+        "hypothesis_version": {
+          "const": "0.1",
+          "default": "0.1",
+          "title": "Hypothesis Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "canonical_pronunciation",
+        "experimental_reduced_pronunciation",
+        "selected_variant",
+        "variant_identity_status",
+        "evidence_status"
+      ],
+      "title": "Realization",
+      "type": "object"
+    },
+    "Reason": {
+      "additionalProperties": false,
+      "properties": {
+        "stage": {
+          "title": "Stage",
+          "type": "string"
+        },
+        "reason_code": {
+          "title": "Reason Code",
+          "type": "string"
+        },
+        "message": {
+          "title": "Message",
+          "type": "string"
+        }
+      },
+      "required": [
+        "stage",
+        "reason_code",
+        "message"
+      ],
+      "title": "Reason",
+      "type": "object"
+    },
+    "Reference": {
+      "additionalProperties": false,
+      "properties": {
+        "target_id": {
+          "title": "Target Id",
+          "type": "string"
+        },
+        "version": {
+          "title": "Version",
+          "type": "string"
+        },
+        "profile_sha256": {
+          "title": "Profile Sha256",
+          "type": "string"
+        },
+        "independent_speaker_count": {
+          "exclusiveMinimum": 0,
+          "title": "Independent Speaker Count",
+          "type": "integer"
+        },
+        "primary_feature": {
+          "const": "rate_normalized_duration",
+          "default": "rate_normalized_duration",
+          "title": "Primary Feature",
+          "type": "string"
+        },
+        "median": {
+          "title": "Median",
+          "type": "number"
+        },
+        "mad": {
+          "title": "Mad",
+          "type": "number"
+        },
+        "q25": {
+          "title": "Q25",
+          "type": "number"
+        },
+        "q75": {
+          "title": "Q75",
+          "type": "number"
+        },
+        "iqr": {
+          "title": "Iqr",
+          "type": "number"
+        },
+        "minimum": {
+          "title": "Minimum",
+          "type": "number"
+        },
+        "maximum": {
+          "title": "Maximum",
+          "type": "number"
+        },
+        "readiness": {
+          "title": "Readiness",
+          "type": "string"
+        }
+      },
+      "required": [
+        "target_id",
+        "version",
+        "profile_sha256",
+        "independent_speaker_count",
+        "median",
+        "mad",
+        "q25",
+        "q75",
+        "iqr",
+        "minimum",
+        "maximum",
+        "readiness"
+      ],
+      "title": "Reference",
+      "type": "object"
+    },
+    "Target": {
+      "additionalProperties": false,
+      "properties": {
+        "target_id": {
+          "title": "Target Id",
+          "type": "string"
+        },
+        "surface": {
+          "title": "Surface",
+          "type": "string"
+        },
+        "reading": {
+          "title": "Reading",
+          "type": "string"
+        },
+        "word_index": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Word Index"
+        },
+        "mora_indices": {
+          "items": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "title": "Mora Indices",
+          "type": "array"
+        },
+        "mora_span": {
+          "const": 2,
+          "default": 2,
+          "title": "Mora Span",
+          "type": "integer"
+        },
+        "vowel_class": {
+          "enum": [
+            "A",
+            "I",
+            "U",
+            "E",
+            "O"
+          ],
+          "title": "Vowel Class",
+          "type": "string"
+        },
+        "mapping_basis": {
+          "enum": [
+            "PROLONGED_MARK",
+            "KANA_SEQUENCE"
+          ],
+          "title": "Mapping Basis",
+          "type": "string"
+        },
+        "time_span": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TimeSpan"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "duration": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Duration"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "reference": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Reference"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "deviation": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Deviation"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "realization": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Realization"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "acoustics": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Acoustics"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "availability": {
+          "$ref": "#/$defs/Availability"
+        },
+        "evidence_status": {
+          "enum": [
+            "AVAILABLE",
+            "PARTIAL",
+            "UNAVAILABLE",
+            "ABSTAINED"
+          ],
+          "title": "Evidence Status",
+          "type": "string"
+        },
+        "reasons": {
+          "items": {
+            "$ref": "#/$defs/Reason"
+          },
+          "title": "Reasons",
+          "type": "array"
+        }
+      },
+      "required": [
+        "target_id",
+        "surface",
+        "reading",
+        "word_index",
+        "mora_indices",
+        "vowel_class",
+        "mapping_basis",
+        "time_span",
+        "duration",
+        "reference",
+        "deviation",
+        "realization",
+        "acoustics",
+        "availability",
+        "evidence_status",
+        "reasons"
+      ],
+      "title": "Target",
+      "type": "object"
+    },
+    "TimeSpan": {
+      "additionalProperties": false,
+      "properties": {
+        "start_ms": {
+          "minimum": 0,
+          "title": "Start Ms",
+          "type": "number"
+        },
+        "end_ms": {
+          "minimum": 0,
+          "title": "End Ms",
+          "type": "number"
+        }
+      },
+      "required": [
+        "start_ms",
+        "end_ms"
+      ],
+      "title": "TimeSpan",
+      "type": "object"
+    },
+    "Timeline": {
+      "additionalProperties": false,
+      "properties": {
+        "start_ms": {
+          "minimum": 0,
+          "title": "Start Ms",
+          "type": "number"
+        },
+        "end_ms": {
+          "minimum": 0,
+          "title": "End Ms",
+          "type": "number"
+        },
+        "basis": {
+          "const": "PRIMARY_ANALYSIS_ALIGNMENT",
+          "default": "PRIMARY_ANALYSIS_ALIGNMENT",
+          "title": "Basis",
+          "type": "string"
+        },
+        "words": {
+          "items": {
+            "$ref": "#/$defs/Word"
+          },
+          "title": "Words",
+          "type": "array"
+        },
+        "phones": {
+          "items": {
+            "$ref": "#/$defs/Phone"
+          },
+          "title": "Phones",
+          "type": "array"
+        },
+        "morae": {
+          "items": {
+            "$ref": "#/$defs/Mora"
+          },
+          "title": "Morae",
+          "type": "array"
+        }
+      },
+      "required": [
+        "start_ms",
+        "end_ms",
+        "words",
+        "phones",
+        "morae"
+      ],
+      "title": "Timeline",
+      "type": "object"
+    },
+    "Word": {
+      "additionalProperties": false,
+      "properties": {
+        "start_ms": {
+          "minimum": 0,
+          "title": "Start Ms",
+          "type": "number"
+        },
+        "end_ms": {
+          "minimum": 0,
+          "title": "End Ms",
+          "type": "number"
+        },
+        "index": {
+          "minimum": 0,
+          "title": "Index",
+          "type": "integer"
+        },
+        "surface": {
+          "title": "Surface",
+          "type": "string"
+        },
+        "reading": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Reading"
+        }
+      },
+      "required": [
+        "start_ms",
+        "end_ms",
+        "index",
+        "surface",
+        "reading"
+      ],
+      "title": "Word",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "default": "1.0.0",
+      "enum": [
+        "1.0.0",
+        "1.1.0"
+      ],
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "analysis_id": {
+      "title": "Analysis Id",
+      "type": "string"
+    },
+    "analysis_fingerprint": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Analysis Fingerprint",
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "COMPLETED",
+        "PARTIAL_EVIDENCE",
+        "ABSTAINED"
+      ],
+      "title": "Status",
+      "type": "string"
+    },
+    "prompt": {
+      "$ref": "#/$defs/Prompt"
+    },
+    "audio": {
+      "$ref": "#/$defs/Audio"
+    },
+    "timeline": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Timeline"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "targets": {
+      "items": {
+        "$ref": "#/$defs/Target"
+      },
+      "title": "Targets",
+      "type": "array"
+    },
+    "warnings": {
+      "items": {
+        "$ref": "#/$defs/Reason"
+      },
+      "title": "Warnings",
+      "type": "array"
+    },
+    "provenance": {
+      "$ref": "#/$defs/Provenance"
+    }
+  },
+  "required": [
+    "analysis_id",
+    "analysis_fingerprint",
+    "status",
+    "prompt",
+    "audio",
+    "timeline",
+    "targets",
+    "warnings",
+    "provenance"
+  ],
+  "title": "SpeechXRayAnalysisResponse",
+  "type": "object"
+}

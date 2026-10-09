@@ -1,0 +1,538 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "learner-manifest v0.1",
+  "description": "Structural contract; runtime additionally verifies private paths, pinned source contents, identifiers, identity relationships and workflow invariants.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "dataset_id",
+    "dataset_version",
+    "evaluation_run_id",
+    "source_type",
+    "dataset_role",
+    "material_kind",
+    "rights",
+    "observations"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "0.1"
+    },
+    "dataset_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "dataset_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "evaluation_run_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_type": {
+      "enum": [
+        "CONTROLLED_LEARNER_RECORDING",
+        "EXTERNAL_LEARNER_CORPUS"
+      ]
+    },
+    "dataset_role": {
+      "const": "LEARNER"
+    },
+    "material_kind": {
+      "enum": [
+        "REAL_LEARNER_AUDIO",
+        "AUTHORED_STRUCTURAL_FIXTURE"
+      ]
+    },
+    "rights": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "record_id",
+        "dataset_id",
+        "dataset_version",
+        "source_type",
+        "access_basis",
+        "access_record",
+        "permissions",
+        "review_notes"
+      ],
+      "properties": {
+        "record_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "dataset_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "dataset_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_type": {
+          "enum": [
+            "CONTROLLED_LEARNER_RECORDING",
+            "EXTERNAL_LEARNER_CORPUS"
+          ]
+        },
+        "access_basis": {
+          "type": "string",
+          "minLength": 1
+        },
+        "access_record": {
+          "anyOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "path",
+                "sha256"
+              ],
+              "properties": {
+                "path": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "sha256": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{64}$"
+                }
+              }
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "permissions": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "local_analysis",
+            "derived_feature_publication",
+            "aggregate_publication",
+            "raw_audio_redistribution",
+            "transcript_redistribution"
+          ],
+          "properties": {
+            "local_analysis": {
+              "enum": [
+                "YES",
+                "NO",
+                "UNKNOWN"
+              ]
+            },
+            "derived_feature_publication": {
+              "enum": [
+                "YES",
+                "NO",
+                "UNKNOWN"
+              ]
+            },
+            "aggregate_publication": {
+              "enum": [
+                "YES",
+                "NO",
+                "UNKNOWN"
+              ]
+            },
+            "raw_audio_redistribution": {
+              "enum": [
+                "YES",
+                "NO",
+                "UNKNOWN"
+              ]
+            },
+            "transcript_redistribution": {
+              "enum": [
+                "YES",
+                "NO",
+                "UNKNOWN"
+              ]
+            }
+          }
+        },
+        "review_notes": {
+          "type": "string"
+        }
+      }
+    },
+    "observations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "observation_id",
+          "speaker_id",
+          "speaker_native_language",
+          "speaker_metadata_source",
+          "utterance_id",
+          "audio_identity",
+          "transcript",
+          "transcript_source",
+          "target",
+          "source_provenance",
+          "corpus_annotation",
+          "annotation_status",
+          "analysis_status",
+          "project_prompt"
+        ],
+        "properties": {
+          "observation_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "speaker_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "speaker_native_language": {
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "^[a-z]{2,3}(?:-[A-Za-z0-9]+)*$"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "speaker_metadata_source": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "path",
+              "sha256"
+            ],
+            "properties": {
+              "path": {
+                "type": "string",
+                "minLength": 1
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              }
+            }
+          },
+          "utterance_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "audio_identity": {
+            "anyOf": [
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "path",
+                  "sha256"
+                ],
+                "properties": {
+                  "path": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "sha256": {
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{64}$"
+                  }
+                }
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "transcript": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "transcript_source": {
+            "anyOf": [
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "path",
+                  "sha256"
+                ],
+                "properties": {
+                  "path": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "sha256": {
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{64}$"
+                  }
+                }
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "target": {
+            "anyOf": [
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "target_id",
+                  "target_surface",
+                  "target_reading",
+                  "target_mora_span",
+                  "target_vowel_class",
+                  "word_mora_indices",
+                  "mapping_basis",
+                  "lexical_identity"
+                ],
+                "properties": {
+                  "target_id": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "target_surface": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "target_reading": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "target_mora_span": {
+                    "const": 2
+                  },
+                  "target_vowel_class": {
+                    "enum": [
+                      "A",
+                      "I",
+                      "U",
+                      "E",
+                      "O"
+                    ]
+                  },
+                  "word_mora_indices": {
+                    "type": "array",
+                    "minItems": 2,
+                    "maxItems": 2,
+                    "items": {
+                      "type": "integer",
+                      "minimum": 0
+                    }
+                  },
+                  "mapping_basis": {
+                    "enum": [
+                      "PROLONGED_MARK",
+                      "KANA_SEQUENCE"
+                    ]
+                  },
+                  "lexical_identity": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "source_provenance": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "provider",
+              "record_id",
+              "task_structure",
+              "source_record"
+            ],
+            "properties": {
+              "provider": {
+                "type": "string",
+                "minLength": 1
+              },
+              "record_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "task_structure": {
+                "enum": [
+                  "SINGLE_SPEAKER_READING",
+                  "SINGLE_SPEAKER_TRANSCRIBED",
+                  "MULTI_SPEAKER",
+                  "UNKNOWN"
+                ]
+              },
+              "source_record": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "path",
+                  "sha256"
+                ],
+                "properties": {
+                  "path": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "sha256": {
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{64}$"
+                  }
+                }
+              }
+            }
+          },
+          "corpus_annotation": {
+            "anyOf": [
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "source_label",
+                  "source_label_provenance",
+                  "source_record"
+                ],
+                "properties": {
+                  "source_label": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "source_label_provenance": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "source_record": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "path",
+                      "sha256"
+                    ],
+                    "properties": {
+                      "path": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "sha256": {
+                        "type": "string",
+                        "pattern": "^[0-9a-f]{64}$"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "annotation_status": {
+            "const": "UNANNOTATED"
+          },
+          "analysis_status": {
+            "const": "NOT_ANALYSED"
+          },
+          "project_prompt": {
+            "anyOf": [
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "pack_path",
+                  "pack_sha256",
+                  "prompt_id"
+                ],
+                "properties": {
+                  "pack_path": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "pack_sha256": {
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{64}$"
+                  },
+                  "prompt_id": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "source_type": {
+            "const": "CONTROLLED_LEARNER_RECORDING"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "observations": {
+            "items": {
+              "properties": {
+                "project_prompt": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "pack_path",
+                    "pack_sha256",
+                    "prompt_id"
+                  ],
+                  "properties": {
+                    "pack_path": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "pack_sha256": {
+                      "type": "string",
+                      "pattern": "^[0-9a-f]{64}$"
+                    },
+                    "prompt_id": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  }
+                },
+                "corpus_annotation": {
+                  "type": "null"
+                }
+              }
+            }
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "observations": {
+            "items": {
+              "properties": {
+                "project_prompt": {
+                  "type": "null"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

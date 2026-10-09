@@ -1,0 +1,75 @@
+{
+  "schema_version": "0.1",
+  "prompt_pack_id": "learner-pilot-v1",
+  "prompt_pack_version": 1,
+  "authorship": "SELF_AUTHORED_FOR_THIS_PROJECT",
+  "reading_policy": "SUDACHI_CORE_SPLIT_B_WORD_LOCAL_EXCLUDING_SENTENCE_PUNCTUATION",
+  "prompts": [
+    {
+      "prompt_id": "learner-v1-001",
+      "text": "新しいスマートフォンを机に置きました。",
+      "expected_reading": "アタラシイスマートフォンヲツクエニオキマシタ",
+      "expected_mora_count": 21,
+      "targets": [
+        {
+          "target_id": "learner-v1-001-target-01",
+          "surface_hint": "スマートフォン",
+          "expected_word_reading": "スマートフォン",
+          "word_mora_indices": [
+            1,
+            2
+          ],
+          "expected_reading_region": "マー",
+          "expected_candidate_type": "PROLONGED_MARK",
+          "orthographic_pattern": "PROLONGED_MARK",
+          "expected_vowel_class": "A",
+          "expected_mora_span": 2
+        }
+      ]
+    },
+    {
+      "prompt_id": "learner-v1-002",
+      "text": "来月、舞台でデビューします。",
+      "expected_reading": "ライゲツブタイデデビューシマス",
+      "expected_mora_count": 14,
+      "targets": [
+        {
+          "target_id": "learner-v1-002-target-01",
+          "surface_hint": "デビュー",
+          "expected_word_reading": "デビュー",
+          "word_mora_indices": [
+            1,
+            2
+          ],
+          "expected_reading_region": "ビュー",
+          "expected_candidate_type": "PROLONGED_MARK",
+          "orthographic_pattern": "PROLONGED_MARK",
+          "expected_vowel_class": "U",
+          "expected_mora_span": 2
+        }
+      ]
+    },
+    {
+      "prompt_id": "learner-v1-003",
+      "text": "このシリーズを週末に見ます。",
+      "expected_reading": "コノシリーズヲシュウマツニミマス",
+      "expected_mora_count": 15,
+      "targets": [
+        {
+          "target_id": "learner-v1-003-target-01",
+          "surface_hint": "シリーズ",
+          "expected_word_reading": "シリーズ",
+          "word_mora_indices": [
+            1,
+            2
+          ],
+          "expected_reading_region": "リー",
+          "expected_candidate_type": "PROLONGED_MARK",
+          "orthographic_pattern": "PROLONGED_MARK",
+          "expected_vowel_class": "I",
+          "expected_mora_span": 2
+        }
+      ]
+    }
+  ]
+}

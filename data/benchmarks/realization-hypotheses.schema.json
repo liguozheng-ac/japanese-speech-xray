@@ -1,0 +1,108 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Canonical and experimental reduced hypotheses",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "target",
+    "canonical",
+    "reduced",
+    "phone_index",
+    "status",
+    "reasons"
+  ],
+  "properties": {
+    "target": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "target_id",
+        "surface",
+        "reading",
+        "word_index",
+        "word_mora_indices",
+        "vowel_class",
+        "mapping_basis",
+        "mora_span"
+      ],
+      "properties": {
+        "target_id": {
+          "type": "string"
+        },
+        "surface": {
+          "type": "string"
+        },
+        "reading": {
+          "type": "string"
+        },
+        "word_index": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "word_mora_indices": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "vowel_class": {
+          "enum": [
+            "A",
+            "I",
+            "U",
+            "E",
+            "O"
+          ]
+        },
+        "mapping_basis": {
+          "type": "string"
+        },
+        "mora_span": {
+          "const": 2
+        }
+      }
+    },
+    "canonical": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "reduced": {
+      "anyOf": [
+        {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "phone_index": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "status": {
+      "enum": [
+        "EVIDENCE_AVAILABLE",
+        "UNSUPPORTED_REDUCED_HYPOTHESIS"
+      ]
+    },
+    "reasons": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

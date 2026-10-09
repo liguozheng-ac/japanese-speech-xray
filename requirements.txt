@@ -1,0 +1,9 @@
+-r services/speech-api/requirements-product-api.lock.txt
+librosa==1.0.0
+numpy==2.5.3
+SoundFile==0.14.0
+scipy==1.18.1
+numba==0.68.0
+llvmlite==0.50.0
+SudachiPy==0.6.11
+SudachiDict-core==20260116

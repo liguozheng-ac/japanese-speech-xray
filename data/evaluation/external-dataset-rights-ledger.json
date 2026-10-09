@@ -1,0 +1,17 @@
+{
+  "schema_version": "0.1",
+  "dataset_id": "I-JAS",
+  "source_type": "EXTERNAL_LEARNER_CORPUS",
+  "status": "CANDIDATE_ONLY_NO_LOCAL_EXPORT_OBTAINED",
+  "official_information_url": "https://www2.ninjal.ac.jp/jll/lsaj/ijas-search-info.html",
+  "checked_date": "2026-10-02",
+  "access_record": null,
+  "permissions": {
+    "local_analysis": "UNKNOWN",
+    "derived_feature_publication": "UNKNOWN",
+    "aggregate_publication": "UNKNOWN",
+    "raw_audio_redistribution": "UNKNOWN",
+    "transcript_redistribution": "UNKNOWN"
+  },
+  "notes": "Public introduction establishes registration/application and attribution requirements, not this project's access or publication permissions. Only legitimately obtained local exports may be staged privately; no acquisition or redistribution tooling."
+}

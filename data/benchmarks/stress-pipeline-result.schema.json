@@ -1,0 +1,160 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Recovered alignment and evidence",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "case_id",
+    "base_id",
+    "speaker_id",
+    "target_id",
+    "schema_version",
+    "material_kind",
+    "representation",
+    "checks",
+    "failure_categories",
+    "reason_codes",
+    "sources",
+    "final_status",
+    "estimated_span",
+    "rate_context",
+    "duration",
+    "deviation"
+  ],
+  "properties": {
+    "case_id": {
+      "type": "string"
+    },
+    "base_id": {
+      "type": "string"
+    },
+    "speaker_id": {
+      "type": "string"
+    },
+    "target_id": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "0.1"
+    },
+    "material_kind": {
+      "const": "CONTROLLED_DURATION_PERTURBATION"
+    },
+    "representation": {
+      "const": "MFA_ESTIMATED_ALIGNMENT_PIPELINE_RESULT"
+    },
+    "checks": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "title": "Stage checks",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mfa_completed",
+        "textgrid_valid",
+        "target_phone_found",
+        "long_vowel_mapping_valid",
+        "mora_span_preserved",
+        "target_inside_wav_domain",
+        "acoustic_evidence_available",
+        "normalized_duration_available",
+        "deviation_evidence_available"
+      ],
+      "properties": {
+        "mfa_completed": {
+          "type": "boolean"
+        },
+        "textgrid_valid": {
+          "type": "boolean"
+        },
+        "target_phone_found": {
+          "type": "boolean"
+        },
+        "long_vowel_mapping_valid": {
+          "type": "boolean"
+        },
+        "mora_span_preserved": {
+          "type": "boolean"
+        },
+        "target_inside_wav_domain": {
+          "type": "boolean"
+        },
+        "acoustic_evidence_available": {
+          "type": "boolean"
+        },
+        "normalized_duration_available": {
+          "type": "boolean"
+        },
+        "deviation_evidence_available": {
+          "type": "boolean"
+        }
+      }
+    },
+    "failure_categories": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "MFA_FAILURE",
+          "TARGET_PHONE_NOT_FOUND",
+          "MORA_MAPPING_FAILURE",
+          "DOMAIN_FAILURE",
+          "NO_VOICED_FRAMES",
+          "NORMALIZATION_FAILURE",
+          "DEVIATION_ABSTENTION",
+          "MANIPULATION_FAILURE",
+          "ACOUSTIC_EXTRACTION_FAILURE"
+        ]
+      }
+    },
+    "reason_codes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "sources": {
+      "type": "object"
+    },
+    "final_status": {
+      "enum": [
+        "EVIDENCE_AVAILABLE",
+        "ABSTAIN"
+      ]
+    },
+    "estimated_span": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "rate_context": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "duration": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "deviation": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "unresolved_items": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "whole_audio_extraction_status": {
+      "type": "string"
+    },
+    "target_acoustics": {
+      "type": "object"
+    }
+  }
+}

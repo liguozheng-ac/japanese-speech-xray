@@ -1,0 +1,32 @@
+[
+  {
+    "kind": "acoustic",
+    "identifier": "japanese_mfa",
+    "release_version": "v3.0.0",
+    "release_url": "https://github.com/MontrealCorpusTools/mfa-models/releases/tag/acoustic-japanese_mfa-v3.0.0",
+    "path": ".mfa/pretrained_models/acoustic/japanese_mfa.zip",
+    "bytes": 92191596,
+    "sha256": "85928FFB1024486872A677A92E1FA94D2F997462D0B84C73A58AA9BB0E35179A",
+    "license": "CC-BY-4.0"
+  },
+  {
+    "kind": "dictionary",
+    "identifier": "japanese_mfa",
+    "release_version": "v3.0.0",
+    "release_url": "https://github.com/MontrealCorpusTools/mfa-models/releases/tag/dictionary-japanese_mfa-v3.0.0",
+    "path": ".mfa/pretrained_models/dictionary/japanese_mfa.dict",
+    "bytes": 21264022,
+    "sha256": "4A0C66760576E4B7F3748F3169E7D5217C0135F857F0B5D34637C93A85FD1C91",
+    "license": "CC-BY-4.0"
+  },
+  {
+    "kind": "g2p",
+    "identifier": "japanese_mfa",
+    "release_version": "v2.0.1a",
+    "release_url": "https://github.com/MontrealCorpusTools/mfa-models/releases/tag/g2p-japanese_mfa-v2.0.1a",
+    "path": ".mfa/pretrained_models/g2p/japanese_mfa.zip",
+    "bytes": 9090376,
+    "sha256": "02B575810AB60BF4597273478C5CFD3342CFB0302AE50BBBBF3BFA51D6D39197",
+    "license": "CC-BY-4.0"
+  }
+]

@@ -1,0 +1,31 @@
+{
+  "schema_version": "0.1",
+  "fixture_role": "AUTHORED_METADATA_STRUCTURE_ONLY_NOT_REAL_I_JAS",
+  "source_type": "EXTERNAL_LEARNER_CORPUS",
+  "speaker_native_language": "zh",
+  "metadata_basis": "AUTHORED_FIXTURE",
+  "target": {
+    "target_id": "authored-coffee",
+    "target_surface": "コーヒー",
+    "target_reading": "コーヒー",
+    "target_mora_span": 2,
+    "target_vowel_class": "O",
+    "word_mora_indices": [
+      0,
+      1
+    ],
+    "mapping_basis": "PROLONGED_MARK",
+    "lexical_identity": "コーヒー"
+  },
+  "cases": [
+    "valid_provenance",
+    "missing_transcript",
+    "missing_audio",
+    "unknown_speaker",
+    "unsupported_target",
+    "corpus_label_present",
+    "corpus_label_absent"
+  ],
+  "real_audio": null,
+  "real_transcript": null
+}

@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "human-annotation v0.1",
+  "description": "Structural contract; runtime additionally verifies private paths, pinned source contents, identifiers, identity relationships and workflow invariants.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "annotation_id",
+    "evaluation_run_id",
+    "observation_id",
+    "blind_package_sha256",
+    "annotator_id",
+    "category",
+    "blind_attestation",
+    "target_start_ms",
+    "target_end_ms",
+    "boundary_method",
+    "annotation_tool",
+    "notes"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "0.1"
+    },
+    "annotation_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "evaluation_run_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "observation_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "blind_package_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "annotator_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "category": {
+      "enum": [
+        "LONG_VOWEL_REALIZED",
+        "LONG_VOWEL_REDUCED_OR_ABSENT",
+        "UNCERTAIN",
+        "UNUSABLE_AUDIO",
+        "TARGET_NOT_REALIZED"
+      ]
+    },
+    "blind_attestation": {
+      "const": true
+    },
+    "target_start_ms": {
+      "anyOf": [
+        {
+          "type": "number",
+          "minimum": 0
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "target_end_ms": {
+      "anyOf": [
+        {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "boundary_method": {
+      "enum": [
+        "NOT_MEASURED",
+        "MANUAL_ACOUSTIC_REVIEW"
+      ]
+    },
+    "annotation_tool": {
+      "type": "string",
+      "minLength": 1
+    },
+    "notes": {
+      "type": "string"
+    }
+  }
+}

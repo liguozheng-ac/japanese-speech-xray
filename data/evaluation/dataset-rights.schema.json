@@ -1,0 +1,117 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "dataset-rights v0.1",
+  "description": "Structural contract; runtime additionally verifies private paths, pinned source contents, identifiers, identity relationships and workflow invariants.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "record_id",
+    "dataset_id",
+    "dataset_version",
+    "source_type",
+    "access_basis",
+    "access_record",
+    "permissions",
+    "review_notes"
+  ],
+  "properties": {
+    "record_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "dataset_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "dataset_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_type": {
+      "enum": [
+        "CONTROLLED_LEARNER_RECORDING",
+        "EXTERNAL_LEARNER_CORPUS"
+      ]
+    },
+    "access_basis": {
+      "type": "string",
+      "minLength": 1
+    },
+    "access_record": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "path",
+            "sha256"
+          ],
+          "properties": {
+            "path": {
+              "type": "string",
+              "minLength": 1
+            },
+            "sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          }
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "permissions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "local_analysis",
+        "derived_feature_publication",
+        "aggregate_publication",
+        "raw_audio_redistribution",
+        "transcript_redistribution"
+      ],
+      "properties": {
+        "local_analysis": {
+          "enum": [
+            "YES",
+            "NO",
+            "UNKNOWN"
+          ]
+        },
+        "derived_feature_publication": {
+          "enum": [
+            "YES",
+            "NO",
+            "UNKNOWN"
+          ]
+        },
+        "aggregate_publication": {
+          "enum": [
+            "YES",
+            "NO",
+            "UNKNOWN"
+          ]
+        },
+        "raw_audio_redistribution": {
+          "enum": [
+            "YES",
+            "NO",
+            "UNKNOWN"
+          ]
+        },
+        "transcript_redistribution": {
+          "enum": [
+            "YES",
+            "NO",
+            "UNKNOWN"
+          ]
+        }
+      }
+    },
+    "review_notes": {
+      "type": "string"
+    }
+  }
+}

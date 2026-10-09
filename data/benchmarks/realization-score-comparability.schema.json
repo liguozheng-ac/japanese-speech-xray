@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Auxiliary score comparability",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "comparable",
+    "reasons",
+    "usage"
+  ],
+  "properties": {
+    "comparable": {
+      "enum": [
+        true,
+        false,
+        "inconclusive"
+      ]
+    },
+    "reasons": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "usage": {
+      "enum": [
+        "DESCRIPTIVE_ONLY",
+        "AUXILIARY_ENGINEERING_DESCRIPTION_NO_VARIANT_DECISION"
+      ]
+    }
+  }
+}
