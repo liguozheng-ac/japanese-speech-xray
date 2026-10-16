@@ -1,8 +1,8 @@
-# 精确环境依赖与许可元数据
+# Exact environment dependencies and license metadata
 
-本次候选独立环境实际安装记录。此清单不表示随仓库再分发环境二进制；许可证字段来自 conda-forge 包记录，复杂组件以各包完整 LICENSE／NOTICE 为准。历史 MFA 锁不代表本表全部安装。
+Actual installed metadata from the independent public environment. No environment binaries are redistributed. Conda license fields are metadata; full package LICENSE/NOTICE files govern bundled components. The historical MFA lock is not a claim that all of those packages are installed here.
 
-| 包 | 版本 | Build | 许可元数据 | 官方包 URL |
+| Package | Version | Build | License metadata | Official package URL |
 | --- | --- | --- | --- | --- |
 | _python_abi3_support | 1.0 | hd8ed1ab_3 | MIT | [conda-forge](https://conda.anaconda.org/conda-forge/noarch/_python_abi3_support-1.0-hd8ed1ab_3.conda) |
 | backports.zstd | 1.7.0 | py313h2a31948_1 | BSD-3-Clause AND MIT AND EPL-2.0 | [conda-forge](https://conda.anaconda.org/conda-forge/win-64/backports.zstd-1.7.0-py313h2a31948_1.conda) |
@@ -130,9 +130,9 @@
 | zlib-ng | 2.3.3 | h0261ad2_1 | Zlib | [conda-forge](https://conda.anaconda.org/conda-forge/win-64/zlib-ng-2.3.3-h0261ad2_1.conda) |
 | zstd | 1.5.7 | h534d264_7 | BSD-3-Clause | [conda-forge](https://conda.anaconda.org/conda-forge/win-64/zstd-1.5.7-h534d264_7.conda) |
 
-## HTTP 层 pip 锁
+## HTTP-layer pip lock
 
-| 包 | 实际版本 | 安装包许可元数据 |
+| Package | Actual version | Installed-package license metadata |
 | --- | --- | --- |
 | annotated-doc | 0.0.5 | MIT |
 | annotated-types | 0.8.0 | MIT |

@@ -1,41 +1,33 @@
-# 验证收据
+# Verification receipts
 
-日期：Phase A 2026-10-09；Phase B 2026-10-10。平台：Windows x64，独立 Conda prefix，Python 3.13.15。实际版本见依赖清单；不依赖原产品的 Python prefix 或私人配置。
+Phase A: 2026-10-09. Phase B: 2026-10-10. Platform: Windows x64, independent Conda prefix, Python 3.13.15. The 2026-10-16 update changes documentation and display assets only; the table below is explicitly historical, not a new test run.
 
-## 历史与本轮测试分别报告
-
-| 收据 | 总数 | 通过 | 失败 | 错误 | 跳过 | 说明 |
+| Scope | Total | Passed | Failures | Errors | Skipped | Receipt |
 | --- | --- | --- | --- | --- | --- | --- |
-| 原完整 V1.0 历史前端 | 95 | 95 | 0 | 0 | 0 | 用户接受的旧收据，本轮未重跑 |
-| 原完整 V1.0 历史后端 | 565 | 565 | 0 | 0 | 0 | 旧收据，本轮未重跑 |
-| Phase A 公开候选历史 | 548 | 543 | 0 | 0 | 5 | 2026-10-09 实际独立运行，约 65.76 s |
-| Phase B 发布前重跑 | 548 | 543 | 0 | 0 | 5 | 2026-10-10 实际运行，运行器 67.212 s；同一套测试，没有删除用例 |
+| Accepted local V1 frontend | 95 | 95 | 0 | 0 | 0 | Historical user-accepted result; not rerun here |
+| Accepted local V1 backend | 565 | 565 | 0 | 0 | 0 | Historical result; broader than the public checkout |
+| Public checkout, Phase A | 548 | 543 | 0 | 0 | 5 | Actually run 2026-10-09, about 65.76 seconds |
+| Public checkout, Phase B | 548 | 543 | 0 | 0 | 5 | Actually run 2026-10-10; runner 67.212 seconds |
 
-原完整产品历史 typecheck／build PASS。本轮无前端源码，所以不运行 React 构建。公开候选 pip check、editable 安装、Python compileall、wheel 构建实际通过；wheel 不打包配置和网页。
+The full local V1 also passed its historical TypeScript/build checks. The public checkout does not include React source and does not claim to build that interface. Public editable install, pip check, compileall and wheel build were actually verified in Phase B. The wheel contains 129 backend Python modules and license notices, not product assets or all runtime configuration.
 
-跳过项：2 个原有 JVS 私人语料集成检查、3 个需要 Haruka WAV 的真实资源提取／哈希／保留策略检查。测试名称在运行器输出的 PUBLIC_TEST_RECEIPT 中保留。原产品测试没有被修改或删除。部分整轮私有集成和 Narabas 冻结资源测试未导出，逐文件排除记录只在私有审计材料。
+The five skips are two optional JVS corpus checks and three Haruka audio/resource checks. They remain skips, not passes. Private integrations and frozen research-resource tests were not all exported; individual exclusion records remain private. No test was deleted in this documentation update.
 
-## Phase A 实际 TCP 服务（历史）
+## Real TCP checks
 
-没有注入模拟 analyzer；实际 uvicorn 服务与 HTTP 请求通过 9 项检查：
+Nine checks ran against a real uvicorn service, without an injected analyzer:
 
-- 生存 200、句子目录 200、OpenAPI 200。
-- 实验 readiness 503，明确列出对齐与参考缺失；基础音高仍可用。
-- 220 Hz 工程输入：100 帧、75 帧准入，中位数 220.6358 Hz；本次处理约 1.26 s。
-- 全静音：ABSTAINED / LOW_ENERGY_NO_F0，F0 全 null。
-- 立体声与 MP3 头：422。
-- 实验分析：503 / REFERENCE_ARTIFACT_MISSING，没有制造成功结果。
+- Liveness, prompt catalog and OpenAPI: 200.
+- Experimental readiness: 503 with missing resource components; independent input-pitch extraction still available.
+- A generated 220 Hz tone: 100 frames, 75 accepted voiced frames, median 220.6358 Hz; reference unavailable explicitly.
+- Silence: ABSTAINED / LOW_ENERGY_NO_F0, all F0 values null.
+- Stereo and MP3-header input: 422.
+- Experimental analysis: 503 / REFERENCE_ARTIFACT_MISSING, no fabricated result.
 
-本次启动约 0.73 s，仅是该机器一次观测，不是性能承诺。F0 工程示例单独运行约 1.21 s，首次 JIT／不同输入耗时可能不同。本轮没有做真人准确率研究、真实 MFA 端到端或速度优化。
+Phase A observed approximately 0.73 seconds startup and 1.26 seconds tone HTTP processing. Phase B observed 0.888 seconds startup and 1.34 seconds tone HTTP processing. These are individual engineering observations, not human-speech accuracy or latency guarantees. The generated tone example is not a real learner recording.
 
-原始日志与环境安装、许可、Git 安全收据保留在本地私有审计目录，未进入公开候选。候选完整清单与内容哈希用于复核发布内容。
+Phase B wheel SHA-256: 1145699167b0a5da457c71ba5f7075ab1267c49a3b3236de65ef85539a6df796; 222808 bytes. The artifact and raw receipts remain private and were not published to a package registry.
 
-## Phase B 发布前重跑（2026-10-10）
+## Documentation update checks
 
-本轮仅更新限定范围许可证、包元数据、README、权利边界和验证文件，没有修改 198 份 Python 文件。editable 安装、pip check、compileall 与 wheel 构建全部通过。wheel 内有 129 个后端 Python 文件及标准许可／范围／第三方 notices；`License-Expression: MIT` 只描述这些自有代码，不包含前端、音频、模型、截图或配置。
-
-实际 uvicorn TCP 再次执行全部 9 项检查，结果与 Phase A 相同：LIVE／句子目录／OpenAPI 200，缺少对齐与参考时 readiness 503；工程输入保留用户 F0 并明确合成参考不可用；静音弃权；立体声及 MP3 头拒绝；实验分析因参考资源缺失返回 503。
-
-本轮观测：启动约 0.89 s；220 Hz 工程信号 100 帧、75 有声帧、中位数 220.6358 Hz，HTTP 处理约 1.34 s。工程信号示例也实际重跑；以上不是真人语音准确率或性能保证。
-
-公开文件清单绑定最终 index Blob。Git 审计与发布日志保存为本地私有材料，不随 GitHub 发布。
+The English showcase is checked separately for relative links, image dimensions, source-matched diagram paths, English explanatory labels, unchanged numeric demo values, unchanged MIT-covered Python blobs, excluded frontend/audio/model files, and final Git/remote consistency. This is not a fresh acoustic experiment or performance benchmark.

@@ -1,35 +1,75 @@
-# Japanese Speech X-Ray — Partially Open-Source Backend
+# Japanese Speech X-Ray
 
-把日语练习中的声音变成可观察的证据：原音、波形、音高、有声片段，以及独立标注为实验功能的自动对齐。
+**Make Japanese speech visible.**
 
-本仓库公开 Japanese Speech X-Ray 的自有 Python 后端、语音分析实现与相关工程资料。完整 React 前端、交互界面源码及原创视觉素材不在公开范围内。
+An evidence-aware pronunciation visualization toolkit for inspecting original audio, pitch and intonation, speech structure, and descriptive reference comparisons. Built around three controlled Japanese practice sentences, with explicit uncertainty instead of uncalibrated pronunciation scores.
 
-**部分开源：** 经审核的 198 份自有 Python 后端、测试、工具与示例代码采用 [MIT](LICENSE)，以 [LICENSE-SCOPE.md](LICENSE-SCOPE.md) 的逐文件清单为准。截图、项目文档、品牌与第三方资源不因此取得 MIT 授权。
+**Python · FastAPI · librosa / pYIN · MFA integration · React / TypeScript product interface**
 
-## 产品预览
+## System architecture
 
-![真实工作区空态](docs/images/workspace-empty.jpg)
+![Japanese Speech X-Ray system architecture](docs/images/system-architecture.svg)
 
-截图来自实际本地产品，显示空会话；完整交互界面采用私有前端实现，不在本公开仓库提供。截图不含私人录音、第三方音频曲线或动态背景画面。来源见 [截图审核](docs/SCREENSHOT-REVIEW.md)。
+The browser handles capture, waveform inspection, playback and session state. FastAPI exposes an **independent prosody service** and a separate **experimental X-Ray pipeline**. Optional speech resources and offline research are kept outside the default execution path.
 
-## 已提供的工程能力
+[Architecture details and editable Mermaid](docs/ARCHITECTURE.md)
 
-- 严格的 Mono PCM16 RIFF WAV 准入：8–48 kHz、最长 30 秒；拒绝 MP3、立体声和超限输入，不静默转换。
-- librosa pYIN 真实 F0、原始时间戳、有声标记、概率证据及 RMS；缺少证据时明确弃权。
-- FastAPI 音高接口可独立运行，不要求 MFA／Narabas 音素边界。
-- 三条受控练习句目录、请求边界、资源哈希校验、关联 ID、实验分析进度及取消控制。
-- 自有 MFA 集成、TextGrid 解析、日语音拍映射、声学证据、参考统计与离线实验工具。
-- 作者编写的测试与结构示例；没有打包真人语料、模型或合成参考 WAV。
+## End-to-end processing
 
-**直接可运行：** WAV 验证、真实 pYIN 工程信号、API 句子目录、单元测试。
+![End-to-end audio processing with independent practice, pitch and experimental alignment paths](docs/images/processing-flow.svg)
 
-**需外部资源：** 实验对齐和母语者参考比较。默认返回不可用，不生成虚假的完整 X-Ray。Narabas 适配源码保留作研究记录，默认未启用，权重及研究数据不提供。
+- **Local practice:** inspect the actual waveform, select regions and listen repeatedly without waiting for automatic alignment.
+- **Pitch and intonation:** extract F0 from the original PCM rate; retain only supported voiced frames and leave unreliable regions blank.
+- **Experimental X-Ray:** use resource-validated MFA alignment, temporal structure mapping and descriptive acoustic/reference evidence. Automatic boundaries are candidates, not ground truth.
 
-## 快速复现
+[Processing details and editable Mermaid](docs/PROCESSING-FLOW.md)
 
-验证平台：Windows x64、Python 3.13.15。需先从 [官方渠道](https://github.com/conda-forge/miniforge) 安装并初始化 Conda；本仓库不附带环境二进制。
+## Product showcase
 
-在仓库根目录执行 PowerShell：
+The following panels are English-localized documentation captures of the actual product components, rendered with the existing saved DEMO. Numeric results and time coordinates are unchanged. Japanese utterances and model-native phone symbols are intentionally preserved.
+
+The DEMO uses **Microsoft Haruka Desktop synthetic speech**, not a human learner recording. Its input and same-sentence reference use the **same synthetic WAV**: matching contours demonstrate the interface, not pronunciation accuracy. The audio, private analysis JSON and frontend implementation are not distributed here.
+
+### Pitch and intonation
+
+![Actual product pitch panel with saved pYIN evidence and the same-sentence synthetic reference](docs/images/demo-pitch.png)
+
+Real pYIN F0 estimates are plotted on each recording's original time axis. Gaps remain visible where voicing or energy evidence is insufficient; lower-confidence voiced segments are shown more lightly. The product also supports a relative-semitone view using each track's own voiced-F0 median as its baseline. There is no phoneme time alignment, time stretching, Tokyo-accent classification or personal correctness score in this module.
+
+### Speech structure
+
+![Actual product speech structure panel: waveform, word, mora and model-native phone layers](docs/images/demo-structure.png)
+
+Inspect a target word against its actual waveform and experimental Word / Mora / Phone layers. The view preserves model-native phone labels and original intervals. A long-vowel interval may be shared by two morae; the interface does not invent an internal boundary or replace an inconvenient model output with the expected target symbol.
+
+### Native-speaker reference context
+
+![Actual product reference panel with a descriptive statistical summary and demo-audio marker](docs/images/demo-reference.png)
+
+This research-oriented panel places a rate-normalized candidate duration alongside a historical JVS reference summary. The displayed values are **dimensionless**, not seconds or scores. The line and interquartile segment summarize available statistics; no histogram frequencies are fabricated. Cross-sentence equivalence and automatic target boundaries have not been independently validated, so the reference median is not a pronunciation pass/fail threshold. Only the displayed static summary is included; speaker-level records and the reference corpus remain excluded.
+
+### Focused evidence and audition
+
+![Actual product evidence panel with candidate timing, audition controls and explicit limitations](docs/images/demo-evidence.png)
+
+Review the candidate interval, target-word audition range, normalization result and experimental realization evidence in one place. Playback is tied to the underlying audio interval rather than a schematic replacement. The system separates measured values, model candidates and unavailable evidence; it does not turn an experimental candidate comparison into a clinical or educational diagnosis.
+
+Static captures show the product interface, not an online service. [Capture provenance and display scope](docs/SCREENSHOT-REVIEW.md).
+
+## Engineering capabilities
+
+- Strict **Mono PCM16 RIFF WAV** admission: 8–48 kHz, up to 30 seconds and 10 MiB by default. Unsupported uploads are rejected without silent downmixing or resampling.
+- Original-rate **F0, timestamps, voicing evidence and RMS** through librosa pYIN, with explicit `AVAILABLE` / `ABSTAINED` outcomes.
+- An independent prosody endpoint that does not require MFA or Narabas boundaries; missing synthetic references do not discard the input track.
+- Controlled prompt identities, resource hashes, typed evidence responses and request correlation IDs.
+- Bounded experimental execution, real stage polling, process-tree cancellation and temporary-workspace cleanup.
+- MFA integration, TextGrid parsing, Japanese mora mapping, acoustic evidence methods and offline evaluation tools.
+
+The source checkout directly supports WAV validation, prompt discovery, engineering-signal F0 extraction and tests. Full experimental alignment and reference comparison require separately obtained, compatible resources. Narabas adapters remain research-only and are not activated by default.
+
+## Quick start
+
+Verified environment: **Windows x64 / Python 3.13.15**. Install and initialize Conda from an [official distribution](https://github.com/conda-forge/miniforge) first. From the repository root, run PowerShell:
 
 ```powershell
 conda create --prefix ./.venv --file environment-public-win-64.explicit.txt
@@ -42,36 +82,38 @@ python examples/prosody_smoke.py
 python -m uvicorn speech_xray.api.app:app --host 127.0.0.1 --port 8000
 ```
 
-这段命令启动本地 API，不启动完整网页。Windows 必须激活环境，使 SoundFile 能找到 libsndfile DLL。环境 URL 锁属于 win-64；其他平台未验证。
+These commands start the local API, not the private browser application. Activate the environment on Windows so SoundFile can resolve `libsndfile.dll`. The explicit environment lock targets `win-64`; other platforms have not been verified. The wheel contains Python modules, not all runtime configuration or product assets, so normal reproduction uses the source checkout.
 
-无需对齐资源的 API 示例及可自行生成的非语音输入见 [复现说明](docs/REPRODUCIBILITY.md)。实验对齐配置见 [可选资源](docs/OPTIONAL-RESOURCES.md)。
+[Reproduction guide and API examples](docs/REPRODUCIBILITY.md) · [Optional alignment/reference resources](docs/OPTIONAL-RESOURCES.md)
 
-## 架构与工程决策
+## Verification
 
-[架构](docs/ARCHITECTURE.md) 区分私有产品层、公开后端、未激活研究组件。
+| Scope | Result | Evidence status |
+| --- | --- | --- |
+| Accepted local V1 frontend | 95 / 95 | Historical V1 receipt; not a fresh whole-product test run |
+| Accepted local V1 backend | 565 / 565 | Historical V1 receipt; separate from the public checkout |
+| Public backend, Phase B | 548 total: 543 passed, 5 skipped, 0 failures/errors | Actually rerun on 2026-10-10 |
+| Public API engineering checks | 9 / 9 | Real TCP service, no injected analysis stub |
 
-[工程决策](docs/TECHNICAL-DECISIONS.md) 记录证据门禁、资源隔离和公开候选适配。
+The five skips require excluded JVS / Haruka resources. Tests cover engineering signals, authored structural fixtures and adapter behavior; they do not certify human acoustic accuracy. This documentation update does not present historical receipts as newly executed tests.
 
-音高曲线只绘制实际可用帧，空白不直接代表停顿或发音错误。自动音素候选不等于真实边界；合成参考不是母语者准确性标准。本项目不提供未经校准的个人正确率、重音合格判断或综合分数。
+The public API was verified to retain input F0 when a synthetic reference is absent, abstain on silence, reject invalid input, and report missing experimental resources explicitly. [Detailed receipts](docs/VERIFICATION.md).
 
-## 验证与限制
+## Scope and limitations
 
-Phase A 独立候选历史测试：**548 项，543 通过，0 失败，0 错误，5 跳过**。5 项涉及未提供的 JVS／Haruka 音频。测试采用工程信号、作者结构夹具及必要的模拟适配器，不代表真人声学准确率认证。
+- Three controlled practice sentences; no unrestricted ASR or open-ended pronunciation diagnosis.
+- F0 estimates can be sparse or incorrect; blank regions are not automatically pauses or pronunciation errors.
+- Synthetic references are not native-speaker accuracy standards. No calibrated personal score or accent pass/fail claim.
+- MFA analysis can take minutes on the verified local CPU environment. Automatic boundaries and historical reference statistics retain research limitations.
+- This repository provides the Python analysis implementation, tests and engineering tools. The React product source, audio, pretrained models and private research records are not included.
+- **No hosted interactive demo is currently deployed.** Public authentication, global rate limiting and multi-user isolation have not been accepted for production.
 
-Phase B 发布前于 2026-10-10 实际重跑：**548 项，543 通过，5 跳过，0 失败，0 错误**；后端安装、依赖检查、wheel 构建和 9 项真实 TCP 检查通过。未修改语音算法，也未将历史测试冒充本轮结果。
+[Known limitations](docs/KNOWN-LIMITATIONS.md) · [Engineering decisions](docs/TECHNICAL-DECISIONS.md)
 
-原完整 V1.0 历史收据：前端 95/95、后端 565/565，类型检查与构建通过；与公开后端测试分开统计。真实 TCP 服务、pYIN、静音弃权与非法音频拒绝已验证，详情见 [验证收据](docs/VERIFICATION.md)。
+## License and provenance
 
-真人 F0 仍可能稀疏；音高重音正确性未校准；MFA 可能需要分钟级时间；长元音自动诊断和参考分布未独立验证。产品仅支持三条受控练习句，详见 [已知限制](docs/KNOWN-LIMITATIONS.md)。
+The standard [MIT License](LICENSE) applies to the **198 author-owned Python files** explicitly listed in [LICENSE-SCOPE.md](LICENSE-SCOPE.md). Documentation, screenshots, diagrams, branding and third-party resources do not inherit that code license. Displayed figures are included for repository presentation with rights retained.
 
-## 在线演示
+The implementation was exported into an independent Git history from the accepted local `v1.0.0-local` snapshot. The original product history and tag were not imported. Third-party packages, speech resources and models retain their own license terms.
 
-在线交互演示正在准备中，后续将提供独立部署网址。网页前端源码与原创视觉素材不包含在本公开仓库中。
-
-## 来源、许可与范围
-
-后端快照基线：本地已验收标签 `v1.0.0-local`，Commit `9809309ea68855c814eb22bd21784889d0ff1df6`。公开仓库创建独立历史，没有继承完整产品的 Git 对象；Phase A 审查提交为 `dd064bc799e074e54bc0a899f5db814fbed0ab80`。
-
-自有代码的正式许可为 **MIT_LIMITED_SCOPE**：[MIT 全文](LICENSE) 与 [逐文件授权范围](LICENSE-SCOPE.md)。本仓库没有公开完整产品源码；第三方依赖继续适用其自身许可证。
-
-[第三方来源与许可](THIRD_PARTY.md) · [公开范围](docs/PUBLIC-RELEASE-SCOPE.md) · [完整文件清单](TASK-021-PUBLIC-FILE-MANIFEST.md)
+[Third-party sources](THIRD_PARTY.md) · [Publication scope](docs/PUBLIC-RELEASE-SCOPE.md) · [File manifest](TASK-021-PUBLIC-FILE-MANIFEST.md)

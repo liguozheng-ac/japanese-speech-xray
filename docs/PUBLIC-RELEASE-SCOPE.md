@@ -1,25 +1,22 @@
-# 公开发布范围
+# Publication scope
 
-TASK-021 Phase A 已通过审核；所有者于 2026-10-09 授权 Phase B 将独立候选公开至 `liguozheng-ac/japanese-speech-xray`，并将下列自有代码按限定范围 MIT 授权。完整产品仍为部分开源，网页不在本轮部署。
+TASK-021 Phase A reviewed the independent code export. Phase B published it under a limited MIT grant on 2026-10-10. On 2026-10-16 the owner separately requested an English GitHub presentation with visible architecture/data-flow diagrams and the existing product DEMO panels. The presentation update does not publish the frontend, audio, models or private research dataset and does not deploy a website.
 
-| 文件组 | 来源／自有属性 | 许可与数据审查 | 前端实现 | 纳入候选 |
-| --- | --- | --- | --- | --- |
-| services/speech-api/src 的 Python | 已验收后端、自有适配与方法 | 仅清单内自有 Python 采用 MIT；第三方仅通过依赖导入 | 无 | 是 |
-| scripts 中白名单工具 | 自有后端与离线处理脚本，逐文件 MIT | 真实语料／外部工具自行合法取得，不附资源 | 无 | 是 |
-| tests 与作者 TextGrid | 自有数学输入、契约及结构夹具 | Python 测试 MIT；TextGrid 未另行授权；无真人音频；私人集成测试排除／skip | 无 | 是 |
-| data 中限定的 prompts、schema、example、measurement identity | 作者句子、结构示例、哈希身份 | 示例不是录音结果；无研究分布或私人标签 | 无 | 是 |
-| 环境锁、pyproject、requirements | 精确官方包 URL 和版本说明 | 不附第三方环境二进制；许可另列 | 无 | 是 |
-| 新技术文档、文件清单 | 本次自有文档 | 不含私人路径和扫描明细 | 无 | 是 |
-| 作者练习清单、QA、模型资源说明 | 从冻结快照单独审核的文本 | 无音频、权重和参与者数据；仅资源身份 | 无 | 是 |
-| docs/images/workspace-empty.jpg | 实际产品空会话截图 | 本任务授权的清晰权利展示；无私人信息／第三方音频派生图 | 仅静态外观 | 是 |
-| 整个前端工程、构建物、Source Map、源码归档 | 用户原创、明确私有 | 发布范围排除，不因权利归属而自行公开 | 有 | 否 |
-| 原创动态背景视频与画面 | 用户原创、明确私有 | 视频不发布；本轮截图不含其画面 | 素材 | 否 |
-| 用户录音、人工标注、研究统计、私人日志 | 私人／研究材料 | 完整清单只留本地私有审计 | 无 | 否 |
-| JVS 音频、Narabas 权重、Haruka WAV、MFA 资源 | 第三方资源 | 未附带；分别核实与保留来源说明 | 无 | 否 |
-| 原始 .git、所有旧历史对象 | 完整产品历史 | 不复制、不引用为候选对象 | 可能含私有实现 | 否 |
+| File group | Provenance and rights | Included |
+| --- | --- | --- |
+| Listed Python backend, tests, tools and example | Author-owned code, explicitly enumerated in LICENSE-SCOPE.md; MIT | Yes |
+| Authored JSON schemas, structural fixtures, prompts and configuration | Individually reviewed structural material; not an audio corpus or MIT code grant | Yes |
+| Environment locks, requirements and package metadata | Official package identities; dependency binaries not bundled | Yes |
+| Technical documentation and file manifest | Reviewed prose and content hashes; no private audit paths | Yes |
+| Architecture / processing SVGs | New author-owned documentation figures reflecting existing code; display rights retained | Yes |
+| Empty workspace screenshot | Previously reviewed static product display; no private audio/results | Yes |
+| Four English-localized DEMO captures | Actual React components with unchanged saved synthetic-demo data; pitch/structure/aggregate reference/evidence panels; display-only | Yes |
+| Complete React source, browser recording code, build bundles and source maps | Private product implementation | No |
+| Original background video or its frames | Private visual material; not part of the showcase captures | No |
+| User recordings, manual annotations, raw response JSON, speaker-level statistics and audit logs | Private / research material | No |
+| JVS recordings, Haruka WAVs, Narabas weights, MFA pretrained resources | Separately governed resources; not distributed | No |
+| Original Git history and V1 tag objects | Not imported into this independent public history | No |
 
-逐文件来源、SHA-256 和审查分类见 [完整清单](../TASK-021-PUBLIC-FILE-MANIFEST.md)。原始路径、私人名单、风险位置和原始扫描／测试日志均不在候选内。
+Only the 198 Python paths in [LICENSE-SCOPE.md](../LICENSE-SCOPE.md) are granted MIT. Documentation, diagrams, screenshots, configuration and fixtures do not inherit that license. Dependencies retain their own terms.
 
-正式许可：MIT_LIMITED_SCOPE。仅 [LICENSE-SCOPE.md](../LICENSE-SCOPE.md) 列出的 198 个自有 Python 文件采用 [MIT](../LICENSE)。其余文档、JSON、结构夹具、配置及展示截图未在本轮获得 MIT 授权；第三方遵循各自许可。
-
-Phase B 授权仅覆盖已审查的独立历史和许可／公开文档更新。没有前端构建物、原视频、音频、模型、私人数据、Git LFS、Submodule 或 GitHub Actions 自动部署配置。本轮仅发布后端 GitHub 仓库，不部署网页、不推送原始 V1.0 标签。
+The [file manifest](../TASK-021-PUBLIC-FILE-MANIFEST.md) records the current paths, content hashes and publication category. Historical Phase A/B counts remain historical receipts; new documentation figures increase the current file count. No Git LFS, submodules, frontend build output or deployment workflow is introduced.

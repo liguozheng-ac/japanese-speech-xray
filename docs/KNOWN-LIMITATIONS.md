@@ -1,14 +1,15 @@
-# 已知限制
+# Known limitations
 
-- 真人 F0 可能稀疏；没有独立音高重音分类验证，曲线缺口不能自动判为停顿或错误。
-- 当前产品限制三条受控练习句，未提供自由 ASR 或开放句子的准确性承诺。
-- MFA CPU 分析在既有本地环境可能需要分钟级时间。公开候选没有随附运行时模型或研究参考，因此默认 /api/v1/analyses 返回资源缺失。
-- 自动 Word / Mora / Phone 是实验候选，长音区间、中位数与参考位置不构成个人合格标准。
-- 原本母语者参考的分布、语境等价性及实验自动边界未独立验证；本轮不重建、不激活 Narabas。
-- Haruka WAV 再分发依据未确认，本仓库不含该资源；参考曲线默认不可用。
-- 测试采用工程信号、作者结构夹具、模拟对齐器；5 项资源集成测试明确跳过。真人验收确认产品操作，不是声学准确率认证。
-- 只在 Windows x64 / Python 3.13.15 精确环境验证。Linux、macOS 与其他依赖版本没有验证；缺省 MFA 适配路径具有 Windows 工具假设。
-- 公开仓库只提供后端和方法，前端与浏览器录音源码不提供。MIT 仅覆盖 LICENSE-SCOPE.md 明确列出的自有 Python 代码；文档、截图与第三方资源另有权利边界。
-- GitHub 发布只开放经审核的后端范围，在线交互演示尚未部署。没有鉴权、限流、跨用户隔离及公网部署验收。
+- Human-recording F0 can be sparse or incorrect. Accent correctness has not been independently calibrated; gaps do not automatically indicate a pause or pronunciation error.
+- The product supports three controlled practice sentences. It is not an unrestricted ASR or open-sentence pronunciation diagnosis system.
+- MFA CPU analysis can take minutes in the verified local environment. Models, runtime resources and private reference profiles are not bundled; the public checkout reports missing resources explicitly.
+- Automatic Word / Mora / Phone intervals are experimental candidates. Duration values, medians and relative reference positions are not individual pass/fail criteria.
+- Historical reference statistics, cross-sentence equivalence and automatic target boundaries retain unresolved validation limits. This update does not rebuild references or activate Narabas.
+- Haruka Desktop WAV redistribution remains under review. Static product visualization is separately authorized for the repository; the audio and private response files remain excluded.
+- The saved DEMO uses one Haruka synthetic WAV as both input and same-sentence reference. Identical contours demonstrate the interface, not human performance or native-speaker accuracy.
+- Engineering tests use tones, authored structural fixtures and adapters. Human acceptance covers product operation, not independently measured acoustic accuracy. Resource-dependent skips remain explicit.
+- The exact public environment was verified on Windows x64 / Python 3.13.15. Other platforms and versions have not been accepted; the MFA adapter retains Windows tool assumptions.
+- The code license applies only to the 198 Python files listed in LICENSE-SCOPE.md. Product UI source, audio, model weights and private research records are not distributed. Documentation and display media are not licensed under that MIT grant.
+- No hosted interactive demo has been deployed. Authentication, global rate limiting, cross-user isolation and public-service operational controls have not been accepted for production.
 
-未来独立网站部署前须审核 HTTPS 麦克风、安全上传、服务端凭据、并发资源、用户录音隐私及素材权利；关闭生产 Source Map，客户端 bundle 仍可被分析。这里记录部署边界，本轮不部署。
+Before deployment, verify HTTPS microphone capture, upload boundaries, server-side secrets, resource capacity, recording privacy and the rights for every resource actually served. Keeping the frontend source repository private does not make browser-delivered JavaScript or media inaccessible.

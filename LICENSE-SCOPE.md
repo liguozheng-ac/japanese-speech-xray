@@ -1,4 +1,4 @@
-# License scope — partially open-source backend
+# License scope
 
 Copyright holder: **liguozheng-ac**. Effective authorization: 2026-10-09.
 
@@ -11,7 +11,7 @@ The distributed Python package contains only the author-owned backend Python cod
 ## Explicitly excluded
 
 - Complete private React frontend, Page 0/Page 1 implementation, browser recording/UI code and build assets; none is included in this repository.
-- Original `58.mp4`, visual/brand assets and product screenshot `docs/images/workspace-empty.jpg`. The screenshot is approved for product display here, with rights retained; its appearance does not license the frontend.
+- Original `58.mp4`, visual/brand assets and product screenshots and diagrams in `docs/images/`. The listed display assets are approved for repository presentation with rights retained; their appearance does not license the frontend or underlying third-party resources. See `docs/SCREENSHOT-REVIEW.md`.
 - Private recordings, manual annotations, research distributions and private audit records; none is included.
 - JVS recordings, Haruka synthetic WAVs, Narabas weights and MFA pretrained acoustic/dictionary/G2P resources; none is included.
 - Third-party packages, models and resources remain governed by their own licenses. See [THIRD_PARTY.md](THIRD_PARTY.md).

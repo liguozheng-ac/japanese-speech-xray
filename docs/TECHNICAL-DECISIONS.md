@@ -1,26 +1,28 @@
-# 工程决策与快照适配
+# Engineering decisions
 
-## 证据优先
+## Evidence before scores
 
-保留冻结的真实 pYIN：F0 缺失用 null；不跨无声区补线。有声概率是算法证据，显示门限没有校准成发音准确率。提取异常或证据不足返回 ABSTAINED，已有原音与手动练习属于私有产品层。
+The frozen pYIN implementation returns null for unavailable F0 and does not interpolate across unvoiced gaps. Voiced probability is algorithm evidence, not a calibrated pronunciation accuracy percentage. Exceptions or insufficient support produce ABSTAINED; original audio and manual practice remain available in the private product interface.
 
-输入不转 mono、不重采样、不伪造 WAV 头采样率。合成参考与母语者语料分开标注；自动对齐得到的是模型候选，不把它当作人工 Ground Truth。
+Uploaded audio is not silently downmixed or resampled. WAV headers cannot be relabeled to claim an unprocessed rate. Browser microphone capture has a separate, explicitly documented channel-conversion policy. Synthetic readings and native-speaker research resources have different provenance; model alignments are not manual ground truth.
 
-研究统计与长音公式保持原样，未重建参考库、未改中位数、未调 pYIN 参数。
+Historical duration normalization, reference medians and pYIN parameters remain unchanged. The reference corpus was not rebuilt and Narabas was not activated.
 
-## 公开候选适配
+## Public checkout isolation
 
-从验收 Commit 导出明确白名单；原仓库及标签没有被修改。
+The accepted snapshot was exported through a file allowlist into an independent repository. The original repository and V1 tag were preserved.
 
-1. 候选 `Settings` 缺省 aligner 指向 MFA，以便缺少私有配置时启动并诚实显示未就绪；不激活 Narabas。
-2. `load_settings` 只读取用户显式指定的配置，不自动探测旧产品的私人配置或 companion 文件。显式 engine 冲突报错。
-3. 合成参考目录改为候选相对目录 `data/optional-reference-audio`，可用 `SPEECH_XRAY_REFERENCE_AUDIO_DIR` 显式指定；仍保留三份冻结参考哈希、同句与来源检查。没有随仓库发布音频。
-4. 3 项必须读取私有 Haruka 音频的测试保留名称并明确 skip；2 项原有 JVS 可选测试按已有逻辑 skip。
-5. 单独审核并保留作者练习清单、作者 QA、官方包 URL 环境锁及模型资源哈希说明，使结构与离线 dry-run 测试能够复现；这些不是语料或模型文件。
-6. 增加测试运行器、非语音 pYIN 工程示例、源码 checkout 的 editable 包元数据，以及两项资源隔离测试。
+1. The public Settings defaults to MFA and can start without private resources, reporting experimental NOT_READY honestly.
+2. Configuration is read only when explicitly supplied; old private product configuration is not automatically discovered. Conflicting engine choices are rejected.
+3. Optional synthetic reference files use data/optional-reference-audio or SPEECH_XRAY_REFERENCE_AUDIO_DIR. Frozen source, text and hash checks remain in place. No reference WAV is bundled.
+4. Three Haruka-dependent and two JVS-dependent tests retain explicit resource skips.
+5. Authored worksheets, QA, package URL locks and resource identities were individually reviewed. They are not recordings, model binaries or participant data.
+6. The public checkout includes a test runner, a non-speech pYIN example, editable package metadata and isolation regression tests.
 
-除上述必要解耦外，导出的算法模块与验收快照保持一致。默认公开候选不提供完整实验 X-Ray 数值结果，人工编写 JSON 夹具也不能冒充真实分析。
+These changes decouple the public package from private resources; they do not replace the accepted scientific implementation.
 
-## 安装与交付边界
+## Reproduction and documentation
 
-Windows 数值环境用官方 conda-forge 精确 URL 锁；HTTP 包另有冻结 pip 锁。依赖二进制由包管理器安装，其许可证与源代码许可证分开处理。候选 wheel 验证只覆盖 Python 包；配置、句子表及测试从源码 checkout 使用，不声称 wheel 单独还原产品。
+The Windows numerical environment uses official conda-forge URL locks; HTTP packages have a separate pip lock. Dependencies are obtained through package managers, not redistributed as an environment bundle. The wheel packages Python modules and notices, not the complete product or all runtime configuration.
+
+The 2026-10-16 presentation update adds English documentation, source-matched diagrams and English-localized captures of existing DEMO components. Displayed numeric values are unchanged. Documentation captures are not evidence of a newly deployed English-language application.

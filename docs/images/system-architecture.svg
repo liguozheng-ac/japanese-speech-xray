@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1040" viewBox="0 0 1440 1040" role="img" aria-labelledby="title desc">
+<title id="title">System architecture</title><desc id="desc">A private browser interface, a public Python service, and two independent analysis paths.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10" fill="#7b8ba5"/></marker></defs>
+<style>text{font-family:Arial,Helvetica,sans-serif;fill:#17243b}.title{font-size:34px;font-weight:700}.sub{font-size:20px;fill:#62718b}.label{font-size:19px;font-weight:700;letter-spacing:1px}.heading{font-size:24px;font-weight:700}.body{font-size:21px}.small{font-size:18px;fill:#52637f}.edge{fill:none;stroke:#7b8ba5;stroke-width:2.4;marker-end:url(#arrow)}.dash{stroke-dasharray:7 6}</style>
+<rect width="1440" height="1040" fill="#ffffff"/>
+<text class="title" x="44" y="52">System architecture</text><text class="sub" x="44" y="84">A private browser interface, a public Python service, and two independent analysis paths.</text>
+<rect x="40" y="118" width="1360" height="160" rx="16" fill="#f5f2ff" stroke="#d4c7f6" stroke-width="1.6"/>
+<text class="heading" x="64" y="156" style="fill:#17243b">01  BROWSER APPLICATION  /  PRIVATE SOURCE</text>
+<text class="body" x="64" y="192">React + TypeScript + Vite  |  Responsive CSS  |  Native SVG visualizations</text>
+<text class="body" x="64" y="222">AudioWorklet capture → PCM16 WAV  ·  Waveform selection  ·  Original / segment / loop playback</text>
+<text class="body" x="64" y="252">Session state machine  ·  Bounded serial analysis queue  ·  Saved, source-labeled DEMOs</text>
+<path class="edge" d="M720 278V330"/>
+<text class="small" x="748" y="312">WAV + controlled prompt / structured JSON</text>
+<rect x="40" y="334" width="1360" height="132" rx="16" fill="#eef7ff" stroke="#b4d9f7" stroke-width="1.6"/>
+<text class="heading" x="64" y="372" style="fill:#17243b">02  HTTP SERVICE  /  FASTAPI + PYDANTIC</text>
+<text class="body" x="64" y="408">Strict audio and request validation  ·  Request IDs  ·  LIVE / READY resource checks</text>
+<text class="body" x="64" y="438">Independent prosody route  |  Experimental analysis, stage polling and server-confirmed cancellation</text>
+<path class="edge" d="M390 466V526"/>
+<path class="edge" d="M1050 466V526"/>
+<rect x="40" y="530" width="660" height="206" rx="16" fill="#effbf6" stroke="#b9e2d1" stroke-width="1.6"/>
+<text class="heading" x="64" y="568" style="fill:#17243b">03A  INDEPENDENT PROSODY</text>
+<text class="body" x="64" y="604">SoundFile / NumPy / librosa pYIN</text>
+<text class="body" x="64" y="634">Original PCM rate → F0 + voiced evidence + RMS</text>
+<text class="body" x="64" y="664">Evidence gate → AVAILABLE or ABSTAINED</text>
+<text class="body" x="64" y="694">No MFA / Narabas boundaries required</text>
+<rect x="740" y="530" width="660" height="206" rx="16" fill="#fff7ed" stroke="#efcfaa" stroke-width="1.6"/>
+<text class="heading" x="764" y="568" style="fill:#17243b">03B  EXPERIMENTAL X-RAY</text>
+<text class="body" x="764" y="604">Bounded orchestrator + isolated MFA worker</text>
+<text class="body" x="764" y="634">TextGrid → Word / Mora / native Phone candidates</text>
+<text class="body" x="764" y="664">Duration / acoustic evidence / reference comparison</text>
+<text class="body" x="764" y="694">Deadline, process-tree cancellation and cleanup</text>
+<path class="edge dash" d="M370 800V738"/>
+<path class="edge dash" d="M1070 800V738"/>
+<rect x="40" y="804" width="660" height="124" rx="16" fill="#f8fafc" stroke="#dce3ed" stroke-width="1.6"/>
+<text class="heading" x="64" y="842" style="fill:#17243b">OPTIONAL SYNTHETIC REFERENCE</text>
+<text class="body" x="64" y="878">Same-sentence Haruka reading; hash-checked</text>
+<text class="body" x="64" y="908">Not a native-speaker accuracy standard; WAV excluded</text>
+<rect x="740" y="804" width="660" height="124" rx="16" fill="#f8fafc" stroke="#dce3ed" stroke-width="1.6"/>
+<text class="heading" x="764" y="842" style="fill:#17243b">OPTIONAL EXPERIMENTAL RESOURCES</text>
+<text class="body" x="764" y="878">MFA models + historical JVS reference summaries</text>
+<text class="body" x="764" y="908">Resources excluded; automatic boundaries unvalidated</text>
+<text class="small" x="44" y="975">Research only: Narabas / WhisperX / Silero VAD are not active production dependencies.</text>
+<text class="small" x="44" y="1006">Solid arrows: implemented request paths. Dashed arrows: optional local resources, not bundled downloads.</text></svg>

@@ -1,9 +1,21 @@
-# 产品截图审核
+# Product capture provenance and display scope
 
-| 文件 | 真实来源 | 画面内容 | 隐私与第三方衍生审查 | 决定 |
-| --- | --- | --- | --- | --- |
-| images/workspace-empty.jpg | 2026-10-09 实际本地 Page 1 新空会话，浏览器截图原始 JPEG | 产品标题、三条受控句子、DEMO 入口、空态输入控件 | 无账户身份、私人录音、分析结果、原始音频、Haruka 音高图、JVS 分布、模型结果或背景视频画面；未嵌入前端代码 | 经审核纳入公开静态展示，权利保留，不属于 MIT |
+The owner explicitly requested the existing product DEMO visuals for the GitHub showcase on 2026-10-16. This authorizes the listed static product presentation, not distribution of the underlying audio, frontend implementation, full response JSON, private reference profiles or model resources. No new grant is asserted on behalf of a third-party resource owner.
 
-用户 TASK-021 明确授权权利清楚且不含私人敏感信息的真实截图。此图展示用户原创产品外观，不转授前端源码权利；不把空态图当作运行分析证据。图像为后续展示版 UI，后端源码仍来自冻结 V1 标签，不声称二者同一 Commit。
+## Published captures
 
-本轮只选这一张权利边界清楚的截图；没有用生成图片或概念图替代真实界面。Haruka／JVS 衍生结果截图不纳入，避免以“自己截图”推导第三方素材再分发许可。首页背景视频的静态帧授权未单独确认，未选入。
+| File | Source and visible state | Publication boundaries |
+| --- | --- | --- |
+| images/workspace-empty.jpg | Previously reviewed local empty workspace, captured 2026-10-09 | Retained historical display asset; no user recording or analysis content |
+| images/demo-pitch.png | Actual ProsodyPanel rendered with the existing learner-v1-001 saved pYIN DEMO; both tracks visible in Hz | Haruka synthetic input and reference use the same WAV; no human-performance claim; no audio bytes or private JSON attached |
+| images/demo-structure.png | Actual XRay component, target word selected; original waveform and candidate structure | No rewritten phone labels, manufactured intervals or substituted waveform |
+| images/demo-reference.png | Actual ReferenceSketch component, median selected | Only the already-displayed aggregate statistical summary; no speaker-level records, raw corpus or histogram frequencies |
+| images/demo-evidence.png | Actual Evidence component with candidate intervals and limitations | Displayed numeric values unchanged; no personal identity or private participant metadata |
+
+The source interface is the local product at commit 68effe8dc04e1cf10579c0ac2143288fa4f24eef. The backend public baseline remains the accepted V1 export. The panels are rendered from the existing product React components in a private documentation capture workspace, using the saved DEMO. Visible UI labels are localized to English for documentation; Japanese practice text and model-native phone symbols remain unchanged. No English product release or independent acoustic validation is implied.
+
+The new panels are static document renders, not live-browser screenshots: React static markup and the product CSS are rendered to a private PDF, then exported as PNG. Closed details remain closed; PDF-incompatible form widgets become static labels with equivalent styles, and waveform clipping uses an equivalent SVG clip path. Browser automation could not reliably identify the current URL and was stopped; no further browser control was attempted. The resulting PNGs were inspected locally. These rendering adjustments do not alter the underlying samples, measured values, intervals or model labels.
+
+The saved source is Microsoft Haruka Desktop synthetic speech. Both curves use the same synthetic WAV; the source label must remain visible. JVS appears only as historical aggregate reference context, with the existing cross-sentence and boundary limitations. Resource/audio redistribution remains a separate review item in [THIRD_PARTY.md](../THIRD_PARTY.md).
+
+These captures and documentation diagrams are display assets with rights retained, outside the MIT-covered code list. Capture helpers, HTML, React source, raw WAV/JSON, hashes of unpublished data and private review records are not added to the public repository. No account identity, personal recording or background-video frame is included.
