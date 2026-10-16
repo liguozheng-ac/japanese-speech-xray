@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1040" viewBox="0 0 1440 1040" role="img" aria-labelledby="title desc">
+<title id="title">整体技术架构</title><desc id="desc">未公开源码的浏览器界面、已公开的 Python 服务，以及两条独立分析路径。</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10" fill="#7b8ba5" /></marker></defs>
+<style>text{font-family:"Microsoft YaHei","Noto Sans CJK SC",Arial,sans-serif;fill:#17243b}.title{font-size:34px;font-weight:700}.sub{font-size:20px;fill:#62718b}.label{font-size:19px;font-weight:700;letter-spacing:1px}.heading{font-size:24px;font-weight:700}.body{font-size:21px}.small{font-size:18px;fill:#52637f}.edge{fill:none;stroke:#7b8ba5;stroke-width:2.4;marker-end:url(#arrow)}.dash{stroke-dasharray:7 6}</style>
+<rect width="1440" height="1040" fill="#ffffff" />
+<text class="title" x="44" y="52">整体技术架构</text><text class="sub" x="44" y="84">未公开源码的浏览器界面、已公开的 Python 服务，以及两条独立分析路径。</text>
+<rect x="40" y="118" width="1360" height="160" rx="16" fill="#f5f2ff" stroke="#d4c7f6" stroke-width="1.6" />
+<text class="heading" x="64" y="156" style="fill:#17243b">01  浏览器应用 / 源码未公开</text>
+<text class="body" x="64" y="192">React + TypeScript + Vite  |  响应式 CSS  |  原生 SVG 可视化</text>
+<text class="body" x="64" y="222">AudioWorklet 录音 → PCM16 WAV  ·  波形选区  ·  原音 / 片段 / 循环播放</text>
+<text class="body" x="64" y="252">会话状态机  ·  有界串行分析队列  ·  已保存且标明来源的演示</text>
+<path class="edge" d="M720 278V330" />
+<text class="small" x="748" y="312">WAV + 受控练习句 / 结构化 JSON</text>
+<rect x="40" y="334" width="1360" height="132" rx="16" fill="#eef7ff" stroke="#b4d9f7" stroke-width="1.6" />
+<text class="heading" x="64" y="372" style="fill:#17243b">02  HTTP 服务 / FastAPI + Pydantic</text>
+<text class="body" x="64" y="408">严格的音频与请求校验  ·  请求 ID  ·  LIVE / READY 资源检查</text>
+<text class="body" x="64" y="438">独立韵律接口  |  实验性分析、阶段轮询与服务端确认取消</text>
+<path class="edge" d="M390 466V526" />
+<path class="edge" d="M1050 466V526" />
+<rect x="40" y="530" width="660" height="206" rx="16" fill="#effbf6" stroke="#b9e2d1" stroke-width="1.6" />
+<text class="heading" x="64" y="568" style="fill:#17243b">03A  独立韵律分析</text>
+<text class="body" x="64" y="604">SoundFile / NumPy / librosa pYIN</text>
+<text class="body" x="64" y="634">原始 PCM 采样率 → F0 + 有声证据 + RMS</text>
+<text class="body" x="64" y="664">证据校验 → 可用（AVAILABLE）或弃权（ABSTAINED）</text>
+<text class="body" x="64" y="694">无需 MFA / Narabas 音素边界</text>
+<rect x="740" y="530" width="660" height="206" rx="16" fill="#fff7ed" stroke="#efcfaa" stroke-width="1.6" />
+<text class="heading" x="764" y="568" style="fill:#17243b">03B  实验性 X-Ray</text>
+<text class="body" x="764" y="604">有界任务编排 + 独立 MFA 工作进程</text>
+<text class="body" x="764" y="634">TextGrid → 词 / 音拍 / 原生音素候选</text>
+<text class="body" x="764" y="664">时长 / 声学证据 / 参考对比</text>
+<text class="body" x="764" y="694">执行时限、进程树取消与资源清理</text>
+<path class="edge dash" d="M370 800V738" />
+<path class="edge dash" d="M1070 800V738" />
+<rect x="40" y="804" width="660" height="124" rx="16" fill="#f8fafc" stroke="#dce3ed" stroke-width="1.6" />
+<text class="heading" x="64" y="842" style="fill:#17243b">可选合成参考</text>
+<text class="body" x="64" y="878">同句 Haruka 合成朗读；校验资源哈希</text>
+<text class="body" x="64" y="908">非母语者准确性标准；不分发 WAV</text>
+<rect x="740" y="804" width="660" height="124" rx="16" fill="#f8fafc" stroke="#dce3ed" stroke-width="1.6" />
+<text class="heading" x="764" y="842" style="fill:#17243b">可选实验资源</text>
+<text class="body" x="764" y="878">MFA 模型 + 历史 JVS 参考摘要</text>
+<text class="body" x="764" y="908">资源不随仓库分发；自动边界尚未验证</text>
+<text class="small" x="44" y="975">仅用于研究：Narabas / WhisperX / Silero VAD 未作为生产依赖启用。</text>
+<text class="small" x="44" y="1006">实线箭头：已实现的请求路径。虚线箭头：可选本地资源，不随仓库下载。</text></svg>

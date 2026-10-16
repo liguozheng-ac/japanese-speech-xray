@@ -1,6 +1,6 @@
 # Public file manifest
 
-Current inventory: **254 files**. TASK-021 Phase A reviewed 244 files and Phase B published 246. The owner-authorized 2026-10-16 documentation update adds two static architecture/process SVGs, four English-localized product DEMO PNGs, and a processing-flow document. The subsequent bilingual README update adds README.zh-CN.md and language navigation in both READMEs. All 198 MIT-covered Python blobs remain unchanged.
+Current inventory: **260 files**. TASK-021 Phase A reviewed 244 files and Phase B published 246. The owner-authorized 2026-10-16 documentation update adds two static architecture/process SVGs, four English-localized product DEMO PNGs, and a processing-flow document. The subsequent bilingual README update adds README.zh-CN.md and language navigation in both READMEs. Six Chinese-localized display assets are used exclusively by README.zh-CN.md; existing English and product-page assets remain unchanged. All 198 MIT-covered Python blobs remain unchanged.
 
 Only the explicit Python allowlist in [LICENSE-SCOPE.md](LICENSE-SCOPE.md) is licensed under [MIT](LICENSE). Documentation, diagrams, screenshots, configuration, prompts and fixtures retain their separate rights. Third-party resources are not relicensed or bundled; see [THIRD_PARTY.md](THIRD_PARTY.md).
 
@@ -13,7 +13,7 @@ Hashes below bind the actual staged Git blobs after LF normalization. This manif
 | LICENSE | Code-license text or scope notice; no product-wide grant | a434cd736c9c28235ab970e5588764a7c04bd2ba118f3dbd7083c01772abd4b0 | Yes |
 | LICENSE-SCOPE.md | Code-license text or scope notice; no product-wide grant | e62a4def53e59c22571ab9c5a568d2ad5aa526380d4b54d2831f6e7295bec0ef | Yes |
 | README.md | Reviewed English documentation or historical worksheet; outside MIT | 8f1278d63ee3767846eb6a61d6c7970e642a1748cf25c6a6adcc40e2fff72458 | Yes |
-| README.zh-CN.md | Chinese documentation translation; outside MIT | 6f9a793a116841e7907b31ccbe3c3efa75825121c3f244ba55d8c33e5d3103a2 | Yes |
+| README.zh-CN.md | Chinese documentation translation; outside MIT | 2a19c5794235662ad9788468bd8adc3826423ad3bd7d05c9d1c5ce5acf9f04a9 | Yes |
 | TASK-021-PUBLIC-FILE-MANIFEST.md | Reviewed English documentation or historical worksheet; outside MIT | SELF_HASH_EXCLUDED | Yes |
 | THIRD_PARTY.md | Reviewed English documentation or historical worksheet; outside MIT | 27bb9b6d2be2beb4502a8a30b6abc168a8f562eec213941ee0ee5f447ff1f32f | Yes |
 | data/benchmarks/duration-manipulation.schema.json | Reviewed configuration, schema, prompt or authored fixture; outside MIT | de8f4f85610ee5272fd860acdf5651471d1af4327cf72b922eff35c27827cedf | Yes |
@@ -56,6 +56,12 @@ Hashes below bind the actual staged Git blobs after LF normalization. This manif
 | docs/images/processing-flow.svg | Authorized static product/documentation display; rights retained; outside MIT | 42187bdb8814570e31a8eb74c7b1cb7fd495c1bf2127ec5cf209fb42f93d9488 | Yes |
 | docs/images/system-architecture.svg | Authorized static product/documentation display; rights retained; outside MIT | 08f4ed4baad89717cf5f30516ad97882d83a04aa9942fd25b711b6324bf91117 | Yes |
 | docs/images/workspace-empty.jpg | Authorized static product/documentation display; rights retained; outside MIT | b2ac5d5b06672e13ec7307b096ec98dec9a191fc9d3135b7475c0ae481334698 | Yes |
+| docs/images/zh-CN/demo-evidence.png | Chinese-only static documentation display; rights retained; outside MIT | b8ce0e889c4b2ff709e411725b9ee5d4f462697f146048a24b0e237f7dc22b45 | Yes |
+| docs/images/zh-CN/demo-pitch.png | Chinese-only static documentation display; rights retained; outside MIT | 75554a9da4af65c9526088222612955f402866401c6b5d712ff06806ca5b1687 | Yes |
+| docs/images/zh-CN/demo-reference.png | Chinese-only static documentation display; rights retained; outside MIT | 5b16fe4df0c7ddbb08f93e26d550082155347e80e60305fa26c241255f818645 | Yes |
+| docs/images/zh-CN/demo-structure.png | Chinese-only static documentation display; rights retained; outside MIT | 1ecc3bbc56b09a3d4ef84909290987750cdcba9c8e03d22320e3dc04eddfec78 | Yes |
+| docs/images/zh-CN/processing-flow.svg | Chinese-only static documentation display; rights retained; outside MIT | 43a46bbec45099aed42af112f5ad43e1bea0fb92b1cb32561523155bb4257ad2 | Yes |
+| docs/images/zh-CN/system-architecture.svg | Chinese-only static documentation display; rights retained; outside MIT | bd440b8fd857349126f01c0c3ed1a5564a8c564c2001e902d680658b61a1ee9f | Yes |
 | docs/task002-conda-win-64.explicit.txt | Reviewed configuration, schema, prompt or authored fixture; outside MIT | 64d260d088542cced7752220ba1868b38fa84312e9a048fffd3188fc632b4c8a | Yes |
 | docs/task002-resources.json | Reviewed configuration, schema, prompt or authored fixture; outside MIT | bc6d32cc929120b6ebc9ac802c0f9631f6015e0c0cb7eb9ec505f2b41c611848 | Yes |
 | docs/task004-speech-api-win-64.explicit.txt | Reviewed configuration, schema, prompt or authored fixture; outside MIT | ea052561eb7bfa5eba74522fa2fb13936904828179574173d4e9885a08259599 | Yes |

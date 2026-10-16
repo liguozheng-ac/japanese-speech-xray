@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1095" viewBox="0 0 1440 1095" role="img" aria-labelledby="title desc">
+<title id="title">完整数据处理流程</title><desc id="desc">三条路径共享同一份已校验音频；音高提取无需等待强制对齐。</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10" fill="#7b8ba5" /></marker></defs>
+<style>text{font-family:"Microsoft YaHei","Noto Sans CJK SC",Arial,sans-serif;fill:#17243b}.title{font-size:34px;font-weight:700}.sub{font-size:20px;fill:#62718b}.label{font-size:19px;font-weight:700;letter-spacing:1px}.heading{font-size:24px;font-weight:700}.body{font-size:21px}.small{font-size:18px;fill:#52637f}.edge{fill:none;stroke:#7b8ba5;stroke-width:2.4;marker-end:url(#arrow)}.dash{stroke-dasharray:7 6}</style>
+<rect width="1440" height="1095" fill="#ffffff" />
+<text class="title" x="44" y="52">完整数据处理流程</text><text class="sub" x="44" y="84">三条路径共享同一份已校验音频；音高提取无需等待强制对齐。</text>
+<rect x="40" y="118" width="1360" height="132" rx="16" fill="#f5f2ff" stroke="#d4c7f6" stroke-width="1.6" />
+<text class="heading" x="64" y="156" style="fill:#17243b">01  受控练习句 + 音频输入</text>
+<text class="body" x="64" y="192">浏览器录音或上传 → 单声道 PCM16 RIFF WAV → 已校验的会话音频</text>
+<text class="body" x="64" y="222">8–48 kHz  ·  最长 30 秒 / 最大 10 MiB  ·  保留原始时间坐标与来源</text>
+<path class="edge" d="M250 250V320" />
+<path class="edge" d="M720 250V320" />
+<path class="edge" d="M1190 250V320" />
+<rect x="40" y="324" width="420" height="132" rx="16" fill="#f5f2ff" stroke="#d4c7f6" stroke-width="1.6" />
+<text class="heading" x="64" y="362" style="fill:#17243b">A  本地练习</text>
+<text class="body" x="64" y="398">无需发送分析请求</text>
+<text class="body" x="64" y="428">真实 PCM 波形 + 手动选区</text>
+<rect x="510" y="324" width="420" height="132" rx="16" fill="#eefaf5" stroke="#b9e2d1" stroke-width="1.6" />
+<text class="heading" x="534" y="362" style="fill:#17243b">B  音高分析请求</text>
+<text class="body" x="534" y="398">POST /api/prosody/v1/curves</text>
+<text class="body" x="534" y="428">校验 WAV + 练习句标识</text>
+<rect x="980" y="324" width="420" height="132" rx="16" fill="#fff7ed" stroke="#efcfaa" stroke-width="1.6" />
+<text class="heading" x="1004" y="362" style="fill:#17243b">C  可选 X-Ray 分析</text>
+<text class="body" x="1004" y="398">POST /api/v1/analyses</text>
+<text class="body" x="1004" y="428">资源检查 + 并发容量槽位</text>
+<path class="edge" d="M250 456V510" />
+<path class="edge" d="M720 456V510" />
+<path class="edge" d="M1190 456V510" />
+<rect x="40" y="514" width="420" height="164" rx="16" fill="#faf8ff" stroke="#d4c7f6" stroke-width="1.6" />
+<text class="heading" x="64" y="552" style="fill:#17243b">查看与试听原音</text>
+<text class="body" x="64" y="588">选择目标词 / 元音区域</text>
+<text class="body" x="64" y="618">原音 / 片段 / 循环播放</text>
+<text class="body" x="64" y="648">选区保留在原始 WAV 时间轴</text>
+<rect x="510" y="514" width="420" height="164" rx="16" fill="#f3fcf8" stroke="#b9e2d1" stroke-width="1.6" />
+<text class="heading" x="534" y="552" style="fill:#17243b">提取 F0 证据</text>
+<text class="body" x="534" y="588">pYIN + 有声标记 / 概率</text>
+<text class="body" x="534" y="618">RMS + 原采样率时间戳</text>
+<text class="body" x="534" y="648">不依赖音素对齐</text>
+<rect x="980" y="514" width="420" height="164" rx="16" fill="#fffaf4" stroke="#efcfaa" stroke-width="1.6" />
+<text class="heading" x="1004" y="552" style="fill:#17243b">对齐与结构映射</text>
+<text class="body" x="1004" y="588">MFA → 原始 TextGrid 区间</text>
+<text class="body" x="1004" y="618">Sudachi 读音 / 音拍映射</text>
+<text class="body" x="1004" y="648">明确保留模型原生音素标签</text>
+<path class="edge" d="M250 678V730" />
+<path class="edge" d="M720 678V730" />
+<path class="edge" d="M1190 678V730" />
+<rect x="40" y="734" width="420" height="132" rx="16" fill="#faf8ff" stroke="#d4c7f6" stroke-width="1.6" />
+<text class="heading" x="64" y="772" style="fill:#17243b">再次录音</text>
+<text class="body" x="64" y="808">试听、调整、重复练习</text>
+<text class="body" x="64" y="838">不推断个人发音分数</text>
+<rect x="510" y="734" width="420" height="132" rx="16" fill="#f3fcf8" stroke="#b9e2d1" stroke-width="1.6" />
+<text class="heading" x="534" y="772" style="fill:#17243b">证据校验与曲线对比</text>
+<text class="body" x="534" y="808">保留空白；证据不足 → 弃权</text>
+<text class="body" x="534" y="838">可选同句合成参考 F0</text>
+<rect x="980" y="734" width="420" height="132" rx="16" fill="#fffaf4" stroke="#efcfaa" stroke-width="1.6" />
+<text class="heading" x="1004" y="772" style="fill:#17243b">描述性证据</text>
+<text class="body" x="1004" y="808">时长 / 参考 / 实现形式探针</text>
+<text class="body" x="1004" y="838">说明限制；不判断发音正误</text>
+<path class="edge" d="M250 866V918" />
+<path class="edge" d="M720 866V918" />
+<path class="edge" d="M1190 866V918" />
+<rect x="40" y="922" width="1360" height="104" rx="16" fill="#eef7ff" stroke="#b4d9f7" stroke-width="1.6" />
+<text class="heading" x="64" y="960" style="fill:#17243b">02  在当前会话呈现结果</text>
+<text class="body" x="64" y="996">本地播放  |  Hz / 相对半音曲线  |  实验性结构与证据  |  明确报告失败 / 弃权</text>
+<text class="small" x="44" y="1067">X-Ray 控制：真实阶段轮询 → 服务端确认取消 → 终止工作进程树、清理工作目录并释放槽位。</text></svg>
