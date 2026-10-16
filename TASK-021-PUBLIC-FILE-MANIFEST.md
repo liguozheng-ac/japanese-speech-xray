@@ -1,6 +1,6 @@
 # Public file manifest
 
-Current inventory: **253 files**. TASK-021 Phase A reviewed 244 files and Phase B published 246. The owner-authorized 2026-10-16 documentation update adds two static architecture/process SVGs, four English-localized product DEMO PNGs, and a processing-flow document. All 198 MIT-covered Python blobs remain unchanged.
+Current inventory: **254 files**. TASK-021 Phase A reviewed 244 files and Phase B published 246. The owner-authorized 2026-10-16 documentation update adds two static architecture/process SVGs, four English-localized product DEMO PNGs, and a processing-flow document. The subsequent bilingual README update adds README.zh-CN.md and language navigation in both READMEs. All 198 MIT-covered Python blobs remain unchanged.
 
 Only the explicit Python allowlist in [LICENSE-SCOPE.md](LICENSE-SCOPE.md) is licensed under [MIT](LICENSE). Documentation, diagrams, screenshots, configuration, prompts and fixtures retain their separate rights. Third-party resources are not relicensed or bundled; see [THIRD_PARTY.md](THIRD_PARTY.md).
 
@@ -12,7 +12,8 @@ Hashes below bind the actual staged Git blobs after LF normalization. This manif
 | .gitignore | Reviewed configuration, schema, prompt or authored fixture; outside MIT | d37d61e152cf768db2e96bed84a1592b3e6ec79f812335c9cd62cd2b7ab68cca | Yes |
 | LICENSE | Code-license text or scope notice; no product-wide grant | a434cd736c9c28235ab970e5588764a7c04bd2ba118f3dbd7083c01772abd4b0 | Yes |
 | LICENSE-SCOPE.md | Code-license text or scope notice; no product-wide grant | e62a4def53e59c22571ab9c5a568d2ad5aa526380d4b54d2831f6e7295bec0ef | Yes |
-| README.md | Reviewed English documentation or historical worksheet; outside MIT | 4e46c0165ac2a4205771ae18ebfcefc3dc18ab7d8b459ad6018caa13866705da | Yes |
+| README.md | Reviewed English documentation or historical worksheet; outside MIT | 8f1278d63ee3767846eb6a61d6c7970e642a1748cf25c6a6adcc40e2fff72458 | Yes |
+| README.zh-CN.md | Chinese documentation translation; outside MIT | 6f9a793a116841e7907b31ccbe3c3efa75825121c3f244ba55d8c33e5d3103a2 | Yes |
 | TASK-021-PUBLIC-FILE-MANIFEST.md | Reviewed English documentation or historical worksheet; outside MIT | SELF_HASH_EXCLUDED | Yes |
 | THIRD_PARTY.md | Reviewed English documentation or historical worksheet; outside MIT | 27bb9b6d2be2beb4502a8a30b6abc168a8f562eec213941ee0ee5f447ff1f32f | Yes |
 | data/benchmarks/duration-manipulation.schema.json | Reviewed configuration, schema, prompt or authored fixture; outside MIT | de8f4f85610ee5272fd860acdf5651471d1af4327cf72b922eff35c27827cedf | Yes |
