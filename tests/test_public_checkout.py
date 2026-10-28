@@ -14,7 +14,10 @@ class PublicCheckoutTests(unittest.TestCase):
     def test_explicit_mfa_default_has_no_implicit_private_config(self):
         with patch.dict('os.environ', {'SPEECH_XRAY_CONFIG':'', 'SPEECH_XRAY_ALIGNER':''}):
             self.assertEqual(load_settings().alignment_engine, 'mfa')
-        self.assertFalse((ROOT / 'frontend').exists())
+        # Source publication must not introduce implicit private runtime resources.
+        self.assertTrue((ROOT / 'frontend/src/WorkspaceEmpty.tsx').is_file())
+        self.assertFalse((ROOT / 'frontend/public/local-backgrounds/58-desktop.mp4').exists())
+        self.assertEqual(list((ROOT / 'frontend/public/audio/reference').glob('*.wav')), [])
 
     def test_real_tone_extracts_with_reference_missing_and_alignment_unready(self):
         with TemporaryDirectory() as folder:

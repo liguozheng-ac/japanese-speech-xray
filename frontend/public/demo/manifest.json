@@ -1,0 +1,24 @@
+{
+  "version": "interview-demo-1",
+  "audio_source": "Microsoft Haruka Desktop synthetic speech",
+  "cases": [
+    {
+      "prompt_id": "learner-v1-001",
+      "audio_sha256": "b66a61fa50369bbec2939265a351a9efa1971770f630b7a81abbba6f746b4a74",
+      "analysis_sha256": "6601ef0bc216e4c886a61115fcc649592bd05abb077e92cde9927ac71bf905cf",
+      "prosody_sha256": "de7c3e2e7cf865b2096a84d044eb41cf471a97636af1c9526c9632c8d4030cde"
+    },
+    {
+      "prompt_id": "learner-v1-002",
+      "audio_sha256": "21e0ef4f83a94038464b19c10dfc7ab71ad897a483d8db9b5f754030d96d3e56",
+      "analysis_sha256": "5a7df90eca41df810b44c59e099b3a3a000e25605c89c7703249c9aa498e0459",
+      "prosody_sha256": "c7349f7d4de4fe555f1343307a6ec1eb442501442c26355a00a50865b069e5ab"
+    },
+    {
+      "prompt_id": "learner-v1-003",
+      "audio_sha256": "8b7b852d31cd8053bdb9fa2cd1efe4aeb3d5b6b14355fda7139cf7e72fd047b4",
+      "analysis_sha256": "9e5125f2b46e4a7d252a829a48fcafb004c39137eb2edd7897eb96a72510f95c",
+      "prosody_sha256": "b5bf6259b25efe571de6774c96a135c6da97ebf57f056c0e6e173925919aa2cb"
+    }
+  ]
+}

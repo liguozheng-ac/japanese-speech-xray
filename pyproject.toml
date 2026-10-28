@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "japanese-speech-xray-backend"
 version = "1.0.0.dev0"
-description = "Evidence-aware Japanese speech backend; private frontend excluded"
+description = "Evidence-aware Japanese speech analysis API for the full-stack toolkit"
 license = "MIT"
 license-files = ["LICENSE", "LICENSE-SCOPE.md", "THIRD_PARTY.md"]
 requires-python = ">=3.13,<3.14"

@@ -1,6 +1,6 @@
 # Product capture provenance and display scope
 
-The owner explicitly requested the existing product DEMO visuals for the GitHub showcase on 2026-10-16. This authorizes the listed static product presentation, not distribution of the underlying audio, frontend implementation, full response JSON, private reference profiles or model resources. No new grant is asserted on behalf of a third-party resource owner.
+The owner explicitly requested the existing product DEMO visuals for the GitHub showcase on 2026-10-16. The original authorization covered static product presentation. On 2026-10-28 the owner additionally authorized the full frontend source and reviewed saved synthetic-DEMO response JSON. Underlying audio, private reference profiles and model resources remain separately governed. No new grant is asserted on behalf of a third-party resource owner.
 
 ## Published captures
 
@@ -18,4 +18,10 @@ The new panels are static document renders, not live-browser screenshots: React 
 
 The saved source is Microsoft Haruka Desktop synthetic speech. Both curves use the same synthetic WAV; the source label must remain visible. JVS appears only as historical aggregate reference context, with the existing cross-sentence and boundary limitations. Resource/audio redistribution remains a separate review item in [THIRD_PARTY.md](../THIRD_PARTY.md).
 
-These captures and documentation diagrams are display assets with rights retained, outside the MIT-covered code list. Capture helpers, HTML, React source, raw WAV/JSON, hashes of unpublished data and private review records are not added to the public repository. No account identity, personal recording or background-video frame is included.
+These captures and documentation diagrams are display assets with rights retained, outside the MIT-covered code list. Private capture helpers, capture HTML, original WAVs and private review records are not added to the public repository. The later source publication includes the React implementation and only the reviewed frontend synthetic-DEMO response files, not the research archives. No account identity, personal recording or background-video frame is included.
+
+## Page 1 workspace added on 2026-10-28
+
+`images/workspace-page1.png` and `images/zh-CN/workspace-page1.png` are documentation renders of the actual `WorkspaceEmpty` React component exported from product commit `68effe8dc04e1cf10579c0ac2143288fa4f24eef`. They show the empty workspace, existing sidebar/DEMO navigation, upload/recording controls and three practice prompts. No completed recording, successful model response or user identity is invented.
+
+The English image localizes visible labels for documentation only. The Chinese image retains the original labels. The renderer freezes desktop styles; PDF-incompatible controls/grid geometry use equivalent static presentation before PNG export. They are clearly described as documentation renders, not live-service screenshots. Private intermediate HTML/PDF and render scripts are not distributed. Existing pitch, structure, reference and evidence images are unchanged.

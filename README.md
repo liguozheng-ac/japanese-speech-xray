@@ -30,7 +30,13 @@ The browser handles capture, waveform inspection, playback and session state. Fa
 
 The following panels are English-localized documentation captures of the actual product components, rendered with the existing saved DEMO. Numeric results and time coordinates are unchanged. Japanese utterances and model-native phone symbols are intentionally preserved.
 
-The DEMO uses **Microsoft Haruka Desktop synthetic speech**, not a human learner recording. Its input and same-sentence reference use the **same synthetic WAV**: matching contours demonstrate the interface, not pronunciation accuracy. The audio, private analysis JSON and frontend implementation are not distributed here.
+The DEMO uses **Microsoft Haruka Desktop synthetic speech**, not a human learner recording. Its input and same-sentence reference use the **same synthetic WAV**: matching contours demonstrate the interface, not pronunciation accuracy. The React implementation and reviewed saved synthetic-DEMO response files are included. Haruka WAVs, model resources and private research archives are not distributed.
+
+### Practice workspace (Page 1)
+
+![Page 1 practice workspace: recording, upload, controlled prompts and saved DEMO navigation](docs/images/workspace-page1.png)
+
+The actual workspace component brings recording, WAV upload, session navigation and the three practice sentences into one view. This English-localized documentation render shows its empty state; no recording or analysis result is fabricated. The live product interface uses Chinese labels. Original audio and manual practice remain available when automatic analysis is unavailable.
 
 ### Pitch and intonation
 
@@ -56,7 +62,7 @@ This research-oriented panel places a rate-normalized candidate duration alongsi
 
 Review the candidate interval, target-word audition range, normalization result and experimental realization evidence in one place. Playback is tied to the underlying audio interval rather than a schematic replacement. The system separates measured values, model candidates and unavailable evidence; it does not turn an experimental candidate comparison into a clinical or educational diagnosis.
 
-Static captures show the product interface, not an online service. [Capture provenance and display scope](docs/SCREENSHOT-REVIEW.md).
+Static captures document the interface. A frontend-only preview is available at [liguozheng.com.cn](https://liguozheng.com.cn/); it does not deploy the analysis backend. [Capture provenance and display scope](docs/SCREENSHOT-REVIEW.md).
 
 ## Engineering capabilities
 
@@ -84,9 +90,23 @@ python examples/prosody_smoke.py
 python -m uvicorn speech_xray.api.app:app --host 127.0.0.1 --port 8000
 ```
 
-These commands start the local API, not the private browser application. Activate the environment on Windows so SoundFile can resolve `libsndfile.dll`. The explicit environment lock targets `win-64`; other platforms have not been verified. The wheel contains Python modules, not all runtime configuration or product assets, so normal reproduction uses the source checkout.
+These commands start the local API. Start the included browser application in a second terminal using the frontend commands below. Activate the environment on Windows so SoundFile can resolve `libsndfile.dll`. The explicit environment lock targets `win-64`; other platforms have not been verified. The wheel contains Python modules, not all runtime configuration or product assets, so normal reproduction uses the source checkout.
 
 [Reproduction guide and API examples](docs/REPRODUCIBILITY.md) · [Optional alignment/reference resources](docs/OPTIONAL-RESOURCES.md)
+
+### Start the browser interface
+
+In a second terminal, with Node.js >=22.12.0 installed:
+
+```powershell
+cd frontend
+npm ci
+npm test
+npm run build
+npm run dev
+```
+
+Open [Page 0](http://127.0.0.1:5173/) or the [Page 1 workspace](http://127.0.0.1:5173/#/workspace). Vite proxies `/api` to the local API on port 8000. The source builds without private media; Haruka playback and saved audio-backed DEMOs need separately authorized exact WAVs. Four exact-audio tests explicitly skip without them. [Frontend guide](frontend/README.md).
 
 ## Verification
 
@@ -107,15 +127,17 @@ The public API was verified to retain input F0 when a synthetic reference is abs
 - F0 estimates can be sparse or incorrect; blank regions are not automatically pauses or pronunciation errors.
 - Synthetic references are not native-speaker accuracy standards. No calibrated personal score or accent pass/fail claim.
 - MFA analysis can take minutes on the verified local CPU environment. Automatic boundaries and historical reference statistics retain research limitations.
-- This repository provides the Python analysis implementation, tests and engineering tools. The React product source, audio, pretrained models and private research records are not included.
-- **No hosted interactive demo is currently deployed.** Public authentication, global rate limiting and multi-user isolation have not been accepted for production.
+- This repository provides the Python analysis implementation, React frontend, tests and engineering tools. Optional audio, pretrained models and private research records are not included.
+- A **frontend-only preview** is available at [liguozheng.com.cn](https://liguozheng.com.cn/). Online automatic analysis is not deployed; public authentication, global rate limiting and multi-user isolation have not been accepted for production.
 
 [Known limitations](docs/KNOWN-LIMITATIONS.md) · [Engineering decisions](docs/TECHNICAL-DECISIONS.md)
 
 ## License and provenance
 
-The standard [MIT License](LICENSE) applies to the **198 author-owned Python files** explicitly listed in [LICENSE-SCOPE.md](LICENSE-SCOPE.md). Documentation, screenshots, diagrams, branding and third-party resources do not inherit that code license. Displayed figures are included for repository presentation with rights retained.
+The standard [MIT License](LICENSE) applies to the author-owned **Python and frontend source files** explicitly listed in [LICENSE-SCOPE.md](LICENSE-SCOPE.md). Documentation, screenshots, diagrams, branding and third-party resources do not inherit that code license. Displayed figures are included for repository presentation with rights retained.
 
 The implementation was exported into an independent Git history from the accepted local `v1.0.0-local` snapshot. The original product history and tag were not imported. Third-party packages, speech resources and models retain their own license terms.
 
 [Third-party sources](THIRD_PARTY.md) · [Publication scope](docs/PUBLIC-RELEASE-SCOPE.md) · [File manifest](TASK-021-PUBLIC-FILE-MANIFEST.md)
+
+The frontend was added on 2026-10-28 from local product commit `68effe8dc04e1cf10579c0ac2143288fa4f24eef`. Original private history was not imported, and this source publication does not modify the deployed website.

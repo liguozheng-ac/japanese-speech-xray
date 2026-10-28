@@ -1,0 +1,641 @@
+{
+  "schema_version": "1.1.0",
+  "analysis_id": "0148bbd2-2e44-41fe-9177-ffa121a6c557",
+  "analysis_fingerprint": "7ee8cc5ba067654113b6b69632949fc029fb62ecab00882f0cac81d925864eba",
+  "status": "PARTIAL_EVIDENCE",
+  "prompt": {
+    "prompt_id": "learner-v1-001",
+    "display_text": "新しいスマートフォンを机に置きました。",
+    "language": "ja",
+    "prompt_version": "1"
+  },
+  "audio": {
+    "sha256": "b66a61fa50369bbec2939265a351a9efa1971770f630b7a81abbba6f746b4a74",
+    "duration_ms": 3364.5,
+    "sample_rate_hz": 24000,
+    "channels": 1,
+    "sample_count": 80748,
+    "decoded_format": "WAV"
+  },
+  "timeline": {
+    "start_ms": 0,
+    "end_ms": 3364.5,
+    "basis": "PRIMARY_ANALYSIS_ALIGNMENT",
+    "words": [
+      {
+        "start_ms": 180.0,
+        "end_ms": 760.0,
+        "index": 0,
+        "surface": "新しい",
+        "reading": "アタラシイ"
+      },
+      {
+        "start_ms": 760.0,
+        "end_ms": 1440.0,
+        "index": 1,
+        "surface": "スマートフォン",
+        "reading": "スマートフォン"
+      },
+      {
+        "start_ms": 1440.0,
+        "end_ms": 1560.0,
+        "index": 2,
+        "surface": "を",
+        "reading": "ヲ"
+      },
+      {
+        "start_ms": 1560.0,
+        "end_ms": 1860.0,
+        "index": 3,
+        "surface": "机",
+        "reading": "ツクエ"
+      },
+      {
+        "start_ms": 1860.0,
+        "end_ms": 1980.0,
+        "index": 4,
+        "surface": "に",
+        "reading": "ニ"
+      },
+      {
+        "start_ms": 1980.0,
+        "end_ms": 2200.0,
+        "index": 5,
+        "surface": "置き",
+        "reading": "オキ"
+      },
+      {
+        "start_ms": 2200.0,
+        "end_ms": 2460.0,
+        "index": 6,
+        "surface": "まし",
+        "reading": "マシ"
+      },
+      {
+        "start_ms": 2460.0,
+        "end_ms": 3320.0000000000005,
+        "index": 7,
+        "surface": "た",
+        "reading": "タ"
+      }
+    ],
+    "phones": [
+      {
+        "start_ms": 180.0,
+        "end_ms": 240.0,
+        "index": 0,
+        "symbol": "a",
+        "word_index": 0
+      },
+      {
+        "start_ms": 240.0,
+        "end_ms": 280.0,
+        "index": 1,
+        "symbol": "t",
+        "word_index": 0
+      },
+      {
+        "start_ms": 280.0,
+        "end_ms": 360.0,
+        "index": 2,
+        "symbol": "a",
+        "word_index": 0
+      },
+      {
+        "start_ms": 360.0,
+        "end_ms": 380.0,
+        "index": 3,
+        "symbol": "r",
+        "word_index": 0
+      },
+      {
+        "start_ms": 380.0,
+        "end_ms": 500.0,
+        "index": 4,
+        "symbol": "a",
+        "word_index": 0
+      },
+      {
+        "start_ms": 500.0,
+        "end_ms": 540.0,
+        "index": 5,
+        "symbol": "sh",
+        "word_index": 0
+      },
+      {
+        "start_ms": 540.0,
+        "end_ms": 640.0,
+        "index": 6,
+        "symbol": "i",
+        "word_index": 0
+      },
+      {
+        "start_ms": 640.0,
+        "end_ms": 760.0,
+        "index": 7,
+        "symbol": "i",
+        "word_index": 0
+      },
+      {
+        "start_ms": 760.0,
+        "end_ms": 780.0,
+        "index": 8,
+        "symbol": "s",
+        "word_index": 1
+      },
+      {
+        "start_ms": 780.0,
+        "end_ms": 840.0,
+        "index": 9,
+        "symbol": "u",
+        "word_index": 1
+      },
+      {
+        "start_ms": 840.0,
+        "end_ms": 860.0,
+        "index": 10,
+        "symbol": "m",
+        "word_index": 1
+      },
+      {
+        "start_ms": 860.0,
+        "end_ms": 880.0,
+        "index": 11,
+        "symbol": "a",
+        "word_index": 1
+      },
+      {
+        "start_ms": 880.0,
+        "end_ms": 1060.0,
+        "index": 12,
+        "symbol": "a",
+        "word_index": 1
+      },
+      {
+        "start_ms": 1060.0,
+        "end_ms": 1100.0,
+        "index": 13,
+        "symbol": "t",
+        "word_index": 1
+      },
+      {
+        "start_ms": 1100.0,
+        "end_ms": 1200.0,
+        "index": 14,
+        "symbol": "o",
+        "word_index": 1
+      },
+      {
+        "start_ms": 1200.0,
+        "end_ms": 1240.0,
+        "index": 15,
+        "symbol": "f",
+        "word_index": 1
+      },
+      {
+        "start_ms": 1240.0,
+        "end_ms": 1360.0,
+        "index": 16,
+        "symbol": "o",
+        "word_index": 1
+      },
+      {
+        "start_ms": 1360.0,
+        "end_ms": 1440.0,
+        "index": 17,
+        "symbol": "N",
+        "word_index": 1
+      },
+      {
+        "start_ms": 1440.0,
+        "end_ms": 1560.0,
+        "index": 18,
+        "symbol": "o",
+        "word_index": 2
+      },
+      {
+        "start_ms": 1560.0,
+        "end_ms": 1580.0,
+        "index": 19,
+        "symbol": "ts",
+        "word_index": 3
+      },
+      {
+        "start_ms": 1580.0,
+        "end_ms": 1660.0,
+        "index": 20,
+        "symbol": "u",
+        "word_index": 3
+      },
+      {
+        "start_ms": 1660.0,
+        "end_ms": 1700.0,
+        "index": 21,
+        "symbol": "k",
+        "word_index": 3
+      },
+      {
+        "start_ms": 1700.0,
+        "end_ms": 1800.0,
+        "index": 22,
+        "symbol": "u",
+        "word_index": 3
+      },
+      {
+        "start_ms": 1800.0,
+        "end_ms": 1860.0,
+        "index": 23,
+        "symbol": "e",
+        "word_index": 3
+      },
+      {
+        "start_ms": 1860.0,
+        "end_ms": 1900.0,
+        "index": 24,
+        "symbol": "n",
+        "word_index": 4
+      },
+      {
+        "start_ms": 1900.0,
+        "end_ms": 1980.0,
+        "index": 25,
+        "symbol": "i",
+        "word_index": 4
+      },
+      {
+        "start_ms": 1980.0,
+        "end_ms": 2100.0,
+        "index": 26,
+        "symbol": "o",
+        "word_index": 5
+      },
+      {
+        "start_ms": 2100.0,
+        "end_ms": 2140.0,
+        "index": 27,
+        "symbol": "k",
+        "word_index": 5
+      },
+      {
+        "start_ms": 2140.0,
+        "end_ms": 2200.0,
+        "index": 28,
+        "symbol": "i",
+        "word_index": 5
+      },
+      {
+        "start_ms": 2200.0,
+        "end_ms": 2240.0,
+        "index": 29,
+        "symbol": "m",
+        "word_index": 6
+      },
+      {
+        "start_ms": 2240.0,
+        "end_ms": 2300.0000000000005,
+        "index": 30,
+        "symbol": "a",
+        "word_index": 6
+      },
+      {
+        "start_ms": 2300.0000000000005,
+        "end_ms": 2360.0,
+        "index": 31,
+        "symbol": "sh",
+        "word_index": 6
+      },
+      {
+        "start_ms": 2360.0,
+        "end_ms": 2460.0,
+        "index": 32,
+        "symbol": "i",
+        "word_index": 6
+      },
+      {
+        "start_ms": 2460.0,
+        "end_ms": 2480.0,
+        "index": 33,
+        "symbol": "t",
+        "word_index": 7
+      },
+      {
+        "start_ms": 2480.0,
+        "end_ms": 3320.0000000000005,
+        "index": 34,
+        "symbol": "a",
+        "word_index": 7
+      }
+    ],
+    "morae": [
+      {
+        "index": 0,
+        "word_index": 0,
+        "word_mora_index": 0,
+        "representation": "ア",
+        "kind": "NORMAL",
+        "shared_span": null,
+        "timing_basis": "NO_INDIVIDUAL_ACOUSTIC_BOUNDARY"
+      },
+      {
+        "index": 1,
+        "word_index": 0,
+        "word_mora_index": 1,
+        "representation": "タ",
+        "kind": "NORMAL",
+        "shared_span": null,
+        "timing_basis": "NO_INDIVIDUAL_ACOUSTIC_BOUNDARY"
+      },
+      {
+        "index": 2,
+        "word_index": 0,
+        "word_mora_index": 2,
+        "representation": "ラ",
+        "kind": "NORMAL",
+        "shared_span": null,
+        "timing_basis": "NO_INDIVIDUAL_ACOUSTIC_BOUNDARY"
+      },
+      {
+        "index": 3,
+        "word_index": 0,
+        "word_mora_index": 3,
+        "representation": "シ",
+        "kind": "NORMAL",
+        "shared_span": null,
+        "timing_basis": "NO_INDIVIDUAL_ACOUSTIC_BOUNDARY"
+      },
+      {
+        "index": 4,
+        "word_index": 0,
+        "word_mora_index": 4,
+        "representation": "イ",
+        "kind": "NORMAL",
+        "shared_span": null,
+        "timing_basis": "NO_INDIVIDUAL_ACOUSTIC_BOUNDARY"
+      },
+      {
+        "index": 5,
+        "word_index": 1,
+        "word_mora_index": 0,
+        "representation": "ス",
+        "kind": "NORMAL",
+        "shared_span": null,
+        "timing_basis": "NO_INDIVIDUAL_ACOUSTIC_BOUNDARY"
+      },
+      {
+        "index": 6,
+        "word_index": 1,
+        "word_mora_index": 1,
+        "representation": "マ",
+        "kind": "NORMAL",
+        "shared_span": {
+          "start_ms": 860.0,
+          "end_ms": 1060.0
+        },
+        "timing_basis": "SHARED_NATIVE_PHONE_ENVELOPE"
+      },
+      {
+        "index": 7,
+        "word_index": 1,
+        "word_mora_index": 2,
+        "representation": "ー",
+        "kind": "LONG_VOWEL_EXTENSION",
+        "shared_span": {
+          "start_ms": 860.0,
+          "end_ms": 1060.0
+        },
+        "timing_basis": "SHARED_NATIVE_PHONE_ENVELOPE"
+      },
+      {
+        "index": 8,
+        "word_index": 1,
+        "word_mora_index": 3,
+        "representation": "ト",
+        "kind": "NORMAL",
+        "shared_span": null,
+        "timing_basis": "NO_INDIVIDUAL_ACOUSTIC_BOUNDARY"
+      },
+      {
+        "index": 9,
+        "word_index": 1,
+        "word_mora_index": 4,
+        "representation": "フォ",
+        "kind": "NORMAL",
+        "shared_span": null,
+        "timing_basis": "NO_INDIVIDUAL_ACOUSTIC_BOUNDARY"
+      },
+      {
+        "index": 10,
+        "word_index": 1,
+        "word_mora_index": 5,
+        "representation": "ン",
+        "kind": "MORAIC_NASAL",
+        "shared_span": null,
+        "timing_basis": "NO_INDIVIDUAL_ACOUSTIC_BOUNDARY"
+      },
+      {
+        "index": 11,
+        "word_index": 2,
+        "word_mora_index": 0,
+        "representation": "ヲ",
+        "kind": "NORMAL",
+        "shared_span": null,
+        "timing_basis": "NO_INDIVIDUAL_ACOUSTIC_BOUNDARY"
+      },
+      {
+        "index": 12,
+        "word_index": 3,
+        "word_mora_index": 0,
+        "representation": "ツ",
+        "kind": "NORMAL",
+        "shared_span": null,
+        "timing_basis": "NO_INDIVIDUAL_ACOUSTIC_BOUNDARY"
+      },
+      {
+        "index": 13,
+        "word_index": 3,
+        "word_mora_index": 1,
+        "representation": "ク",
+        "kind": "NORMAL",
+        "shared_span": null,
+        "timing_basis": "NO_INDIVIDUAL_ACOUSTIC_BOUNDARY"
+      },
+      {
+        "index": 14,
+        "word_index": 3,
+        "word_mora_index": 2,
+        "representation": "エ",
+        "kind": "NORMAL",
+        "shared_span": null,
+        "timing_basis": "NO_INDIVIDUAL_ACOUSTIC_BOUNDARY"
+      },
+      {
+        "index": 15,
+        "word_index": 4,
+        "word_mora_index": 0,
+        "representation": "ニ",
+        "kind": "NORMAL",
+        "shared_span": null,
+        "timing_basis": "NO_INDIVIDUAL_ACOUSTIC_BOUNDARY"
+      },
+      {
+        "index": 16,
+        "word_index": 5,
+        "word_mora_index": 0,
+        "representation": "オ",
+        "kind": "NORMAL",
+        "shared_span": null,
+        "timing_basis": "NO_INDIVIDUAL_ACOUSTIC_BOUNDARY"
+      },
+      {
+        "index": 17,
+        "word_index": 5,
+        "word_mora_index": 1,
+        "representation": "キ",
+        "kind": "NORMAL",
+        "shared_span": null,
+        "timing_basis": "NO_INDIVIDUAL_ACOUSTIC_BOUNDARY"
+      },
+      {
+        "index": 18,
+        "word_index": 6,
+        "word_mora_index": 0,
+        "representation": "マ",
+        "kind": "NORMAL",
+        "shared_span": null,
+        "timing_basis": "NO_INDIVIDUAL_ACOUSTIC_BOUNDARY"
+      },
+      {
+        "index": 19,
+        "word_index": 6,
+        "word_mora_index": 1,
+        "representation": "シ",
+        "kind": "NORMAL",
+        "shared_span": null,
+        "timing_basis": "NO_INDIVIDUAL_ACOUSTIC_BOUNDARY"
+      },
+      {
+        "index": 20,
+        "word_index": 7,
+        "word_mora_index": 0,
+        "representation": "タ",
+        "kind": "NORMAL",
+        "shared_span": null,
+        "timing_basis": "NO_INDIVIDUAL_ACOUSTIC_BOUNDARY"
+      }
+    ]
+  },
+  "targets": [
+    {
+      "target_id": "learner-v1-001-target-01",
+      "surface": "スマートフォン",
+      "reading": "スマートフォン",
+      "word_index": 1,
+      "mora_indices": [
+        6,
+        7
+      ],
+      "mora_span": 2,
+      "vowel_class": "A",
+      "mapping_basis": "PROLONGED_MARK",
+      "time_span": {
+        "start_ms": 860.0,
+        "end_ms": 1060.0
+      },
+      "duration": {
+        "raw_duration_ms": 200.0,
+        "rate_normalized_duration": 1.3375796178343948,
+        "rate_normalized_duration_per_mora": 0.6687898089171974,
+        "normalization_version": "0.1"
+      },
+      "reference": {
+        "target_id": "jvs-parallel100-voiceactress100_010-w000-m001",
+        "version": "task017b-narabas-v1",
+        "profile_sha256": "b9927a8150a43ae362d924c1d7f09984dd2c03ca4108948ee296c4576151ce7e",
+        "independent_speaker_count": 100,
+        "primary_feature": "rate_normalized_duration",
+        "median": 1.166666666666667,
+        "mad": 0.0777828566453351,
+        "q25": 1.0987650109170306,
+        "q75": 1.2477226720647774,
+        "iqr": 0.14895766114774675,
+        "minimum": 0.6871165644171779,
+        "maximum": 1.4961832061068703,
+        "readiness": "READY_FOR_EXPERIMENT"
+      },
+      "deviation": {
+        "signed_delta": 0.17091295116772778,
+        "ratio_to_median": 1.1464968152866237,
+        "mad_distance": 2.1973087456409073,
+        "direction": "ABOVE_REFERENCE_MEDIAN",
+        "inside_iqr": false,
+        "inside_observed_min_max": true,
+        "warnings": [],
+        "formula_version": "0.1"
+      },
+      "realization": null,
+      "acoustics": {
+        "selected_frame_count": 19,
+        "voiced_frame_count": 19,
+        "raw_f0_median_hz": 291.13063656843747,
+        "rms_median": 0.1997016413835432,
+        "extraction_status": "OK",
+        "f0_interpretation": "RAW_ACOUSTIC_MEASUREMENT"
+      },
+      "availability": {
+        "duration": true,
+        "reference": true,
+        "deviation": true,
+        "realization": false,
+        "raw_f0": true,
+        "rms": true
+      },
+      "evidence_status": "PARTIAL",
+      "reasons": [
+        {
+          "stage": "REALIZATION_COMPUTED",
+          "reason_code": "REALIZATION_PROBE_NOT_AVAILABLE_WITH_NARABAS_V1",
+          "message": "This version does not provide realization candidate comparison."
+        }
+      ]
+    }
+  ],
+  "warnings": [
+    {
+      "stage": "REFERENCE_RESOLVED",
+      "reason_code": "CROSS_SENTENCE_CONTEXT_NOT_VALIDATED",
+      "message": "Exact lexical compatibility does not establish sentence-context distribution equivalence."
+    }
+  ],
+  "provenance": {
+    "pipeline_version": "product-m1-1.1.0",
+    "analysis_policy_version": "m1-resource-policy-1.0.0",
+    "prompt_binding_version": "m1-bindings-1.0.0",
+    "prompt_binding_sha256": "7510b34b4375b1bd0f79d62857dc1518a33bbaf6b008833105519680c8f02705",
+    "prompt_pack_sha256": "065691745eb80e5ab28c357d5a8475fb63312326ecc9cc99064157770b49dcb6",
+    "reference_version": "task017b-narabas-v1",
+    "deviation_version": "0.1",
+    "realization_version": "0.1",
+    "alignment_engine": "NARABAS_CPU_WORKER",
+    "alignment_engine_version": "b5e6511ce24dd2f14fc633ed5a23214225ca3eb7",
+    "acoustic_model_sha256": "ac9983740343b260e20f3ac72ee37c5f85a86436ff256c5701707f5909c4a126",
+    "dictionary_sha256": null,
+    "g2p_model_sha256": null,
+    "runtime_identity_sha256": "6d5c16c84abd741c00ba1974ac01302130318cc79705b0f36877452cbf43101e",
+    "alignment_provenance": {
+      "aligner_commit": "b5e6511ce24dd2f14fc633ed5a23214225ca3eb7",
+      "model_sha256": "ac9983740343b260e20f3ac72ee37c5f85a86436ff256c5701707f5909c4a126",
+      "phone_sequence_version": "narabas-ja-1.0.0",
+      "phone_sequence_sha256": "5100b6f9b515fa1c72109100c64cf82d1bea3acf86090283ab5eaa22ab09444d",
+      "alignment_sample_rate_hz": 16000,
+      "resample_method": "SCIPY_RESAMPLE_POLY_PCM16_1.0.0",
+      "runtime_lock_sha256": "6d5c16c84abd741c00ba1974ac01302130318cc79705b0f36877452cbf43101e"
+    },
+    "compatibility_policy": "EXACT_SURFACE_READING_LOCAL_MORA_VOWEL_BASIS_FEATURE_V1",
+    "sentence_context_equivalence_validated": false,
+    "candidate_audio_in_reference": false,
+    "comparison_role": "DESCRIPTIVE_ONLY",
+    "real_labelled_learner_data_ready": false,
+    "calibrated_diagnosis_ready": false,
+    "cross_condition_likelihood_comparable": false
+  }
+}

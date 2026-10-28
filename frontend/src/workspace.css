@@ -1,0 +1,390 @@
+/* Workspace layout stays scoped; voice actions share their own component styles. */
+.workspace-empty {
+  --workspace-sidebar-width: clamp(260px, 24vw, 480px);
+  --workspace-header-height: 60px;
+  --workspace-border: #edf0f5;
+  display: grid;
+  grid-template-columns: var(--workspace-sidebar-width) minmax(0, 1fr);
+  grid-template-rows: var(--workspace-header-height) 1fr;
+  min-height: 100svh;
+  color: var(--text);
+  background: #fff;
+}
+.workspace-empty button {
+  color: inherit;
+  border: 0;
+  background: transparent;
+}
+.workspace-empty button[aria-disabled="true"] {
+  cursor: default;
+}
+.workspace-header {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--workspace-border);
+}
+.workspace-brand {
+  display: flex;
+  align-items: center;
+  width: var(--workspace-sidebar-width);
+  height: 100%;
+  padding-inline: 22px;
+  border-right: 1px solid var(--workspace-border);
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -.6px;
+  white-space: normal;
+}
+.workspace-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  padding-inline: 28px;
+}
+.workspace-help {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 18px;
+  color: var(--body) !important;
+  padding: 8px;
+}
+.workspace-help svg {
+  width: 16px;
+  height: 16px;
+}
+.workspace-empty .workspace-account {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #f2f4f7;
+  color: var(--body);
+}
+.workspace-menu {
+  display: none;
+}
+.workspace-desktop-sidebar {
+  grid-column: 1;
+  border-right: 1px solid var(--workspace-border);
+  background: #fafbfc;
+}
+.workspace-sidebar {
+  min-height: calc(100svh - var(--workspace-header-height));
+  display: flex;
+  flex-direction: column;
+  padding: 26px 20px 22px;
+}
+.workspace-empty .workspace-new {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 50px;
+  padding: 12px 16px;
+  border: 1px solid #e5eaf2;
+  border-radius: 13px;
+  background: #fff;
+  font-size: 18px;
+  text-align: left;
+}
+.workspace-new:hover {
+  border-color: #cdd8eb;
+}
+.workspace-history {
+  margin-top: 36px;
+}
+.workspace-history h2 {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0 4px 10px;
+}
+.workspace-history ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.workspace-history-row {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 7px 4px;
+  border-radius: 8px;
+  text-align: left;
+}
+.workspace-empty .workspace-history-row:hover {
+  background: #f0f3f8;
+}
+.workspace-history-marker {
+  display: grid;
+  flex: 0 0 23px;
+  height: 23px;
+  place-items: center;
+  border: 1px solid #e3e8f0;
+  border-radius: 50%;
+  color: #768399;
+}
+.workspace-history-marker svg {
+  width: 13px;
+  height: 13px;
+}
+.workspace-demo-tag {
+  font-size: 16px;
+  color: #65728a;
+}
+.workspace-history-text {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 18px;
+  color: var(--body);
+}
+.workspace-settings {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: auto;
+  align-self: flex-start;
+  padding: 12px 4px 0;
+  font-size: 18px;
+  color: #647188 !important;
+}
+.workspace-main {
+  /* Lift the complete welcome group by 10vh into the upper middle.
+     Keep the approved sidebar and horizontal alignment. */
+  padding: max(120px, calc(39.45svh - var(--workspace-header-height) - 100px))
+    calc(40px + max(0px, var(--workspace-sidebar-width) - 17.6vw)) 80px 40px;
+  min-width: 0;
+}
+.workspace-main:focus {
+  outline: none;
+}
+.workspace-welcome {
+  max-width: 960px;
+  margin-inline: auto;
+}
+.workspace-welcome h1 {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: -.5px;
+}
+.workspace-subtitle {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #6b7689;
+}
+.workspace-voice-entry {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 66px;
+  margin-top: 24px;
+  padding: 8px 20px 8px 12px;
+  border: 1px solid #e5eaf2;
+  border-radius: 34px;
+  background: #fff;
+  box-shadow: 0 2px 7px #1e365408;
+}
+.workspace-empty .workspace-add {
+  display: grid;
+  place-items: center;
+  flex: 0 0 44px;
+  height: 44px;
+  padding: 0;
+  border-radius: 50%;
+  background: #f6f7fa;
+}
+.workspace-placeholder {
+  flex: 1;
+  min-width: 0;
+  font-size: 20px;
+  color: #8894a8;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.workspace-quick-starts {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 40px;
+}
+.workspace-empty .workspace-quick-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  min-width: 0;
+  min-height: 94px;
+  padding: 18px 12px;
+  border: 1px solid #f0f2f6;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 2px 10px #1e365404;
+  text-align: left;
+}
+.workspace-empty .workspace-quick-card:hover {
+  background: #fafcff;
+  border-color: #e2e9f6;
+}
+.workspace-quick-card > svg {
+  flex: 0 0 17px;
+  width: 17px;
+  height: 17px;
+  margin-top: 1px;
+  color: var(--body);
+}
+.workspace-quick-card > span {
+  min-width: 0;
+}
+.workspace-card-label, .workspace-card-name, .workspace-card-format {
+  display: block;
+}
+.workspace-card-label {
+  font-size: 18px;
+  color: #6b7689;
+  line-height: 1.5;
+}
+.workspace-card-name {
+  font-size: 18px;
+  color: var(--body);
+  line-height: 1.6;
+  margin-top: 3px;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.workspace-card-format {
+  font-size: 14px;
+  color: #6b7689;
+  line-height: 1.6;
+  margin-top: 2px;
+}
+.workspace-drawer {
+  padding: 0;
+  border: 0;
+  margin: 0;
+  width: 260px;
+  max-width: calc(100% - 48px);
+  height: 100svh;
+  max-height: 100svh;
+  color: var(--text);
+  background: #fafbfc;
+}
+.workspace-drawer::backdrop {
+  background: #15243f35;
+}
+.workspace-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  height: var(--workspace-header-height);
+  border-bottom: 1px solid var(--workspace-border);
+}
+.workspace-drawer-header h2 {
+  font-size: 18px;
+  font-weight: 600;
+}
+.workspace-drawer-close {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+}
+.workspace-drawer .workspace-sidebar {
+  padding-top: 24px;
+}
+html:has(.workspace-drawer[open]) {
+  overflow: hidden;
+}
+@media (max-width: 1100px) and (min-width: 761px) {
+  .workspace-main {
+    /* Narrow windows need the full remaining width. */
+    padding-inline: 28px;
+  }
+  .workspace-quick-starts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 760px) {
+  .workspace-empty {
+    display: block;
+    --workspace-header-height: 60px;
+  }
+  .workspace-header {
+    height: var(--workspace-header-height);
+    padding-inline: 20px;
+  }
+  .workspace-brand {
+    width: auto;
+    padding: 0;
+    border-right: 0;
+    font-size: 20px;
+    letter-spacing: -.5px;
+  }
+  .workspace-header-actions {
+    gap: 4px;
+    padding: 0;
+  }
+  .workspace-help, .workspace-account {
+    display: none !important;
+  }
+  .workspace-empty .workspace-menu {
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+  }
+  .workspace-desktop-sidebar {
+    display: none;
+  }
+  .workspace-main {
+    padding: clamp(140px, calc(28svh - var(--workspace-header-height)), 220px) 20px 64px;
+  }
+  .workspace-welcome h1 {
+    font-size: 28px;
+    letter-spacing: -.5px;
+  }
+  .workspace-subtitle {
+    font-size: 18px;
+    margin-top: 10px;
+    line-height: 1.5;
+  }
+  .workspace-voice-entry {
+    margin-top: 24px;
+    height: 66px;
+    gap: 7px;
+    padding: 10px 16px 10px 10px;
+    border-radius: 34px;
+  }
+  .workspace-empty .workspace-add {
+    flex-basis: 36px;
+    height: 36px;
+  }
+  .workspace-add svg {
+    width: 18px;
+    height: 18px;
+  }
+  .workspace-placeholder {
+    font-size: 18px;
+    letter-spacing: 0;
+  }
+  .workspace-quick-starts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 24px;
+  }
+  .workspace-empty .workspace-quick-card {
+    min-height: 86px;
+    padding: 16px 12px;
+  }
+}

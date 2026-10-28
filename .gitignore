@@ -16,7 +16,8 @@ data/optional-reference-audio/
 *.jit
 *.bin
 *.zip
-frontend/
+frontend/public/local-backgrounds/
+frontend/public/audio/reference/*.wav
 node_modules/
 dist/
 build/

@@ -26,3 +26,7 @@ These changes decouple the public package from private resources; they do not re
 The Windows numerical environment uses official conda-forge URL locks; HTTP packages have a separate pip lock. Dependencies are obtained through package managers, not redistributed as an environment bundle. The wheel packages Python modules and notices, not the complete product or all runtime configuration.
 
 The 2026-10-16 presentation update adds English documentation, source-matched diagrams and English-localized captures of existing DEMO components. Displayed numeric values are unchanged. Documentation captures are not evidence of a newly deployed English-language application.
+
+## Frontend source extension — 2026-10-28
+
+The owner requested the complete frontend in the same repository. Source publication preserves the accepted application and separates code from optional media: authored TypeScript/CSS/worklet/test source is MIT-listed, while Haruka WAVs and decorative video remain excluded. Tests that need those exact bytes skip explicitly; structural tests remain executable with a clearly authored engineering tone. Reviewed saved synthetic-DEMO JSON retains its provenance and original hashes. The private product, scientific formulas and deployed website are not changed by this source release.

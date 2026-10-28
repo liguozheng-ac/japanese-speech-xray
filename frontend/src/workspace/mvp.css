@@ -1,0 +1,47 @@
+.audio-inspector { margin: 20px 0; padding: 16px 0; border-top: 1px solid #e3e6eb; font-size: 13px; line-height: 1.8; text-align: left; }
+.inspection-heading { display: flex; align-items: baseline; flex-wrap: wrap; gap: 8px 18px; }
+.inspection-heading strong { font-weight: 500; color: #25282d; }
+.inspection-heading > span, .inspection-ticks { color: #747a84; font-size: 11px; }
+.inspection-target { margin: 8px 0 12px; color: #565c67; }
+.selection-tools, .selection-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 6px 18px; }
+.selection-tools > button { padding: 5px 0; font-size: 12px; }
+.selection-tools [aria-pressed="true"] { color: #215cc0; text-decoration: underline; text-underline-offset: 6px; }
+.selection-wave { width: 100%; height: 104px; display: block; margin-top: 12px; overflow: hidden; touch-action: none; cursor: crosshair; }
+.selection-wave.is-disabled { cursor: default; }
+.inspection-ticks { display: flex; justify-content: space-between; font-family: ui-monospace, monospace; }
+.selection-fields { display: flex; align-items: flex-end; flex-wrap: wrap; gap: 10px 18px; margin: 10px 0; }
+.selection-fields label { display: flex; flex-direction: column; gap: 3px; color: #626872; font-size: 12px; }
+.selection-fields input { width: 118px; max-width: 100%; border: 1px solid #dce0e6; border-radius: 4px; background: #fff; padding: 6px 8px; font: 12px/1.6 ui-monospace, monospace; color: #292e35; }
+.audio-inspector .sketch-note, .trust-note { color: #6d737b; font-size: 12px; line-height: 1.8; margin: 10px 0; }
+.candidate-notice { border-left: 2px dashed #9fa5ad; padding-left: 12px; margin-top: 12px; }
+.candidate-notice p { margin: 8px 0; }
+.selection-duration { color: #4d586a; font-size: 12px; }
+.experimental-details > summary { cursor: pointer; font-size: 13px; padding: 8px 0; color: #555d69; }
+.reading-source { text-align: left; font-size: 11px; line-height: 1.8; }
+.reading-source summary { cursor: pointer; color: #79808b; }
+.reading-source p { margin: 8px 0; max-width: 540px; }
+.workspace-help-dialog { max-width: min(600px, 90vw); padding: 30px; border: 1px solid #dde1e8; border-radius: 12px; color: #333; font-size: 14px; line-height: 1.8; }
+.workspace-help-dialog::backdrop { background: #1113; }
+.voice-entry .voice-input-trigger > svg { color: #fff; width: 23px; height: 23px; transform: rotate(-90deg); }
+.workspace-brand { white-space: nowrap; font-size: clamp(16px, 1.25vw, 24px); }
+@media (max-width: 760px) { .selection-fields { gap: 8px 12px; } .selection-fields input { width: 98px; } .audio-inspector { margin: 12px 0; } }
+
+/* V1: restrained controls beside the audio evidence; no dashboard surfaces. */
+.workspace-empty .practice-button { display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 7px 13px; min-height: 36px; border: 1px solid #d7dce3; border-radius: 6px; background: #fff; color: #343b45; font-size: 13px; line-height: 1.6; text-decoration: none; }
+.workspace-empty .practice-button:hover:not(:disabled) { background: #f4f6f9; border-color: #aab3c0; }
+.workspace-empty .practice-button:disabled { opacity: 1; color: #a1a7b0; border-color: #e9ecf0; background: #fafbfc; cursor: default; }
+.workspace-empty .practice-button[aria-pressed="true"] { color: #215cc0; border-color: #9fb9df; background: #f3f7ff; }
+.workspace-empty .practice-primary { color: #fff; border-color: #262f3c; background: #262f3c; }
+.workspace-empty .practice-primary:hover:not(:disabled) { background: #3a4554; color: #fff; }
+.workspace-empty .selection-tools [aria-pressed] { padding: 6px 12px; border: 1px solid transparent; border-radius: 5px; }
+.workspace-empty .selection-tools [aria-pressed="true"] { background: #f1f5fa; border-color: #d9e2ee; text-decoration: none; }
+.practice-actions { gap: 8px; margin: 16px 0 10px; }
+.selection-secondary { margin: 14px 0; color: #666f7c; font-size: 12px; }
+.selection-secondary summary, .candidate-notice summary { cursor: pointer; padding: 5px 0; }
+.selection-secondary[open] { padding-bottom: 8px; }
+.practice-next { margin-top: 24px; padding-top: 18px; border-top: 1px solid #e3e6eb; font-size: 13px; color: #424a55; }
+.practice-next strong { font-weight: 500; }
+.practice-next p { margin: 12px 0; line-height: 1.9; color: #6d737b; }
+.word-confirm { margin: 6px 0; }
+.inspection-heading strong { font-size: 14px; }
+@media (max-width: 600px) { .practice-actions .practice-button { flex: 1 1 44%; } .inspection-target { overflow-wrap: anywhere; } }

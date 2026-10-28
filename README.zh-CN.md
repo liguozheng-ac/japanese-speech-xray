@@ -30,7 +30,13 @@
 
 以下面板由实际产品组件加载现有的已保存 DEMO 渲染而成，并为本中文版文档使用中文界面文字。数值结果与时间坐标保持原样；日语句子和模型原生音素符号予以保留。
 
-DEMO 使用 **Microsoft Haruka Desktop 合成语音**，并非真人学习者录音。输入与同句参考使用的是**同一份合成 WAV**：曲线重合用于展示界面能力，不代表发音准确性。音频、私有分析 JSON 和前端实现不在本仓库的分发范围内。
+DEMO 使用 **Microsoft Haruka Desktop 合成语音**，并非真人学习者录音。输入与同句参考使用的是**同一份合成 WAV**：曲线重合用于展示界面能力，不代表发音准确性。本仓库已包含 React 前端实现及经核查的已保存合成 DEMO 响应文件；Haruka WAV、模型资源及私有研究档案不随仓库分发。
+
+### 练习工作区（页1）
+
+![页1练习工作区：录音、上传、受控句子与已保存DEMO导航](docs/images/zh-CN/workspace-page1.png)
+
+实际工作区组件将录音、WAV 上传、会话导航和三条练习句集中在同一页面。这张文档渲染图展示空白状态，没有虚构录音或分析结果。自动分析不可用时，仍可使用原音试听与手动练习。
 
 ### 音高与语调
 
@@ -56,7 +62,7 @@ DEMO 使用 **Microsoft Haruka Desktop 合成语音**，并非真人学习者录
 
 集中查看候选区间、目标词试听范围、归一化结果及实验性实现形式证据。播放对应底层音频的实际区间，不使用示意音频替代。系统区分实测数值、模型候选和不可用证据，不将实验性候选对比转化为临床或教学诊断。
 
-静态截图展示产品界面，并非在线服务。[截图来源与展示范围](docs/SCREENSHOT-REVIEW.md)。
+静态图用于说明产品界面。[liguozheng.com.cn](https://liguozheng.com.cn/) 已有仅前端的演示，自动分析后端未上线。[截图来源与展示范围](docs/SCREENSHOT-REVIEW.md)。
 
 ## 工程能力
 
@@ -84,9 +90,23 @@ python examples/prosody_smoke.py
 python -m uvicorn speech_xray.api.app:app --host 127.0.0.1 --port 8000
 ```
 
-这些命令启动本地 API，不启动未公开的浏览器应用。在 Windows 中需激活环境，以便 SoundFile 找到 `libsndfile.dll`。显式环境锁定文件面向 `win-64`，其他平台尚未验证。wheel 包包含 Python 模块，并不包含全部运行配置或产品素材，因此常规复现应使用源码检出目录。
+这些命令启动本地 API；请另开一个终端，按下方步骤启动本仓库已包含的浏览器前端。在 Windows 中需激活环境，以便 SoundFile 找到 `libsndfile.dll`。显式环境锁定文件面向 `win-64`，其他平台尚未验证。wheel 包包含 Python 模块，并不包含全部运行配置或产品素材，因此常规复现应使用源码检出目录。
 
 [复现指南与 API 示例](docs/REPRODUCIBILITY.md) · [可选对齐与参考资源](docs/OPTIONAL-RESOURCES.md)
+
+### 启动浏览器前端
+
+安装 Node.js >=22.12.0 后，另开一个终端：
+
+```powershell
+cd frontend
+npm ci
+npm test
+npm run build
+npm run dev
+```
+
+访问[页0](http://127.0.0.1:5173/)或[页1工作区](http://127.0.0.1:5173/#/workspace)。Vite 将 `/api` 转发至本机8000端口。源码无需私有媒体即可构建；Haruka 播放与基于原音的已保存 DEMO 需要另行获得授权的精确 WAV，缺失时四项原音资源测试明确跳过。[前端指南](frontend/README.md)。
 
 ## 验证记录
 
@@ -107,15 +127,17 @@ python -m uvicorn speech_xray.api.app:app --host 127.0.0.1 --port 8000
 - F0 估计可能稀疏或出错；空白区域不自动等于停顿或发音错误。
 - 合成参考不是母语者准确性标准。不提供经过校准的个人评分或重音合格判断。
 - 在已验证的本地 CPU 环境中，MFA 分析可能耗时数分钟。自动边界和历史参考统计仍具有研究限制。
-- 本仓库提供 Python 分析实现、测试和工程工具，不包含 React 产品源码、音频、预训练模型或私有研究记录。
-- **目前未部署托管的交互式 DEMO。**面向公网的身份验证、全局限流及多用户隔离尚未通过生产验收。
+- 本仓库提供 Python 分析实现、完整 React 前端、测试和工程工具；可选音频、预训练模型及私有研究记录不随仓库分发。
+- [liguozheng.com.cn](https://liguozheng.com.cn/) 已提供**仅前端演示**，在线自动分析后端尚未部署。面向公网的身份验证、全局限流及多用户隔离尚未通过生产验收。
 
 [已知限制](docs/KNOWN-LIMITATIONS.md) · [工程决策](docs/TECHNICAL-DECISIONS.md)
 
 ## 许可证与来源
 
-标准 [MIT 许可证](LICENSE)仅适用于 [LICENSE-SCOPE.md](LICENSE-SCOPE.md) 明确列出的 **198 份作者自有 Python 文件**。文档、截图、架构图、品牌及第三方资源不沿用该代码许可证。展示图仅用于仓库介绍，相关权利予以保留。
+标准 [MIT 许可证](LICENSE)仅适用于 [LICENSE-SCOPE.md](LICENSE-SCOPE.md) 明确列出的 **作者自有 Python 与前端源码文件**。文档、截图、架构图、品牌及第三方资源不沿用该代码许可证。展示图仅用于仓库介绍，相关权利予以保留。
 
 实现代码从已验收的本地 `v1.0.0-local` 快照导出，并建立了独立的 Git 历史；原产品历史及标签未导入。第三方软件包、语音资源和模型仍适用各自的许可条款。
 
 [第三方来源](THIRD_PARTY.md) · [公开范围](docs/PUBLIC-RELEASE-SCOPE.md) · [文件清单](TASK-021-PUBLIC-FILE-MANIFEST.md)
+
+前端源码于2026-10-28从本地产品提交 `68effe8dc04e1cf10579c0ac2143288fa4f24eef` 补充公开；没有导入原私有 Git 历史，也没有改动已部署网站。

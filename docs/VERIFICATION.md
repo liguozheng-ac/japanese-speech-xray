@@ -9,7 +9,7 @@ Phase A: 2026-10-09. Phase B: 2026-10-10. Platform: Windows x64, independent Con
 | Public checkout, Phase A | 548 | 543 | 0 | 0 | 5 | Actually run 2026-10-09, about 65.76 seconds |
 | Public checkout, Phase B | 548 | 543 | 0 | 0 | 5 | Actually run 2026-10-10; runner 67.212 seconds |
 
-The full local V1 also passed its historical TypeScript/build checks. The public checkout does not include React source and does not claim to build that interface. Public editable install, pip check, compileall and wheel build were actually verified in Phase B. The wheel contains 129 backend Python modules and license notices, not product assets or all runtime configuration.
+The full local V1 also passed its historical TypeScript/build checks. That historical release did not include React source; the 2026-10-28 source extension below now verifies its build. Public editable install, pip check, compileall and wheel build were actually verified in Phase B. The wheel contains 129 backend Python modules and license notices, not product assets or all runtime configuration.
 
 The five skips are two optional JVS corpus checks and three Haruka audio/resource checks. They remain skips, not passes. Private integrations and frozen research-resource tests were not all exported; individual exclusion records remain private. No test was deleted in this documentation update.
 
@@ -30,4 +30,21 @@ Phase B wheel SHA-256: 1145699167b0a5da457c71ba5f7075ab1267c49a3b3236de65ef85539
 
 ## Documentation update checks
 
-The English showcase is checked separately for relative links, image dimensions, source-matched diagram paths, English explanatory labels, unchanged numeric demo values, unchanged MIT-covered Python blobs, excluded frontend/audio/model files, and final Git/remote consistency. This is not a fresh acoustic experiment or performance benchmark.
+The English showcase is checked separately for relative links, image dimensions, source-matched diagram paths, English explanatory labels, unchanged numeric demo values, unchanged backend implementation blobs, separately reviewed frontend source, excluded audio/model binaries, and final Git/remote consistency. This is not a fresh acoustic experiment or performance benchmark.
+
+## Frontend publication checks — 2026-10-28
+
+| Check | Actual result |
+| --- | --- |
+| Clean public frontend npm install | `npm ci` completed using the committed lock; 69 packages installed |
+| Frontend tests | 101 total: **97 passed, 4 skipped, 0 failed**; 6.945 s |
+| TypeScript and production build | **PASS**; 74 modules; Vite build 859 ms |
+| Public backend regression | 548 total: **543 passed, 5 skipped, 0 failures/errors**; runner 131.101 s |
+| Backend resource isolation | No implicit private configuration; excluded WAV/video remain absent |
+| Product implementation | Accepted private product and deployed website not modified |
+
+The four frontend skips need the exact excluded Haruka WAVs: three saved DEMO checks and one three-reading audio-integrity check. Missing/corrupt DEMO rejection and cancellation still run using deliberately non-matching engineering bytes; structural MVP tests use an explicitly authored tone. No engineering tone is presented as speech or a successful saved DEMO. Backend skips retain the historical two JVS / three Haruka requirements.
+
+One initial frontend run reported a remaining original-audio dependency; the resource-dependent test was made explicit and the complete suite rerun to the result above. The publication changes the public-checkout isolation test to expect frontend source while continuing to reject implicit private resources; scientific/backend implementation code is unchanged.
+
+Raw test logs and source/candidate audits remain in the local private publication receipt, not in the repository. These checks establish engineering reproducibility, not human pronunciation accuracy.

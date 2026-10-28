@@ -2,7 +2,7 @@
 
 ![System architecture](images/system-architecture.svg)
 
-The diagram describes implemented local product responsibilities, not a proposed cloud deployment. The React interface is private; this repository contains the Python implementation and selected presentation assets. Components inside an analysis path are modules, not separately deployed microservices.
+The diagram describes implemented local product responsibilities, not a proposed cloud deployment. The complete React interface and Python implementation are included; optional media, model resources and private research archives remain separate. Components inside an analysis path are modules, not separately deployed microservices.
 
 ## Editable Mermaid
 
@@ -50,3 +50,7 @@ Prosody is independent of experimental alignment readiness and its queue. An una
 | product/narabas_* | Historical research adapters | Not activated by default; weights and private configuration excluded |
 
 LIVE confirms service liveness. Experimental READY is a resource/readiness check, not a guarantee of calibrated linguistic accuracy. See [processing flow](PROCESSING-FLOW.md) and [limitations](KNOWN-LIMITATIONS.md).
+
+## Frontend source map
+
+`frontend/src/WorkspaceEmpty.tsx` hosts Page 1. `audio/` owns recording/WAV/playback/selection; `workspace/` owns the composer, turns, queue and cancellation; `prosody/` displays independent F0 evidence; `api/` validates contracts. `Page0Landing.tsx` and the landing stylesheet implement Page 0. The frontend is included in the source release; optional media and model resources are separate. See the [frontend guide](../frontend/README.md).

@@ -1,0 +1,17 @@
+.workspace-demo-list { margin-top: 30px; }
+.workspace-history-row[aria-pressed="true"] { background: #edf1f6; color: #18202b; border-radius: 8px; }
+.workspace-demo-list .composer-note { text-align: left; margin: 10px 0; }
+.interview-demo { display: flex; flex-direction: column; min-height: 0; height: 100%; text-align: left; }
+.demo-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; padding-top: 24px; }
+.demo-heading strong { font-size: 16px; font-weight: 500; }
+.demo-heading p, .demo-source { font-size: 12px; color: #737985; line-height: 1.8; }
+.demo-heading p { margin: 6px 0 0; }
+.demo-source { margin: 10px 0 0; }
+.demo-sections { display: flex; flex-wrap: wrap; gap: 8px 24px; padding: 14px 0 10px; border-bottom: 1px solid #edf0f5; }
+.demo-sections button { font-size: 13px; padding: 2px 0; color: #4d596c; }
+.demo-sections button:hover { text-decoration: underline; text-underline-offset: 4px; }
+.has-turns .interview-demo .analysis-stream { padding-top: 18px; }
+@media (max-width: 760px) {
+  .demo-heading { padding-top: 18px; gap: 12px; }
+  .demo-heading .inline-action { flex-shrink: 0; }
+}

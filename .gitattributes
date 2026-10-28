@@ -2,3 +2,10 @@
 # These frozen registries are byte-pinned by the backend. Preserve their bytes.
 data/prompts/*.json -text
 docs/images/*.jpg -text
+
+# Binary display assets are not text-normalized.
+*.png -text
+*.jpg -text
+# Saved synthetic service receipts are byte-pinned by the DEMO loader.
+frontend/public/demo/*-analysis.json -text whitespace=cr-at-eol
+frontend/public/demo/*-prosody.json -text whitespace=cr-at-eol

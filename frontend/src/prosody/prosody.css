@@ -1,0 +1,24 @@
+.prosody-panel { margin-top: 24px; padding: 18px 0 4px; border-top: 1px solid #e3e6eb; text-align: left; font-size: 13px; line-height: 1.8; color: #34383e; }
+.pitch-heading { display: flex; align-items: baseline; flex-wrap: wrap; gap: 10px 24px; }
+.pitch-heading strong { font-weight: 500; }
+.pitch-note, .pitch-reference-note, .pitch-readout, .pitch-details { color: #6d737b; font-size: 12px; }
+.pitch-units { display: flex; gap: 24px; margin: 15px 0; }
+.pitch-units button { background: none; border: 0; padding: 4px 0; font: inherit; color: #747a84; cursor: pointer; }
+.pitch-units button[aria-pressed="true"] { color: #282d34; text-decoration: underline; text-underline-offset: 5px; }
+.pitch-track { margin: 15px 0; color: #252c35; }
+.pitch-track-label { font-size: 13px; color: #343c47; }
+.pitch-track svg { display: block; width: 100%; height: auto; max-height: 176px; overflow: visible; }
+.pitch-track svg text { font: 12px ui-monospace, monospace; fill: #596675; }
+.pitch-chart-scroll { overflow-x: auto; }
+.pitch-mobile-hint { display: none; }
+.pitch-reference { color: #617b9e; }
+.pitch-readout { min-height: 24px; font-variant-numeric: tabular-nums; }
+.pitch-reference-note { margin: 15px 0; }
+.pitch-observations { font-size: 12px; color: #4d555f; }
+.pitch-details summary { cursor: pointer; }
+.pitch-details p { margin: 10px 0; }
+.pitch-hash { overflow-wrap: anywhere; }
+.pitch-abstention { font-size: 12px; color: #747a84; }
+.pitch-evidence-note { font-size: 12px; line-height: 1.8; color: #606c7a; margin: 5px 0 10px; }
+.pitch-heading strong { font-size: 14px; }
+@media (max-width: 600px) { .pitch-track svg { min-width: 560px; } .pitch-mobile-hint { display: block; color: #747a84; font-size: 11px; } }

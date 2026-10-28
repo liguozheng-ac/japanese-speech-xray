@@ -86,3 +86,20 @@ Original PCM rate, no resampling; fmin=50 Hz, fmax=600 Hz; frame length is the n
 ## 5. Optional experiment boundaries
 
 MFA resources, reference profiles, Haruka audio, Narabas weights and actual corpora are not included; see [optional resources](OPTIONAL-RESOURCES.md). Offline tools can process separately obtained compatible data, but this documentation update does not rebuild a corpus or change resources. Private integration files were not deleted; public resource-dependent skips are skips, not passes.
+
+## 6. Full frontend source
+
+In a second terminal, with Node.js >=22.12.0 and npm:
+
+```powershell
+cd frontend
+npm ci
+npm test
+npm run typecheck
+npm run build
+npm run dev
+```
+
+Page 0: http://127.0.0.1:5173/. Page 1: http://127.0.0.1:5173/#/workspace. The Vite dev proxy forwards `/api` to port 8000. The browser can record, validate an uploaded WAV, display its actual waveform and play a manual selection without alignment. Automatic pitch uses the independent API. MFA requires the optional resources documented above.
+
+No original Haruka WAV or decorative background video is bundled. The existing video-failure fallback remains static; saved DEMO playback requires byte-matching original audio and does not invent a substitute. Four exact-audio tests skip explicitly; the remaining UI engineering tests use authored structural data or an engineering tone. This is a source-code release, not a new full-service deployment. See [frontend guide](../frontend/README.md).

@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="zh">
+  <meta charset="utf-8" /><title>TASK-016 browser PCM test</title>
+  <body>
+    <h1>浏览器 PCM 录音处理器验收</h1>
+    <p>仅生成测试信号，不申请麦克风权限，不提交后端。</p>
+    <button id="run">运行 3 秒原始 PCM 捕获测试</button
+    ><button id="play" disabled>播放捕获的 PCM WAV</button>
+    <pre id="result" role="status">未运行</pre>
+    <audio controls id="audio"></audio>
+    <script type="module">
+      import { parseWav, encodeWav } from "../src/audio/wav.ts";
+      const button = document.querySelector("#run"),
+        result = document.querySelector("#result");
+      document.querySelector("#play").onclick = () =>
+        document.querySelector("#audio").play();
+      button.onclick = async () => {
+        button.disabled = true;
+        let ctx, osc, node, url;
+        try {
+          ctx = new AudioContext({ sampleRate: 48000 });
+          await ctx.resume();
+          await ctx.audioWorklet.addModule("/pcm-capture.js");
+          const chunks = [];
+          let failed = null,
+            ack;
+          node = new AudioWorkletNode(ctx, "pcm-capture", {
+            channelCountMode: "max",
+          });
+          node.port.onmessage = (event) => {
+            if (event.data.pcm) chunks.push(event.data.pcm);
+            if (event.data.error) failed = event.data.error;
+            if (event.data.stopped) ack?.();
+          };
+          // Direct mono oscillator avoids MediaStreamDestination's stereo transport.
+          osc = ctx.createOscillator();
+          osc.frequency.value = 220;
+          osc.connect(node);
+          node.connect(ctx.destination);
+          osc.start();
+          // Allow scheduling margin so the resulting processing frames exceed 3 seconds.
+          await new Promise((resolve) => setTimeout(resolve, 3200));
+          await new Promise((resolve) => {
+            ack = resolve;
+            node.port.postMessage("stop");
+          });
+          if (failed) throw new Error(failed);
+          const pcm = new Float32Array(
+            chunks.reduce((n, c) => n + c.length, 0),
+          );
+          let offset = 0;
+          chunks.forEach((c) => {
+            pcm.set(c, offset);
+            offset += c.length;
+          });
+          const blob = new Blob([encodeWav(pcm, ctx.sampleRate)], {
+              type: "audio/wav",
+            }),
+            wav = parseWav(await blob.arrayBuffer());
+          osc.stop();
+          osc.disconnect();
+          node.disconnect();
+          node.port.close();
+          await ctx.close();
+          url = URL.createObjectURL(blob);
+          document.querySelector("#audio").src = url;
+          document.querySelector("#play").disabled = false;
+          result.textContent = JSON.stringify(
+            {
+              role: "BROWSER_GENERATED_SIGNAL_TEST_NO_PHYSICAL_MIC",
+              format: "Mono PCM16 WAV",
+              rate: wav.sampleRate,
+              samples: wav.samples.length,
+              duration_ms: wav.durationMs,
+              has_signal: wav.samples.some((s) => Math.abs(s) > 0.1),
+              context_closed: ctx.state === "closed",
+            },
+            null,
+            2,
+          );
+        } catch (e) {
+          result.textContent = "FAIL: " + e.message;
+        } finally {
+          if (ctx && ctx.state !== "closed") {
+            osc?.stop();
+            node?.disconnect();
+            await ctx.close();
+          }
+          button.disabled = false;
+          window.addEventListener(
+            "pagehide",
+            () => {
+              if (url) URL.revokeObjectURL(url);
+            },
+            { once: true },
+          );
+        }
+      };
+    </script>
+  </body>
+</html>

@@ -1,6 +1,6 @@
 # Third-party sources and resource boundaries
 
-Source identities and licenses were reviewed for TASK-021 on 2026-10-09; presentation scope was updated on 2026-10-16. Software source, bundled components, pretrained models, corpora and synthetic audio have distinct rights. The repository vendors none of their binaries or source. The limited MIT grant applies only to the 198 author-owned Python files enumerated in [LICENSE-SCOPE.md](LICENSE-SCOPE.md).
+Source identities and licenses were reviewed for TASK-021 on 2026-10-09; frontend publication scope was updated on 2026-10-28. Software source, bundled components, pretrained models, corpora and synthetic audio have distinct rights. The repository vendors none of their binaries or source. The MIT source-code grant applies to the enumerated author-owned Python and frontend files in [LICENSE-SCOPE.md](LICENSE-SCOPE.md).
 
 ## Runtime dependencies
 
@@ -40,10 +40,18 @@ Michael McAuliffe / Morgan Sonderegger: Japanese MFA [acoustic model v3.0.0](htt
 
 [JVS official corpus information](https://sites.google.com/site/shinnosuketakamichi/research-topics/jvs_corpus) distinguishes research/personal use, commercial use and redistribution. A repository/tag license does not automatically cover every recording. JVS WAVs, transcripts, speaker-level records and complete research profiles remain excluded.
 
-Haruka is a Windows Desktop synthetic voice. [Microsoft SpeechSynthesizer documentation](https://learn.microsoft.com/en-us/uwp/api/windows.media.speechsynthesis.speechsynthesizer) and [system voice documentation](https://support.microsoft.com/en-us/accessibility/windows/narrator/appendix-a-supported-languages-and-voices) establish source identity, not a completed review of GitHub audio redistribution. Desktop WAV redistribution remains LICENSE_REVIEW_REQUIRED; Azure neural-TTS terms are not substituted. Haruka WAVs and private response files are not distributed.
+Haruka is a Windows Desktop synthetic voice. [Microsoft SpeechSynthesizer documentation](https://learn.microsoft.com/en-us/uwp/api/windows.media.speechsynthesis.speechsynthesizer) and [system voice documentation](https://support.microsoft.com/en-us/accessibility/windows/narrator/appendix-a-supported-languages-and-voices) establish source identity, not a completed review of GitHub audio redistribution. Desktop WAV redistribution remains LICENSE_REVIEW_REQUIRED; Azure neural-TTS terms are not substituted. Haruka WAVs are not distributed. Reviewed saved synthetic frontend response JSON is now included; private research response archives remain excluded.
 
-The owner's 2026-10-16 request separately authorizes static product-demo presentation. The new panels show unchanged analytical visualizations from the existing synthetic DEMO and the already-displayed aggregate reference summary. This limited display does not assert a new third-party license, distribute the original audio or unlock private research data. All source labels and evidence limitations remain explicit; see [capture review](docs/SCREENSHOT-REVIEW.md).
+The owner's 2026-10-16 request separately authorizes static product-demo presentation. The new panels show unchanged analytical visualizations from the existing synthetic DEMO and the already-displayed aggregate reference summary. The later frontend-source publication does not assert a new third-party license, distribute the original audio or unlock private research archives. All source labels and evidence limitations remain explicit; see [capture review](docs/SCREENSHOT-REVIEW.md).
 
 ## Product presentation rights
 
-The React implementation and original background video remain private. New diagrams are authored documentation; the product captures are English-localized views of existing components with unchanged numeric results. Documentation, diagrams, branding and screenshots are outside the MIT code grant and are included only for repository display with rights retained. No generated concept image is presented as measured product output.
+The complete React implementation is now included under the enumerated MIT source grant. The original background video and its derivatives remain excluded. New diagrams are authored documentation; the product captures are English-localized views of existing components with unchanged numeric results. Documentation, diagrams, branding and screenshots are outside the MIT code grant and are included only for repository display with rights retained. No generated concept image is presented as measured product output.
+
+## Frontend dependencies and saved demonstration data
+
+React 19.3.0, React DOM 19.3.0, Vite 7.3.1 and @vitejs/plugin-react 5.1.4 use MIT; TypeScript 5.9.3 uses Apache-2.0; @types/react and @types/react-dom 19.3.0 use MIT. Installed package metadata and license files were checked; the npm lock records exact package identities and integrity hashes. Packages and node_modules are not vendored. See [frontend notices](frontend/THIRD_PARTY.md).
+
+The six `frontend/public/demo/*-analysis.json` / `*-prosody.json` files are saved service outputs for three existing synthetic recordings. They contain public-facing timeline/curve data and already-displayed historical aggregate reference summaries; no speaker-level population records, original JVS audio, manual labels, private filesystem configuration or personal recordings are added. Their existing numeric values and byte-pinned hashes are preserved. Audio-derived metadata does not grant rights to the absent original audio. Saved JSON and display captures remain outside the MIT source-code allowlist.
+
+The existing static background fallback remains usable without the decorative video. Exact-audio DEMO playback and four associated frontend tests require the excluded original WAVs; a new synthesized reading is not substituted for their hashes.

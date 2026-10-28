@@ -1,0 +1,51 @@
+﻿{
+    "purpose":  "UX playback only; excluded from analysis and JVS population",
+    "version":  1,
+    "assets":  [
+                   {
+                       "sample_rate":  24000,
+                       "rate":  0,
+                       "sha256":  "b66a61fa50369bbec2939265a351a9efa1971770f630b7a81abbba6f746b4a74",
+                       "format":  "PCM16 WAV",
+                       "type":  "synthetic",
+                       "channels":  1,
+                       "voice":  "Microsoft Haruka Desktop",
+                       "prompt_id":  "learner-v1-001",
+                       "engine":  "Windows SAPI / System.Speech",
+                       "path":  "audio/reference/learner-v1-001.wav",
+                       "status":  "READY",
+                       "text":  "新しいスマートフォンを机に置きました。",
+                       "locale":  "ja-JP"
+                   },
+                   {
+                       "sample_rate":  24000,
+                       "rate":  0,
+                       "sha256":  "21e0ef4f83a94038464b19c10dfc7ab71ad897a483d8db9b5f754030d96d3e56",
+                       "format":  "PCM16 WAV",
+                       "type":  "synthetic",
+                       "channels":  1,
+                       "voice":  "Microsoft Haruka Desktop",
+                       "prompt_id":  "learner-v1-002",
+                       "engine":  "Windows SAPI / System.Speech",
+                       "path":  "audio/reference/learner-v1-002.wav",
+                       "status":  "READY",
+                       "text":  "来月、舞台でデビューします。",
+                       "locale":  "ja-JP"
+                   },
+                   {
+                       "sample_rate":  24000,
+                       "rate":  0,
+                       "sha256":  "8b7b852d31cd8053bdb9fa2cd1efe4aeb3d5b6b14355fda7139cf7e72fd047b4",
+                       "format":  "PCM16 WAV",
+                       "type":  "synthetic",
+                       "channels":  1,
+                       "voice":  "Microsoft Haruka Desktop",
+                       "prompt_id":  "learner-v1-003",
+                       "engine":  "Windows SAPI / System.Speech",
+                       "path":  "audio/reference/learner-v1-003.wav",
+                       "status":  "READY",
+                       "text":  "このシリーズを週末に見ます。",
+                       "locale":  "ja-JP"
+                   }
+               ]
+}

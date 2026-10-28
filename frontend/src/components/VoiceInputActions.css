@@ -1,0 +1,63 @@
+.voice-input-actions {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 17px;
+}
+.voice-input-actions .voice-input-mic,
+.voice-input-actions .voice-input-trigger {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  padding: 0;
+  border: 0;
+  cursor: default;
+}
+.voice-input-actions .voice-input-mic {
+  width: 36px;
+  height: 44px;
+  background: transparent;
+  color: #152849;
+}
+.voice-input-actions .voice-input-trigger {
+  position: relative;
+  width: 46px;
+  height: 46px;
+  background: #2670ff;
+  border-radius: 50%;
+  color: white;
+  box-shadow:
+    0 0 0 7px #dce8ffb3,
+    0 0 0 14px #edf3ffb3,
+    0 5px 18px #4a86fc25,
+    inset 0 0 0 1px #ffffffd9;
+}
+.voice-input-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: white;
+}
+@media (max-width: 1200px) and (min-width: 761px) {
+  .voice-input-actions .voice-input-trigger {
+    width: 38px;
+    height: 38px;
+  }
+}
+@media (max-width: 760px) {
+  .voice-input-actions {
+    gap: 7px;
+  }
+  .voice-input-actions .voice-input-mic {
+    width: 26px;
+  }
+  .voice-input-actions .voice-input-trigger {
+    width: 33px;
+    height: 33px;
+    box-shadow: 0 0 0 5px #dce8ffb3, 0 0 0 10px #edf3ffb3;
+  }
+  .voice-input-dot {
+    width: 11px;
+    height: 11px;
+  }
+}

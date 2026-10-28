@@ -1,22 +1,22 @@
 # License scope
 
-Copyright holder: **liguozheng-ac**. Effective authorization: 2026-10-09.
+Copyright holder: **liguozheng-ac**. Python authorization: 2026-10-09; frontend source authorization: 2026-10-28.
 
-The standard [MIT License](LICENSE) applies only to the 198 author-owned Python files listed below: backend implementation, audio/scientific methods, API adapters, tests, tools and the engineering example. Each file was reviewed in TASK-021 Phase A; this release does not vendor third-party source code. Imports and integrations do not change the licenses of their dependencies.
+The standard [MIT License](LICENSE) applies to the 198 author-owned Python files and the frontend source files explicitly enumerated below, including application components, CSS, browser recording worklet, build/test scripts and authored structural UI fixtures. The frontend grant extends the original Python-only source release. Third-party dependencies are installed separately, not vendored or relicensed.
 
-The list is an explicit file allowlist, not a blanket directory grant. Future files, non-Python fixtures, JSON schemas, prompts, configuration/lock files, prose documentation, this scope notice, product names, screenshots and other media are **not granted MIT by this release**. Their inclusion in the repository permits GitHub display and review; no additional reuse license is granted here. The standard MIT wording in LICENSE is unchanged; “Software” in this repository means the enumerated code, including its inline comments/docstrings, not the entire product or every associated document.
+This is an explicit source-code allowlist. Documentation, branding, screenshots, diagrams, JSON/lock/configuration files, saved synthetic-DEMO response records and other media do not inherit MIT merely by being present. Display assets are included for repository presentation with rights retained. Future files need an explicit applicable license.
 
-The distributed Python package contains only the author-owned backend Python code. Its `License-Expression: MIT` describes that code. License/scope/third-party notices accompany the package as notices and do not relicense excluded material.
+The Python distribution remains a backend package; it does not bundle frontend assets or speech resources. Its License-Expression refers to its enumerated Python source.
 
-## Explicitly excluded
+## Resource boundaries
 
-- Complete private React frontend, Page 0/Page 1 implementation, browser recording/UI code and build assets; none is included in this repository.
-- Original `58.mp4`, visual/brand assets and product screenshots and diagrams in `docs/images/`. The listed display assets are approved for repository presentation with rights retained; their appearance does not license the frontend or underlying third-party resources. See `docs/SCREENSHOT-REVIEW.md`.
-- Private recordings, manual annotations, research distributions and private audit records; none is included.
-- JVS recordings, Haruka synthetic WAVs, Narabas weights and MFA pretrained acoustic/dictionary/G2P resources; none is included.
-- Third-party packages, models and resources remain governed by their own licenses. See [THIRD_PARTY.md](THIRD_PARTY.md).
+- Full React/Page 0/Page 1 application source is included and licensed as listed below.
+- Product screenshots and documentation diagrams retain display-only rights; no underlying third-party resource license is asserted.
+- Haruka WAVs and the decorative background video/poster remain excluded pending redistribution review.
+- JVS recordings, speaker-level records, native reference profiles, user recordings, manual annotations, pretrained weights and private audit/configuration archives remain excluded.
+- Reviewed saved response JSON under `frontend/public/demo/` is synthetic-input demonstration data, not a corpus or calibrated pronunciation benchmark. Its displayed historical reference summaries retain research limitations.
 
-No MIT grant is made for third-party material, original product history or absent resources. The root LICENSE must always be read together with this scope notice. See the [file manifest](TASK-021-PUBLIC-FILE-MANIFEST.md) for publication provenance and content hashes.
+See [third-party notices](THIRD_PARTY.md) and [file manifest](TASK-021-PUBLIC-FILE-MANIFEST.md). The standard MIT text in LICENSE is unchanged.
 
 ## MIT-covered files (198)
 
@@ -218,3 +218,71 @@ No MIT grant is made for third-party material, original product history or absen
 - `tests/test_stress_perturbation.py`
 - `tests/test_stress_pipeline.py`
 - `tests/test_textgrid_parser.py`
+
+## MIT-covered frontend source files (65)
+
+- `frontend/index.html`
+- `frontend/public/pcm-capture.js`
+- `frontend/scripts/generate-contract.mjs`
+- `frontend/scripts/generate-reference-reading.ps1`
+- `frontend/src/App.tsx`
+- `frontend/src/Page0Landing.tsx`
+- `frontend/src/WorkspaceEmpty.tsx`
+- `frontend/src/analysis/guidance.ts`
+- `frontend/src/analysis/mapper.ts`
+- `frontend/src/analysis/mvp.ts`
+- `frontend/src/analysis/state.ts`
+- `frontend/src/api/client.ts`
+- `frontend/src/api/contract.ts`
+- `frontend/src/api/progress.ts`
+- `frontend/src/api/validate.ts`
+- `frontend/src/audio/display.ts`
+- `frontend/src/audio/objectUrls.ts`
+- `frontend/src/audio/playback.ts`
+- `frontend/src/audio/recorder.ts`
+- `frontend/src/audio/selection.ts`
+- `frontend/src/audio/wav.ts`
+- `frontend/src/components/HeroVideoBackground.tsx`
+- `frontend/src/components/Icons.tsx`
+- `frontend/src/components/LandingVisuals.tsx`
+- `frontend/src/components/StaticBlueWave.tsx`
+- `frontend/src/components/VoiceInputActions.css`
+- `frontend/src/components/VoiceInputActions.tsx`
+- `frontend/src/demo/InterviewDemo.tsx`
+- `frontend/src/demo/demo.css`
+- `frontend/src/demo/loadDemo.ts`
+- `frontend/src/fixtures/demoAnalysis.ts`
+- `frontend/src/fixtures/landingDemo.ts`
+- `frontend/src/fixtures/workspaceDemo.ts`
+- `frontend/src/landing.css`
+- `frontend/src/main.tsx`
+- `frontend/src/motion/useReducedMotion.ts`
+- `frontend/src/prosody/ProsodyPanel.tsx`
+- `frontend/src/prosody/client.ts`
+- `frontend/src/prosody/curves.ts`
+- `frontend/src/prosody/prosody.css`
+- `frontend/src/vite-env.d.ts`
+- `frontend/src/workspace.css`
+- `frontend/src/workspace/AnalysisStream.tsx`
+- `frontend/src/workspace/AudioInspector.tsx`
+- `frontend/src/workspace/Composer.tsx`
+- `frontend/src/workspace/ReferenceReading.tsx`
+- `frontend/src/workspace/elapsed.ts`
+- `frontend/src/workspace/integration.css`
+- `frontend/src/workspace/mvp.css`
+- `frontend/src/workspace/serialQueue.ts`
+- `frontend/src/workspace/useSession.ts`
+- `frontend/tests/feedback-f4.test.mjs`
+- `frontend/tests/feedback-review.html`
+- `frontend/tests/feedback-review.tsx`
+- `frontend/tests/integration.test.mjs`
+- `frontend/tests/interview-demo.test.mjs`
+- `frontend/tests/mvp-018.test.mjs`
+- `frontend/tests/narabas-contract.test.mjs`
+- `frontend/tests/prosody-019.test.mjs`
+- `frontend/tests/recorder-f1.test.mjs`
+- `frontend/tests/recorder-review.html`
+- `frontend/tests/reliability-f3.test.mjs`
+- `frontend/tests/streaming-f2.test.mjs`
+- `frontend/tests/support/engineeringWav.mjs`
+- `frontend/vite.config.ts`

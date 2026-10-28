@@ -1,5 +1,7 @@
-# 结构示例说明
+# Response examples
 
-api-v1-analysis-response.json 是作者编写的契约夹具，用于说明字段和测试序列化。里面的时间、统计量和标识不来自真人录音、母语者分布或本轮实际 MFA。不要用作真实分析结果、算法评测或 Ground Truth。
+`api-v1-analysis-response.json` is an authored contract fixture. Its times, statistics and identifiers are not real measurements, speaker distributions or ground truth.
 
-真实 pYIN 可用 examples/prosody_smoke.py 自行生成 220 Hz 工程信号验证；它同样不是日语发音准确率证据。
+`api-v1-narabas-analysis-response.json` is a retained historical response for the existing Haruka synthetic input, used only by frontend schema/native-phone compatibility tests. Narabas remains research-only; this fixture does not activate it or establish accuracy. No input WAV, model or reference corpus is bundled. Current saved MFA/pYIN synthetic DEMO receipts are separately identified under `frontend/public/demo/`.
+
+For fresh real pYIN execution without speech resources, `examples/prosody_smoke.py` generates an explicitly labeled 220 Hz engineering tone. Neither tones nor saved response examples validate learner pronunciation.
